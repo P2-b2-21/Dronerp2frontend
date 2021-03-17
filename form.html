@@ -9,7 +9,7 @@
         <header>
             <div class="topnav">
                 <a href="#login">User1</a>
-                <h1>Form - Test</h1>
+                <h1>GRC</h1>
             </div>
         </header>
     </head>
@@ -18,19 +18,20 @@
             <h1>Trin 1 .. Trin 2 .. Trin 10</h1>
         </div>
 
-        <form id="dimension">
-            <p>Drones maksimale karakteristika?</p>
-            <input type="radio" id="01meter" name="droneDimension" value="numA">
-            <label for="01meter">1 meter / 3 feet</label> <br>
-            <input type="radio" id="03meter" name="droneDimension" value="numB">
-            <label for="01meter">3 meter / 10 feet</label> <br>
-            <input type="radio" id="08meter" name="droneDimension" value="numC">
-            <label for="01meter">8 meter / 25 feet</label> <br>
-            <input type="radio" id="over08meter" name="droneDimension" value="numD">
-            <label for="01meter">&gt;8 meter / 25 feet</label> <br>
-            <input type="button" value="Submit" onclick="calculateGCD(choices)">
+        <form id="GRC">
+            <form id="dimension">
+                <p>Drones maksimale karakteristika?</p>
+                <input type="radio" id="01meter" name="droneDimension" value="numA">
+                <label for="01meter">1 meter / 3 feet</label> <br>
+                <input type="radio" id="03meter" name="droneDimension" value="numB">
+                <label for="01meter">3 meter / 10 feet</label> <br>
+                <input type="radio" id="08meter" name="droneDimension" value="numC">
+                <label for="01meter">8 meter / 25 feet</label> <br>
+                <input type="radio" id="over08meter" name="droneDimension" value="numD">
+                <label for="01meter">&gt;8 meter / 25 feet</label> <br>
+                <input type="button" value="Submit" onclick="addFormElement()">
+            </form>
         </form>
-
 
         <script>
 
@@ -50,13 +51,57 @@
                 console.log("Final GCD: calculating..");
             }
 
-            const element = document.querySelector("#dimension");
+            function addFormElement() {
+                const mainForm = document.querySelector('#GRC');
+                const newForm = document.createElement('form');
+                newForm.id = "question01";
+                
+                mainForm.appendChild(newForm);
 
-            element.addEventListener('change', (event) => {
-                event.preventDefault();
-                choices.gcd01 = event.target.value;
-                console.log(`${event.target.value}`)
-            });
+                const form = document.querySelector('#question01');
+                let newElement = document.createElement("p");
+                newElement.id="q";
+                newElement.textContent = "VLOS-ELOS-BLOS?";
+
+                form.appendChild(newElement);
+                addLineBreak("q");
+
+                makeButton("q", "radio", "vlos", "VLOS-ELOS-BLOS", "a", "VLOS", undefined);
+                addLineBreak("label-vlos");
+                makeButton("q", "radio", "elos", "VLOS-ELOS-BLOS", "b", "ELOS", undefined);
+                addLineBreak("label-elos");
+                makeButton("q", "radio", "blos", "VLOS-ELOS-BLOS", "c", "BLOS", undefined);
+                addLineBreak("label-blos");
+                makeButton("q","button", undefined, undefined, "Submit", undefined, "test()"); // func not working
+            }
+
+            function makeButton(idElement, buttonType, id, name, value, textContent, func) {
+                const element = document.querySelector(`#${idElement}`);
+                button = document.createElement("input");
+                button.type = buttonType;
+                button.id = id;
+                button.name = name;
+                button.value = value;
+                button.onclick = function(){`${func}`}; // func not working
+
+                element.appendChild(button);
+
+                label = document.createElement("label");
+                label.id = "label-" + id;
+                label.textContent = textContent;
+
+                element.appendChild(label);
+            }
+
+            function addLineBreak(id) {
+                const element = document.querySelector(`#${id}`);
+                const lineBreak = document.createElement('br');
+                return element.appendChild(lineBreak);
+            }
+
+            function test() {
+                console.log("Test");
+            }
 
         </script>
     </body>
