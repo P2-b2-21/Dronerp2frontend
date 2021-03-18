@@ -5,7 +5,7 @@
   }
   
   /* Style the links inside the navigation bar */
-  .topnav a {
+  .topnav button {
     float: right;
     color: #f2f2f2;
     text-align: center;
@@ -37,7 +37,7 @@
     border-radius: 10px;
   }
 
-  #myBtn {
+.dopebtn {
     width: 200px;
     font-size: 18px;
     padding: 10px;
@@ -49,7 +49,7 @@
   }
 
   /* Change the color of links on hover */
-  .topnav a:hover {
+  .topnav button:hover {
     background-color: #ddd;
     color: black;
   }
@@ -61,5 +61,8 @@
       color: steelblue;
   }
 
+  #login-page {
+    display: none;
+  }
 
 
