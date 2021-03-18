@@ -5,10 +5,10 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script src="form.js"></script>
+        <script src="form.js" defer></script>
         <title>SORA</title>
         <header>
-            <div class="topnav">
+            <div class="topnav" id="fakta_topnav">
                 <a href="#login">User1</a>
                 <h1>GRC</h1>
             </div>
@@ -18,19 +18,20 @@
         <div class="content">
             <h1>Trin 1 .. Trin 2 .. Trin 10</h1>
         </div>
-        <form id="GRC">
-            <form id="dimension">
-                <p>Drones maksimale karakteristika?</p>
-                <input type="radio" id="01meter" name="droneDimension" value="numA">
-                <label for="01meter">1 meter / 3 feet</label> <br>
-                <input type="radio" id="03meter" name="droneDimension" value="numB">
-                <label for="01meter">3 meter / 10 feet</label> <br>
-                <input type="radio" id="08meter" name="droneDimension" value="numC">
-                <label for="01meter">8 meter / 25 feet</label> <br>
-                <input type="radio" id="over08meter" name="droneDimension" value="numD">
-                <label for="01meter">&gt;8 meter / 25 feet</label> <br>
-                <input type="button" value="Submit" onclick="addFormElement()">
+        <!-- <form id="GRC"> -->
+            <form id="GRC">
+            <fieldset> <legend> Drones maksimale karakteristika? </legend>
+                <input type="radio" id="01meter" name="droneDimension" value="numA"> 1 meter <br>
+                <!-- <label for="01meter">1 meter / 3 feet</label> <br> -->
+                <input type="radio" id="03meter" name="droneDimension" value="numB"> 3 meter <br>
+                <!-- <label for="01meter">3 meter / 10 feet</label> <br> -->
+                <input type="radio" id="08meter" name="droneDimension" value="numC"> 8 meter <br>
+                <!-- <label for="01meter">8 meter / 25 feet</label> <br> -->
+                <input type="radio" id="over08meter" name="droneDimension" value="numD"> &gt;8 meter <br>
+                <!-- <label for="01meter">&gt;8 meter / 25 feet</label> <br> -->
+                <input type="button" value="Submit" onclick="addFormElement(); this.disabled = true;">
+            </fieldset>
             </form>
-        </form>
+        <!--</form> -->
     </body>
 </html>
