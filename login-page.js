@@ -32,7 +32,8 @@ async function login() {
     console.log(response.status);
 
     if (response.status === 201){
-        alert("Login OK");
+        //alert("Login OK");
+        location.replace("/index.html");
     }
     else {
         alert("Login failed");
