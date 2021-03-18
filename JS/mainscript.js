@@ -43,6 +43,11 @@ loginBtn.addEventListener("click", function(){
     location.href = "./login.html";
 })
 
+var registerBtn = document.querySelector("#registerBtn");
+registerBtn.addEventListener("click", function() {
+    location.href = "./registrering.html"
+})
+
 var backgroundVideo = document.querySelector("#myVideo");
 backgroundVideo.autoplay = true;
 backgroundVideo.load();
