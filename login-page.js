@@ -18,4 +18,4 @@ loginButton.addEventListener("click", (e) => {
 var faktaBtn = document.querySelector("#faktaBtn");
 faktaBtn.addEventListener("click", function(){
     location.href = "./faktaomansoegning.html";
-}) 
+})
