@@ -1,34 +1,35 @@
 /* Add a black background color to the top navigation */
+
 .topnav {
-  background-color: rgba(70, 130, 180, 0.363);
+  background-color: rgba(70, 130, 180, 0.6);
   overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: black;
   text-align: center;
   padding: 25px 50px;
   text-decoration: none;
   font-size: 25px;
-  background-color: rgba(70, 130, 180, 0.363);
-  color: white;
+  background-color: rgba(70, 130, 180, 0.6);
   margin-right: 5px;
+  transition-duration: 0.2s;
 }
 
 .topnav button {
   float: left;
   background: none;
   border: none;
-  color: #f2f2f2;
+  color: black;
   text-align: center;
   padding: 25px 50px;
   text-decoration: none;
   font-size: 25px;
-  background-color: rgba(70, 130, 180, 0.363);
-  color: white;
+  background-color: rgba(70, 130, 180, 0.6);
   margin-right: 5px;
+  transition-duration: 0.2s;
 }
 
 #background_picture {
@@ -38,7 +39,7 @@
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  opacity: 100%;
+  opacity: 70%;
 }
 .content {
   position: fixed;
@@ -65,11 +66,23 @@
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: steelblue;
-  color: black;
+  color: white;
 }
 .topnav button:hover {
   background-color: steelblue;
-  color: black;
+  color: white;
+}
+
+.topnav button:active {
+  background-color: steelblue;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+}
+
+.topnav a:active {
+  background-color: steelblue;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
 }
 
 .topnav h1 {
@@ -80,13 +93,47 @@
 }
 
 .boxed {
-  position: fixed;
+  position: relative;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.85);
-  color: #f1f1f1;
-  margin-bottom: 33%;
-  width: 98.1%;
+  background: rgba(70, 130, 180, 0.6);
+  color: black;
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 25%;
+  width: 83%;
   padding: 10px;
   border-radius: 10px;
-  border-color: steelblue;
+}
+.sidenav {
+  height: 88.6%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  margin-right: 0.4%;
+  background-color: rgba(70, 130, 180, 0.6);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.sidenav button {
+  background: none;
+  border: none;
+  color: black;
+  text-align: center;
+  padding: 25px 50px;
+  text-decoration: none;
+  font-size: 30px;
+  background-color: rgba(70, 130, 180, 0.6);
+  margin-right: relative;
+  transition-duration: 0.2s;
+}
+.sidenav button:active {
+  background-color: steelblue;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+}
+.sidenav button:hover {
+  background-color: steelblue;
+  color: white;
 }
