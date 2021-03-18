@@ -21,20 +21,28 @@
 .userContainer{
 height: 625px;
 background-color: steelblue;
+opacity: 80%;
 }
 .ddContent{
     display: none;
-    width: 1px;
+    width: 200px;
     position: absolute;
     background-color: white;
     top: 85px;
-    left: 165px;
+    left: 345.5px;
     z-index: 1;
 }
 
-.ddContent a{
-    width: 129px;
-    text-align: left;
+.ddContent button{
+    position: relative;
+    padding: 20px;
+    width: 204px;
+    text-align: center;
+    background-color: steelblue;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 20px;
 }
 
 .userInfo{
@@ -64,4 +72,20 @@ background-color: steelblue;
     width: 1000px;
     height: 550px;
     background-color: lightgray;
+}
+#contentDiv{
+    position: relative;
+    height: auto;
+    width: auto;
+    background-color: #fcd64c;
+}
+#infoInput{
+    background-color: lightgrey;
+    border: ;
+}
+#editBtn{
+    position: relative;
+    top: 7px;
+    left: 7px;
+    height: 25px;
 }

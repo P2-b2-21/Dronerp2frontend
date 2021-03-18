@@ -8,13 +8,15 @@
     <title>Brugerprofil</title>
     <header>
         <div class="topnav">
+            <a href="index.html">Hjem</a>
             <a href="#brugerprofil">Profil</a>
-            <a href id="ansBtn">Ansøgninger</a>
+            <a id="ansBtn">Ansøgninger</a>
             <div class="ddContent">
-                <a href="#opret">Opret ny Ansøgning</a>
-                <a href="#godkendte">Godkendte</a>
-                <a href="#afventende">Afventende</a>
-                <a href="#afviste">Afviste</a>
+                <button id="btn" onclick="location.href='form.html'">Opret ny Ansøgning</button> 
+                <button id="btn" class="godkendtBtn">Godkendte</button>
+                <button id="btn" class="inDevBtn">Igangværende</button> 
+                <button id="btn" class="afventBtn">Afventende</button> 
+                <button id="btn" class="afvistBtn">Afviste</button>  
             </div>
             <a href="#home" id="logud">Log ud</a>
         </div>
@@ -25,9 +27,11 @@
         <div class="userInfo">
             <img id="profileImg" src="Pictures\defaultprofile.png" alt="Profilbillede">
             <div class="nameInfo">
-                <p>Name: </p>
-                <p>Mail: </p>
-                <p>Tlf.: </p>
+                <p>Name: <input type="text" id="infoInput" disabled><img id="editBtn" src="Pictures\editBtn2.png" alt="edit"></p>
+                <p>Company: <input type="text" id="infoInput" disabled></p>
+                <p>Mail: <input type="text" id="infoInput" disabled></p>                
+                <p>Tel.: <input type="text" id="infoInput" disabled></p>
+                <p>Country: <input type="text" id="infoInput" disabled></p>
             </div>
         </div>
         <div class="content">
