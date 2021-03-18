@@ -1,4 +1,9 @@
-function make_href(element = "", button_title = "", link = "") {
+function make_href(
+  element = "",
+  button_title = "",
+  link = "",
+  append_to_element = ""
+) {
   let type = document.createElement(element);
 
   let button_name = document.createTextNode(button_title);
@@ -9,10 +14,10 @@ function make_href(element = "", button_title = "", link = "") {
 
   type.href = link;
 
-  document.getElementById("fakta_topnav").appendChild(type);
+  document.getElementById(append_to_element).appendChild(type);
 }
 
-make_href("a", "Hjem", "index.html");
+make_href("a", "Hjem", "index.html", "fakta_topnav");
 
 function make_paragraf(element = "", text = "") {
   let type = document.createElement(element);
