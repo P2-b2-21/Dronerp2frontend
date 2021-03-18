@@ -2,9 +2,9 @@ html {
 	height: 100%;
   }
   
-  body {
+  .main-content {
 	height: 100%;
-	margin: 0;
+	margin-top: 12.5%;
 	font-family: Arial, Helvetica, sans-serif;
 	display: grid;
 	justify-items: center;
@@ -14,10 +14,10 @@ html {
 
   .topnav {
     background-color: rgba(0, 0, 0, 0.85);
-    overflow: visible;
-	position: fixed;
-	top: 0%;
-	left: 90%;
+    overflow: hidden;
+	right: 0%;
+	margin-left: auto;
+	margin-right: auto;
   }
 
   .topnav h1 {
@@ -26,6 +26,7 @@ html {
 	font-size: 20px;
 	padding: 0px 0px;
 	color: steelblue;
+	margin-left: 1%;
 }
 
   .topnav button {
@@ -37,6 +38,11 @@ html {
     font-size: 20px;
     background-color: steelblue;
     color: white;
+
+	margin-right: 1%;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(50%);
   }
   
   #main-holder {
@@ -48,6 +54,7 @@ html {
 	background-color: white;
 	border-radius: 7px;
 	box-shadow: 0px 0px 5px 2px black;
+	z-index: 1;
   }
   
   #login-error-msg-holder {
@@ -59,6 +66,7 @@ html {
   }
   
   #login-error-msg {
+	position: relative;
 	width: 23%;
 	text-align: center;
 	margin: 0;
@@ -76,6 +84,7 @@ html {
   }
   
   #login-form {
+	position: relative;
 	align-self: flex-start;
 	display: grid;
 	justify-items: center;

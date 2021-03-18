@@ -1,21 +1,48 @@
 const loginForm = document.getElementById("login-form");
 const loginButton = document.getElementById("login-form-submit");
 const loginErrorMsg = document.getElementById("login-error-msg");
+const xhttp = new XMLHttpRequest();
 
 loginButton.addEventListener("click", (e) => {
     e.preventDefault();
-    const username = loginForm.username.value;
-    const password = loginForm.password.value;
 
-    if (username === "user" && password === "web_dev") {
-        alert("You have successfully logged in.");
-        location.reload();
-    } else {
-        loginErrorMsg.style.opacity = 1;
-    }
+    login().then((s) => {
+        console.log("Callback1");
+        console.log(s);
+        console.log("Callback2");
+        
+    })
+
 })
+
+async function login() {
+    console.log("Call")
+    var userData = {
+        username: loginForm.username.value,
+        password: loginForm.password.value
+    };
+    
+    fetch('http://server.malthelarsen:3000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      })
+      .then((response) => response.json())
+      .then((responseData) => {
+          console.log(data);
+      });
+
+}
 
 var faktaBtn = document.querySelector("#faktaBtn");
 faktaBtn.addEventListener("click", function(){
     location.href = "./faktaomansoegning.html";
 }) 
+
+var headerTitle = document.querySelector("#headerTitle");
+headerTitle.addEventListener("click", function() {
+    location.href = "./index.html";
+    console.log(res);
+})

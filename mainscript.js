@@ -33,9 +33,8 @@ button2.addEventListener("click", function() {
 })
 
 var headerTitle = document.querySelector("#headerTitle");
-
 headerTitle.addEventListener("click", function() {
-    var res = prompt("You suck");
+    location.href = "./index.html";
     console.log(res);
 })
 
