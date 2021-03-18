@@ -22,18 +22,21 @@ async function login() {
         password: loginForm.password.value
     };
     
-    fetch('http://server.malthelarsen:3000/login', {
+    const response = await fetch('http://server.malthelarsen.dk:3000/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify(userData),
-      })
-      .then((response) => response.json())
-      .then((responseData) => {
-          console.log(data);
-      });
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    console.log(response.status);
 
+    if (response.status === 201){
+        alert("Login OK");
+    }
+    else {
+        alert("Login failed");
+    }
 }
 
 var faktaBtn = document.querySelector("#faktaBtn");
