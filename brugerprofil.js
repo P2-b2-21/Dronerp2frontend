@@ -87,3 +87,7 @@ applyBtn.addEventListener('click', () => {
         });
     }
 });
+let msgBtn = document.querySelector(".msgBtn");
+msgBtn.addEventListener('click', () => {
+    Create("div", "Her skal beskeder og opdateringer angående ansøgninger være", "contentDiv");
+});
