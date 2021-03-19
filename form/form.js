@@ -19,22 +19,22 @@ function calculateGCD(obj) {
 function addFormElement() {
     const mainForm = document.querySelector('#GRC');
     const newForm = document.createElement('form');
-    newForm.id = "question01";
+    newForm.id = "q2";
     mainForm.appendChild(newForm);
 
-    const form = document.querySelector('#question01');
+    const form = document.querySelector('#q2');
     const newElement = document.createElement("fieldset");
     newElement.id = "q";
     newElement.innerHTML = '<legend> VLOS-ELOS-BLOS? </legend>'
     form.appendChild(newElement);
 
-    makeButton("q", "radio", "vlos", "VLOS-ELOS-BLOS", "a", "VLOS");
+    makeButton("q", "radio", "vlos", "question02", "a", "VLOS");
     addLineBreak("q");
-    makeButton("q", "radio", "elos", "VLOS-ELOS-BLOS", "b", "ELOS");
+    makeButton("q", "radio", "elos", "question02", "b", "ELOS");
     addLineBreak("q");
-    makeButton("q", "radio", "blos", "VLOS-ELOS-BLOS", "c", "BLOS");
+    makeButton("q", "radio", "blos", "question02", "c", "BLOS");
     addLineBreak("q");
-    makeButton("q","button", undefined, undefined, "Submit", undefined);
+    //makeButton("q","button", undefined, undefined, "Submit", undefined);
 }
 
 function makeButton(idElement, buttonType, id, name, value, textContent) {
@@ -58,20 +58,18 @@ function addLineBreak(id) {
     return element.appendChild(lineBreak);
 }
 
-// Not working
-document.querySelector("#GRC").addEventListener('change', (event) => {
+// Log user input
+const question = document.querySelector("#GRC");
+question.addEventListener('change', (event) => {
 
-    choices.gcd01 = event.target.value;
-    console.log("->" + choices.gcd01);
-    console.log(event.target.parentElement.id);
+    if(event.target.name == "question01") {
+        choices.gcd01 = event.target.value;
+    }
 
-    if (event.target.parentElement.id == 'q') {
-
-        document.querySelector("#q").addEventListener('change', (event) => {
-            choices.gcd02 = event.target.value;
-            console.log("->" + choices.gcd02);
-            console.log("Do next form!");
-        });
-        console.log(choices.gcd01 + ":" + choices.gcd02);
-    };
+    if (event.target.name == "question02") {
+        choices.gcd02 = event.target.value;
+    }
+    
+    // Working test
+    console.log(choices.gcd01 + "->" + choices.gcd02);
 });
