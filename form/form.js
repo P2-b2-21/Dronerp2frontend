@@ -16,33 +16,38 @@ function calculateGCD(obj) {
 }
 */
 
-function addFormElement() {
+//addFormElement("form02", "question02", "Er jeg spørgsmål 2?", "radio", 3);
+
+function addFormElement(numOfButtons, formID, fieldsetID, questionName, typeOfButton, ) {
     const mainForm = document.querySelector('#GRC');
     const newForm = document.createElement('form');
-    newForm.id = "q2";
+    newForm.id = "form02";
     mainForm.appendChild(newForm);
 
-    const form = document.querySelector('#q2');
+    const form = document.querySelector('#form02');
     const newElement = document.createElement("fieldset");
-    newElement.id = "q";
+    newElement.id = "question02";
     newElement.innerHTML = '<legend> VLOS-ELOS-BLOS? </legend>'
     form.appendChild(newElement);
 
-    makeButton("q", "radio", "vlos", "question02", "a", "VLOS");
-    addLineBreak("q");
-    makeButton("q", "radio", "elos", "question02", "b", "ELOS");
-    addLineBreak("q");
-    makeButton("q", "radio", "blos", "question02", "c", "BLOS");
-    addLineBreak("q");
-    //makeButton("q","button", undefined, undefined, "Submit", undefined);
+    for (let i = 0; i < numOfButtons; i++) {
+        makeButton("question02", "radio", "question02", "a", "VLOS");
+        addLineBreak("question02");
+        makeButton("question02", "radio", "question02", "b", "ELOS");
+        addLineBreak("question02");
+        makeButton("question02", "radio", "question02", "c", "BLOS");
+        addLineBreak("question02");
+
+        //makeButton("q","button", undefined, undefined, "Submit", undefined);
+    }
 }
 
-function makeButton(idElement, buttonType, id, name, value, textContent) {
+function makeButton(idElement, typeOfButton, name, value, textContent) {
     const element = document.querySelector(`#${idElement}`);
 
     button = document.createElement("input");
-    button.type = buttonType;
-    button.id = id;
+    button.type = typeOfButton;
+    //button.id = id;
     button.name = name;
     button.value = value;
     element.appendChild(button);
@@ -65,7 +70,9 @@ question.addEventListener('change', (event) => {
     if(event.target.name == "question01") {
         gcdInput.input01 = event.target.value;
 
-        nextQuestion(addFormElement);
+        nextQuestion((function() {
+            addFormElement(5);
+        }));
 
     };
 
