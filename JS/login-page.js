@@ -33,7 +33,7 @@ async function login() {
 
     if (response.status === 201){
         //alert("Login OK");
-        location.replace("/index.html");
+        location.replace("/brugerprofil.html?user=" + userData.username);
     }
     else {
         alert("Login failed");
