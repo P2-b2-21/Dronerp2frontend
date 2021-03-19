@@ -64,3 +64,26 @@ inDevBtn.addEventListener('click', ()=> {
 
 //Rediger brugerens informationer
 let editBtn = document.querySelector("#editBtn");
+let applyBtn = document.querySelector("#applyBtn");
+let infoInput = document.querySelectorAll(".infoInput");
+editBtn.addEventListener('click', () => {
+    if (infoInput.disabled = true){
+        infoInput.forEach(input => {
+            input.disabled = false;
+            input.style.backgroundColor = "white";
+            input.style.color = "black";
+        });
+    }
+    editBtn.hidden = true;
+    applyBtn.hidden = false;
+});
+applyBtn.addEventListener('click', () => {
+    editBtn.hidden = false;
+    applyBtn.hidden = true;
+    if (infoInput.disabled = true){
+        infoInput.forEach(input => {
+            input.style.backgroundColor = "lightgrey";
+            input.disabled = true;
+        });
+    }
+});

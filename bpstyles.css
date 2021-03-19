@@ -79,13 +79,35 @@ opacity: 80%;
     width: auto;
     background-color: #fcd64c;
 }
-#infoInput{
+.infoInput{
+    position: relative;
     background-color: lightgrey;
-    border: ;
+    border: none;
+    size: 10px;
+    width: 200px;
+    border-radius: 3px;
+    float: right;
+    left: 35px;
+    opacity: 50%;
+}
+.inputDiv{
+    position: absolute;
+    top: 30px;
 }
 #editBtn{
-    position: relative;
-    top: 7px;
-    left: 7px;
-    height: 25px;
+    position: absolute;
+    padding: 5px 10px;
+    border: none;
+    top: -170px;
+    background-color: steelblue;
+    color: white;
+}
+#applyBtn{
+    position: absolute;
+    padding: 5px 10px;
+    border: none;
+    left: 0px;
+    top: 280px;
+    background-color: steelblue;
+    color: white;
 }
