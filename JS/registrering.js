@@ -1,3 +1,14 @@
+
+var loginBtn = document.querySelector("#loginBtn");
+loginBtn.addEventListener("click", function(){
+    location.href = "./login.html";
+})
+    
+var faktaBtn = document.querySelector("#faktaBtn");
+faktaBtn.addEventListener("click", function(){
+    location.href = "./faktaomansoegning.html";
+})
+
 const registerForm = document.getElementById("register-form");
 
 
