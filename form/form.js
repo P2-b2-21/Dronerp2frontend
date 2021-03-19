@@ -1,8 +1,8 @@
-let choices = {
-    gcd01: "",
-    gcd02: "",
-    gcd03: "",
-    gcd04: "",
+let gcdInput = {
+    input01: "",
+    input02: "",
+    input03: "",
+    input04: "",
 };
 
 /*
@@ -63,13 +63,24 @@ const question = document.querySelector("#GRC");
 question.addEventListener('change', (event) => {
 
     if(event.target.name == "question01") {
-        choices.gcd01 = event.target.value;
-    }
+        gcdInput.input01 = event.target.value;
+
+        nextQuestion(addFormElement);
+
+    };
 
     if (event.target.name == "question02") {
-        choices.gcd02 = event.target.value;
+        gcdInput.input02 = event.target.value;
     }
     
     // Working test
-    console.log(choices.gcd01 + "->" + choices.gcd02);
+    console.log(gcdInput.input01 + "->" + gcdInput.input02);
 });
+
+
+let nextQuestion = function fireOnce(callback) {
+    if (nextQuestion.fired) return;
+    nextQuestion.fired = true;
+    callback();
+    console.log("q1 only onece");
+};
