@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/bpstyles.css">
+    <title>Brugerprofil</title>
+    <header>
+        <div class="topnav">
+            <a href="index.html">Hjem</a>
+            <a href="#brugerprofil">Profil</a>
+            <a id="ansBtn">Ansøgninger</a>
+            <div class="ddContent">
+                <button id="btn" onclick="location.href='form.html'">Opret ny Ansøgning</button> 
+                <button id="btn" class="godkendtBtn">Godkendte</button>
+                <button id="btn" class="inDevBtn">Igangværende</button> 
+                <button id="btn" class="afventBtn">Afventende</button> 
+                <button id="btn" class="afvistBtn">Afviste</button>  
+            </div>
+            <a href="#home" id="logud">Log ud</a>
+        </div>
+    </header>
+</head>
+<body>
+    <div class="userContainer">
+        <div class="userInfo">
+            <img id="profileImg" src="Pictures\defaultprofile.png" alt="Profilbillede">
+            <div class="nameInfo">
+                <button id="editBtn">Edit</button>
+                <div class="inputDiv">
+                    <form action="" method="POST">
+                        <label for="name">Name* : </label>
+                        <input type="text" id="name" class="infoInput" disabled required>
+                        <br><br>
+                        <label for="lastname">Last name* : </label>
+                        <input type="text" id="lastname" class="infoInput" disabled required>
+                        <br><br>
+                        <label for="company">Company: </label>
+                        <input type="text" id="company" class="infoInput" disabled>
+                        <br><br>
+                        <label for="mail">E-mail* : </label>
+                        <input type="email" id="mail" class="infoInput" disabled required>
+                        <br><br>
+                        <label for="tel">Tel.: </label>
+                        <input type="tel" id="tel" class="infoInput" disabled pattern="[+]{1}[1-9]{8}">
+                        <br><br>
+                        <label for="country">Country: </label>
+                        <input type="text" id="country" class="infoInput" disabled>
+                        <br><br>
+                        <button type="submit" id="applyBtn" hidden>Apply changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+
+        </div>
+    </div>
+</body>
+<script src="JS/brugerprofil.js"></script>
+</html>
