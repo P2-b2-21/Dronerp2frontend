@@ -1,6 +1,9 @@
 
 document.addEventListener('DOMContentLoaded', async function(event) {
-    await fetch('http://server.malthelarsen.dk:3000/getuserprofile?user=malthe', {
+
+    const querySTring = window.location.search;
+
+    await fetch('http://server.malthelarsen.dk:3000/getuserprofile' + querySTring, {
         method: 'GET',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
     }).then((response) => {
@@ -8,6 +11,15 @@ document.addEventListener('DOMContentLoaded', async function(event) {
     })
     .then((data) => {
         console.log(data);
+
+        //Smid userdata ind i html form
+        let userform = document.querySelector('.infoInput');
+        userform.form.name.value = data.firstname;
+        userform.form.lastname.value = data.lastname;
+        userform.form.company.value = data.company;
+        userform.form.mail.value = data.email;
+        userform.form.tel.value = data.phone;
+
     })
     .catch((error) => {console.log(error);})
 
