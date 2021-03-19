@@ -1,3 +1,19 @@
+
+document.addEventListener('DOMContentLoaded', async function(event) {
+    await fetch('http://server.malthelarsen.dk:3000/getuserprofile?user=malthe', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    }).then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {console.log(error);})
+
+})
+
+
 let contentContainer = document.querySelector(".content");
 function Create(element = "", text = "", id="") {
     let type = document.createElement(element);
