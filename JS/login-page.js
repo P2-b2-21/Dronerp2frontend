@@ -45,6 +45,11 @@ faktaBtn.addEventListener("click", function(){
     location.href = "./faktaomansoegning.html";
 }) 
 
+var registerBtn = document.querySelector("#registerBtn");
+registerBtn.addEventListener("click", function() {
+    location.href = "./registrering.html"
+})
+
 var headerTitle = document.querySelector("#headerTitle");
 headerTitle.addEventListener("click", function() {
     location.href = "./index.html";
