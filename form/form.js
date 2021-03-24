@@ -1,26 +1,41 @@
-let gcdInput = {
-    input01: "",
-    input02: "",
-    input03: "",
-    input04: "",
-};
-
 const questionContent = {
+    question01: {
+        userInput: "",
+        ask: "Drones maksimale karakteristika?",
+        choices: {
+            choice0: {
+                text: "1 meter / 3 feet",
+                value: "A",
+            },
+            choice1: {
+                text: "3 meter / 10 feet",
+                value: "B",
+            },
+            choice2: {
+                text: "8 meter / 25 feet",
+                value: "C",
+            },
+            choice3: {
+                text: ">8 meter / 25 feet",
+                value: "D",
+            },
+        },
+    },
     question02: {
         userInput: "",
         ask: "Er jeg spørgsmål 2?",
         choices: {
             choice0: {
                 text: "VLOS",
-                value: "A",
+                value: "AA",
             },
             choice1: {
                 text: "ELOS",
-                value: "B",
+                value: "BB",
             },
             choice2: {
                 text: "BLOS",
-                value: "C",
+                value: "CC",
             },
         },
     },
@@ -30,19 +45,19 @@ const questionContent = {
         choices: {
             choice0: {
                 text: ":)",
-                value: "AA",
+                value: "AAA",
             },
             choice1: {
                 text: ";)",
-                value: "BB",
+                value: "BBB",
             },
             choice2: {
                 text: "XD",
-                value: "CC",
+                value: "CCC",
             },
             choice3: {
                 text: "8D",
-                value: "DD",
+                value: "DDD",
             },
         },
     },
@@ -52,15 +67,15 @@ const questionContent = {
         choices: {
             choice0: {
                 text: "A",
-                value: "AAA",
+                value: "AAAA",
             },
             choice1: {
                 text: "B",
-                value: "BBB",
+                value: "BBBB",
             },
             choice2: {
                 text: "C",
-                value: "CCC",
+                value: "CCCC",
             },
         },
     },
@@ -68,8 +83,8 @@ const questionContent = {
 
 window.addEventListener('load', () => {
     console.log("Page is loaded");
-    //initPage();
-    makePage("form01", 0, 1);
+    initPage();
+    makePage("form01", 1, 2);
 });
 
 
@@ -77,7 +92,7 @@ function initPage() {
     let ques = Object.keys(questionContent)[0];
     let numOfButtons = Object.keys(questionContent[`${ques}`].choices).length;
 
-    addFormElement(`form0${0}`, `${ques}`, questionContent[`${ques}`].ask, "radio", numOfButtons);
+    addFormElement(`form0${1}`, `${ques}`, questionContent[`${ques}`].ask, "radio", numOfButtons);
 
 };
 
@@ -88,62 +103,14 @@ function initPage() {
 
 const question = document.querySelector("#GRC");
 question.addEventListener('change', (event) => {
-    
-    //let objLen = Object.keys(questionContent).length;
-    //let ques = Object.keys(questionContent)[i];
-    
-    let ques;
-    switch (event.target.name) {
-        case "question01": {
-            ques = "question01";
-        };
-        break;
-        case "question02": {
-            ques = "question02"
-        };
-        break;
-        case "question03": {
-            ques = "question03"
-        };
-        break;
-        case "question04": {
-            ques = "question04"
-        break;
-        };
-    };
-    questionContent[`${ques}`].userInput = event.target.value;
 
-
-    /*
-    if(event.target.name == "question01") {
-        gcdInput.input01 = event.target.value;
-        questionContent["question02"].userInput = event.target.value;
-        console.log("USERINPUT: " + questionContent["question02"].userInput);
-    };
-    
-    if (event.target.name == "question02") {
-        gcdInput.input02 = event.target.value;
-    };
-    
-    if (event.target.name == "question03") {
-        gcdInput.input03 = event.target.value;
-    };
-    if (event.target.name == "question04") {
-        gcdInput.input04 = event.target.value;
-    };
-    */
+    questionContent[`${event.target.name}`].userInput = event.target.value;
     
     // Working test
-    /*
-    console.log(gcdInput.input01 + "->" + 
-    gcdInput.input02 + "->" + 
-    gcdInput.input03 + "->" +
-    gcdInput.input04);
-    */
-    console.log(">>>>"+questionContent["question02"].userInput + "->" + 
-    questionContent["question03"].userInput + "->" + 
-    questionContent["question04"].userInput + "->");
-
+    console.log(questionContent["question01"].userInput + "->" + 
+                questionContent["question02"].userInput + "->" + 
+                questionContent["question03"].userInput + "->" + 
+                questionContent["question04"].userInput + "->");
 });
 
 /* -----page-functions-------------------------------------------------------------------------------------- */
