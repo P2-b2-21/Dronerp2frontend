@@ -79,64 +79,75 @@ const questionContent = {
             },
         },
     },
+    question05: {
+        userInput: "",
+        ask: "Er jeg spørgsmål 5?",
+        choices: {
+            choice0: {
+                text: "asd",
+                value: "AAAAA",
+            },
+            choice1: {
+                text: "ASDasd",
+                value: "BBBB",
+            },
+            choice2: {
+                text: "aasdasdd",
+                value: "CCCCC",
+            },
+        },
+    },
 };
 
+/* Make page on load  */
 window.addEventListener('load', () => {
     console.log("Page is loaded");
     initPage();
     makePage("form01", 1, 2);
 });
 
-
-function initPage() {
-    let ques = Object.keys(questionContent)[0];
-    let numOfButtons = Object.keys(questionContent[`${ques}`].choices).length;
-
-    addFormElement(`form0${1}`, `${ques}`, questionContent[`${ques}`].ask, "radio", numOfButtons);
-
-};
-
-
-
-/* Create questions and log user input */
-//makePage("form01", 0, 1);
-
+/* Log user input */
 const question = document.querySelector("#GRC");
 question.addEventListener('change', (event) => {
-
+    
     questionContent[`${event.target.name}`].userInput = event.target.value;
     
-    // Working test
+    /* Display user input */
     console.log(questionContent["question01"].userInput + "->" + 
-                questionContent["question02"].userInput + "->" + 
-                questionContent["question03"].userInput + "->" + 
-                questionContent["question04"].userInput + "->");
+    questionContent["question02"].userInput + "->" + 
+    questionContent["question03"].userInput + "->" + 
+    questionContent["question04"].userInput + "->" +
+    questionContent["question05"].userInput + "|");
 });
 
+
 /* -----page-functions-------------------------------------------------------------------------------------- */
+
+/* Create questions from Object */
 function makePage(form, i, k) {
-    console.log("input " + `gcdInput0${i+1}`);
     if (Object.keys(questionContent).length == i) return;
+
     let ques = Object.keys(questionContent)[i];
     let numOfButtons = Object.keys(questionContent[`${ques}`].choices).length;
-
-    console.log(i + ":" + Object.keys(questionContent)[i]);
-    console.log(`form0${k}`, `${ques}`, questionContent[`${ques}`].ask, "radio", numOfButtons);
-
+    
+    /* Test */
+    //console.log(i + ":" + Object.keys(questionContent)[i]);
+    //console.log(`form0${k}`, `${ques}`, questionContent[`${ques}`].ask, "radio", numOfButtons);
+    
     new Promise(function(resolve, reject) {
         document.querySelector(`#${form}`).addEventListener('change', () => {
             addFormElement(`form0${k}`, `${ques}`, questionContent[`${ques}`].ask, "radio", numOfButtons);
-            console.log("Before resolve()");
             resolve();
-            console.log("After resolve()");
         }, {once: true});
     })
 
     .then(function() {
-        console.log("then:");
         i++;
         k++;
-        console.log(`makePage - i:${i} k:${k}`);
+
+        /* Test */
+        //console.log(`makePage - i:${i} k:${k}`);
+
         makePage(`form0${i}`, i, k);
     }, function(err) {
         console.log(err);
@@ -162,6 +173,14 @@ function addFormElement(formID, questionID, questionName, typeOfButton, numOfBut
         makeButton(questionID, typeOfButton, questionID, value, textContent);
         addLineBreak(questionID);
     };
+};
+
+function initPage() {
+    let ques = Object.keys(questionContent)[0];
+    let numOfButtons = Object.keys(questionContent[`${ques}`].choices).length;
+
+    addFormElement(`form0${1}`, `${ques}`, questionContent[`${ques}`].ask, "radio", numOfButtons);
+
 };
 
 function makeButton(idElement, typeOfButton, name, value, textContent) {
