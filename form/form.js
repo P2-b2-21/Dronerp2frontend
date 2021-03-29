@@ -1,4 +1,3 @@
-
 /* On page load
    initialising and making page
    with JSON data from server   */
@@ -6,13 +5,12 @@ let questionContent = {};
 fetch('questions.json')
 .then((response) => {return response.json()})
 .then((data) => {
-    
     questionContent = data;
     
     window.addEventListener('load', () => {
         console.log("Page is loaded");
-        initPage();
-        makePage("form01", 1, 2);
+        initPage(0, 1);
+        makePage("form1", 1, 2);
     });
 })
 
@@ -22,36 +20,38 @@ question.addEventListener('change', (event) => {
     
     questionContent[`${event.target.name}`].userInput = event.target.value;
     
-    /* Display user input 
-        only for testing */
-    console.log(questionContent["question01"].userInput + "->" + 
-    questionContent["question02"].userInput + "->" + 
-    questionContent["question03"].userInput + "->" + 
-    questionContent["question04"].userInput + "->" +
-    questionContent["question05"].userInput + "|");
+    // Output test displaying user input
+    let output = "";
+    for (let i = 1; i <= Object.keys(questionContent).length; i++) {
+        output += questionContent[`question${i}`].userInput + "-> ";
+    }
+    console.log(output += "end");
 });
 
 
- /* -----page-functions-------------------------------------------------------------------------------------- */
+/* -----page-functions-------------------------------------------------------------------------------------- */
 
 /* Create questions from JSON Object */
-function makePage(form, i, k) {
-    if (Object.keys(questionContent).length == i) return;
+function makePage(form, quesNum, formNum) {
+    if (Object.keys(questionContent).length == quesNum) return;
 
-    let ques = Object.keys(questionContent)[i];
-    let numOfButtons = Object.keys(questionContent[`${ques}`].choices).length;
+    let currentQuestion = Object.keys(questionContent)[quesNum];
+    let numOfButtons = Object.keys(questionContent[`${currentQuestion}`].choices).length;
     
     new Promise(function(resolve, reject) {
         document.querySelector(`#${form}`).addEventListener('change', () => {
-            addFormElement(`form0${k}`, `${ques}`, questionContent[`${ques}`].ask, "radio", numOfButtons);
+            addFormElement(`form${formNum}`, 
+                           `${currentQuestion}`, 
+                           questionContent[`${currentQuestion}`].ask, 
+                           "radio", numOfButtons);
             resolve();
         }, {once: true});
     })
 
     .then(function() {
-        i++;
-        k++;
-        makePage(`form0${i}`, i, k);
+        quesNum++;
+        formNum++;
+        makePage(`form${quesNum}`, quesNum, formNum);
     }, function(err) {
         console.log(err);
     });
@@ -80,12 +80,14 @@ function addFormElement(formID, questionID, questionName, typeOfButton, numOfBut
 };
 
 /* Add first question to DOM tree */
-function initPage() {
-    let ques = Object.keys(questionContent)[0];
-    let numOfButtons = Object.keys(questionContent[`${ques}`].choices).length;
+function initPage(quesNum, formNum) {
+    let currentQuestion = Object.keys(questionContent)[quesNum];
+    let numOfButtons = Object.keys(questionContent[`${currentQuestion}`].choices).length;
 
-    addFormElement(`form0${1}`, `${ques}`, questionContent[`${ques}`].ask, "radio", numOfButtons);
-
+    addFormElement(`form${formNum}`, 
+                   `${currentQuestion}`, 
+                   questionContent[`${currentQuestion}`].ask, 
+                   "radio", numOfButtons);
 };
 
 /* Add button to quistion */

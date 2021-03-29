@@ -1,5 +1,5 @@
 {
-    "question01": {
+    "question1": {
         "userInput": "",
         "ask": "Drones maksimale karakteristika?",
         "choices": {
@@ -21,7 +21,7 @@
             }
         }
     },
-    "question02": {
+    "question2": {
         "userInput": "",
         "ask": "Er jeg spørgsmål 2?",
         "choices": {
@@ -39,7 +39,7 @@
             }
         }
     },
-    "question03": {
+    "question3": {
         "userInput": "",
         "ask": "Er jeg spørgsmål 3?",
         "choices": {
@@ -61,7 +61,7 @@
             }
         }
     },
-    "question04": {
+    "question4": {
         "userInput": "",
         "ask": "Er jeg spørgsmål 4?",
         "choices": {
@@ -79,7 +79,7 @@
             }
         }
     },
-    "question05": {
+    "question5": {
         "userInput": "",
         "ask": "Er jeg spørgsmål 5?",
         "choices": {
@@ -97,7 +97,7 @@
             }
         }
     },
-    "question06": {
+    "question6": {
         "userInput": "",
         "ask": "Er jeg spørgsmål 6?",
         "choices": {
