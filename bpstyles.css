@@ -125,3 +125,32 @@ opacity: 80%;
     background-color: steelblue;
     color: white;
 }
+#newApp{
+    position: relative;
+    top: 50px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 20px 100px;
+    background-color: lightgrey;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    animation: pop 1s ease;
+}
+#newApp input{
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+#appComment{
+    text-align: justify;
+    border: none;
+    width: 100%;
+    height: 80%;
+}
+@keyframes pop{
+    from{transform: scale(0)}
+    50%{transform: scale(1.2)}
+    to{transform: scale(1)}
+}
