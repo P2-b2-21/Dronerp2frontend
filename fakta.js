@@ -21,13 +21,20 @@ function make_href(
 make_href("a", "Hjem", "index.html", "fakta_topnav");
 make_href("a", "Profil", "brugerprofil.html", "fakta_topnav");
 
-//make a paragraph in html and remove previous if any present
-function make_paragraph(element = "", text = "", element2 = "", text2 = "") {
-  if (document.getElementById("paragraph_subject") !== null) {
-    document.getElementById("paragraph_subject").remove();
-  }
-  if (document.getElementById("paragraph_subject2") !== null) {
-    document.getElementById("paragraph_subject2").remove();
+//make 2 elements in html and remove previous if any present
+function make_paragraph(
+  element = "",
+  text = "",
+  element2 = "",
+  text2 = "",
+  append = "",
+  id1 = "",
+  id2 = ""
+) {
+  for (let j = 14; j <= 19; j++) {
+    if (document.getElementById(j) !== null) {
+      document.getElementById(j).remove();
+    }
   }
   let type = document.createElement(element);
   let type2 = document.createElement(element2);
@@ -36,10 +43,10 @@ function make_paragraph(element = "", text = "", element2 = "", text2 = "") {
   type.appendChild(text_in_box);
   type2.appendChild(text_in_box2);
 
-  type.id = "paragraph_subject";
-  type2.id = "paragraph_subject2";
-  document.getElementById("text_box").appendChild(type);
-  document.getElementById("text_box").appendChild(type2);
+  type.id = id1;
+  type2.id = id2;
+  document.getElementById(append).appendChild(type);
+  document.getElementById(append).appendChild(type2);
 }
 //make a button in html
 function make_button(element = "", text = "", id_of_btn = "", nav_bar = "") {
@@ -58,6 +65,7 @@ make_button("Button", "Den specifikke kategori", "1", "fakta_topnav");
 make_button("Button", "Om - SORA", "2", "fakta_topnav");
 make_button("Button", "Hvem er vi", "3", "fakta_topnav");
 
+//array til sidenav
 let j = [
   "SORA - Trin 1",
   "SORA - Trin 2",
@@ -81,12 +89,20 @@ function choose_correct_text() {
       document.getElementById(i).remove();
     }
   }
+  for (let j = 20; j <= 10000; j++) {
+    if (document.getElementById(j) !== null) {
+      document.getElementById(j).remove();
+    }
+  }
   if (event.target.id === "1") {
     make_paragraph(
       "h1",
       "Den specifikke kategori",
       "p",
-      "Indenfor den specifikke kategori, angående emnet droneflyvning, findes der yderligere tre ansøgningsmuligheder. Den første mulighed er at arbejde efter et såkaldt standardscenarie (STS). Et standardscenarie er nogle præ-definerede retningslinjer der gælder, så længe der bliver fløjet med droner under forudsætning af at disse retningslinjer overholdes. Ud over (STS) kan der laves to andre former for ansøgninger. Den ene kaldes Predefined Risk Assessment (PDRA) og den anden Specific Operations Risk Assessment (SORA). PDRA minder rigtig meget om førnævnte STS, da dette er prædefinerede retningslinjer der skal overholdes, og der derfor ikke eksisterer nogen fleksibilitet. Dog skal der dokumenteres mere omkring flyvningen fra operatørens side, end ved en STS. Her kommer SORA ind i billedet, da denne form for ansøgning giver operatøren mulighed for at skræddersy sin ansøgning til lige præcis den droneflyvning vedkommende har planlagt.Dette giver en masse fleksibilitet i ansøgningsprocessen og gør det derved muligt at tilpasse den fuldstændigt efter behov. Med dette kommer dog også en række besværligheder, da man bliver nødt til at sætte sig ind i væsentligt flere love, og retningslinjer, selv i henhold til den plan man har for sin flyvning. Derudover, er der en række sikkerhedsmæssige vurderinger, man igen selv skal tage stilling til, eller i hvertfald dokumenterer hvad man vil foretage sig i tilfælde af en nødsituation. Dette gør det mindre overskueligt for firmaer, der har brug for at flyve med en drone et pågældende sted hvor denne nye SORA-proces bliver implementeret som i Danmark. Dette giver en masse fleksibilitet i ansøgningsprocessen og gør det derved muligt at tilpasse den fuldstændigt efter behov. Med dette kommer dog også en række besværligheder, da man bliver nødt til at sætte sig ind i væsentligt flere love, og retningslinjer, selv i henhold til den plan man har for sin flyvning. Derudover, er der en række sikkerhedsmæssige vurderinger, man igen selv skal tage stilling til, eller i hvertfald dokumenterer hvad man vil foretage sig i tilfælde af en nødsituation. Dette gør det mindre overskueligt for firmaer, der har brug for at flyve med en drone et pågældende sted hvor denne nye SORA-proces bliver implementeret som i Danmark."
+      "Indenfor den specifikke kategori, angående emnet droneflyvning, findes der yderligere tre ansøgningsmuligheder. Den første mulighed er at arbejde efter et såkaldt standardscenarie (STS). Et standardscenarie er nogle præ-definerede retningslinjer der gælder, så længe der bliver fløjet med droner under forudsætning af at disse retningslinjer overholdes. Ud over (STS) kan der laves to andre former for ansøgninger. Den ene kaldes Predefined Risk Assessment (PDRA) og den anden Specific Operations Risk Assessment (SORA). PDRA minder rigtig meget om førnævnte STS, da dette er prædefinerede retningslinjer der skal overholdes, og der derfor ikke eksisterer nogen fleksibilitet. Dog skal der dokumenteres mere omkring flyvningen fra operatørens side, end ved en STS. Her kommer SORA ind i billedet, da denne form for ansøgning giver operatøren mulighed for at skræddersy sin ansøgning til lige præcis den droneflyvning vedkommende har planlagt.Dette giver en masse fleksibilitet i ansøgningsprocessen og gør det derved muligt at tilpasse den fuldstændigt efter behov. Med dette kommer dog også en række besværligheder, da man bliver nødt til at sætte sig ind i væsentligt flere love, og retningslinjer, selv i henhold til den plan man har for sin flyvning. Derudover, er der en række sikkerhedsmæssige vurderinger, man igen selv skal tage stilling til, eller i hvertfald dokumenterer hvad man vil foretage sig i tilfælde af en nødsituation. Dette gør det mindre overskueligt for firmaer, der har brug for at flyve med en drone et pågældende sted hvor denne nye SORA-proces bliver implementeret som i Danmark. Dette giver en masse fleksibilitet i ansøgningsprocessen og gør det derved muligt at tilpasse den fuldstændigt efter behov. Med dette kommer dog også en række besværligheder, da man bliver nødt til at sætte sig ind i væsentligt flere love, og retningslinjer, selv i henhold til den plan man har for sin flyvning. Derudover, er der en række sikkerhedsmæssige vurderinger, man igen selv skal tage stilling til, eller i hvertfald dokumenterer hvad man vil foretage sig i tilfælde af en nødsituation. Dette gør det mindre overskueligt for firmaer, der har brug for at flyve med en drone et pågældende sted hvor denne nye SORA-proces bliver implementeret som i Danmark.",
+      "text_box",
+      "14",
+      "15"
     );
   } else if (event.target.id === "2") {
     //Make buttons to the different sora steps
@@ -99,23 +115,51 @@ function choose_correct_text() {
       "h1",
       "Hvad er SORA",
       "p",
-      "SORA er den nyeste lovgivnings-metode og ansøgningsproces, vedtaget af EU angående droneflyvning. SORA er en proces for ansøgning samt godkendelse af droneflyvninger, i den specifikke kategori, som vil blive gennemgået senere i rapporten. SORA er udviklet af JARUS, som er en organisation bestående af diverse luftfartsmyndigheder i EU, samt en større del af de resterende lande i verden, der arbejder med generel luftsikkerhed, af både fly såvel som droner. I forbindelse med at EU har vedtaget SORA som den nye proces ved ansøgning samt godkendelse af droneflyvninger fra 2022, bliver dette også implementeret i Danmark. Dette bliver implementeret i etaper, så det på nuværende tidspunkt er muligt at søge om tilladelse, både efter de nye SORA retningslinjer, såvel som de gamle regler bestemt af de individuelle lande. Eftersom det i 2022 bliver et krav, at der skal ansøges efter SORA, er det derfor vigtigt at ansøgnings- samt godkendelsesprocessen bliver så nem så mulig under denne implementeringsfase, så overgangen bliver gnidningsløs. I løbet af denne problemanalyse gås der mere i dybden med de nye SORA-regler således, at der kan klarlægges hvad der skal til, for at blive godkendt. Ud over godkendelsen, vil der blive nævnt hvilke konsekvenser implementeringen af disse har, både for de firmaer der skal søge efter de nye regler, men også Trafik - Bygge og Boligstyrelsen der skal godkende det. Men inden vi går i dybden med SORA, vil vi først forklare hvad der karakteriserer en drone, samt den specifikke kategori inden for droneflyvning."
+      "SORA er den nyeste lovgivnings-metode og ansøgningsproces, vedtaget af EU angående droneflyvning. SORA er en proces for ansøgning samt godkendelse af droneflyvninger, i den specifikke kategori, som vil blive gennemgået senere i rapporten. SORA er udviklet af JARUS, som er en organisation bestående af diverse luftfartsmyndigheder i EU, samt en større del af de resterende lande i verden, der arbejder med generel luftsikkerhed, af både fly såvel som droner. I forbindelse med at EU har vedtaget SORA som den nye proces ved ansøgning samt godkendelse af droneflyvninger fra 2022, bliver dette også implementeret i Danmark. Dette bliver implementeret i etaper, så det på nuværende tidspunkt er muligt at søge om tilladelse, både efter de nye SORA retningslinjer, såvel som de gamle regler bestemt af de individuelle lande. Eftersom det i 2022 bliver et krav, at der skal ansøges efter SORA, er det derfor vigtigt at ansøgnings- samt godkendelsesprocessen bliver så nem så mulig under denne implementeringsfase, så overgangen bliver gnidningsløs. I løbet af denne problemanalyse gås der mere i dybden med de nye SORA-regler således, at der kan klarlægges hvad der skal til, for at blive godkendt. Ud over godkendelsen, vil der blive nævnt hvilke konsekvenser implementeringen af disse har, både for de firmaer der skal søge efter de nye regler, men også Trafik - Bygge og Boligstyrelsen der skal godkende det. Men inden vi går i dybden med SORA, vil vi først forklare hvad der karakteriserer en drone, samt den specifikke kategori inden for droneflyvning.",
+      "text_box",
+      "16",
+      "17"
     );
   } else if (event.target.id === "3") {
     make_paragraph(
       "h1",
       "Skaberne",
       "p",
-      "Vi er gruppen SWB2-21, der studere software på AAU. Formålet med denne webapplikation er at overskueliggøre og simplificere processem ved ansøgninger omkring droneflyvning."
+      "Vi er gruppen SWB2-21, der studere software på AAU. Formålet med denne webapplikation er at overskueliggøre og simplificere processem ved ansøgninger omkring droneflyvning.",
+      "text_box",
+      "18",
+      "19"
     );
   }
 }
 //Text function for sidebar
 function choose_correct_text_2() {
+  for (let j = 20; j <= 1000; j++) {
+    if (document.getElementById(j) !== null) {
+      document.getElementById(j).remove();
+    }
+  }
   if (event.target.id === "4") {
-    make_paragraph("p", "hej");
+    make_paragraph(
+      "h1",
+      "Con-Ops",
+      "p",
+      "Ansøgeren skal oplyse relevant teknisk, operationel og system information. Informationen som ansøger skal oplyse er knyttet til to kategorier:",
+      "text_box",
+      "20",
+      "21"
+    );
+    make_paragraph(
+      "li",
+      "Relevant information om droneoperationen.",
+      "li",
+      "Relevante tekniske informationer.",
+      "21",
+      "22",
+      "23"
+    );
   } else if (event.target.id === "5") {
-    make_paragraph("p", "med");
+    make_paragraph("p", "med", "p", "med", "text_box", "24", "25");
   } else if (event.target.id === "6") {
     make_paragraph("p", "dig");
   } else if (event.target.id === "7") {
