@@ -68,8 +68,7 @@ make_button("Button", "Hvem er vi", "3", "fakta_topnav");
 //array til sidenav
 let j = [
   "SORA - Trin 1",
-  "SORA - Trin 2",
-  "SORA - Trin 3",
+  "SORA - Trin 2-3",
   "SORA - Trin 4",
   "SORA - Trin 5",
   "SORA - Trin 6",
@@ -85,7 +84,7 @@ const chosen_input_2 = document.querySelector("#fakta_sidenav");
 function choose_correct_text() {
   //remove buttons once another button is pressed
   if (document.getElementById("4") !== null) {
-    for (let i = 4; i <= 13; i++) {
+    for (let i = 4; i <= 12; i++) {
       document.getElementById(i).remove();
     }
   }
@@ -107,7 +106,7 @@ function choose_correct_text() {
   } else if (event.target.id === "2") {
     //Make buttons to the different sora steps
     let p = 0;
-    for (let i = 4; i <= 13; i++) {
+    for (let i = 4; i <= 12; i++) {
       make_button("Button", j[p], i, "fakta_sidenav");
       p++;
     }
@@ -159,22 +158,223 @@ function choose_correct_text_2() {
       "23"
     );
   } else if (event.target.id === "5") {
-    make_paragraph("p", "med", "p", "med", "text_box", "24", "25");
+    make_paragraph(
+      "h1",
+      "Ground Risk Class (GRC)",
+      "p",
+      "Ground Risk Class afgør risikoen for hvorvidt en person på jorden vil blive ramt af UAS’en, såfremt ifald at UAS’en opfylder kravene. Ansøgeren skal oplyse relevant teknisk, operationel og system information:",
+      "text_box",
+      "24",
+      "25"
+    );
+    make_paragraph(
+      "li",
+      "Dronens mål og dimensioner",
+      "li",
+      "Den geografiske placering for droneoperationen",
+      "25",
+      "26",
+      "27"
+    );
+    make_paragraph(
+      "p",
+      "Det første som skal gøres for at bestemme UAS'ens GRC er at finde den intrinsic GRC på baggrund af tabel. Denne findes med UAS'ens dimensioner og de gældende omstændigheder for flyvningen. Hvis der opstår en situation således at UAS'ens dimensioner ikke stemmer overens, vil der skulle forelægges bevisgrund for den valgte kolonne. ",
+      "p",
+      "Dernæst korrigeres den med mitigations/risikoreduktioner fra Annex B, som kan aflæses fra tabel ?? ud fra low, medium eller high robustness. Disse risikoreduktioner kan påvirke den endelige GRC i både negativ og positiv retning. For at finde robustness for hver aflæses, af table 2, 3, 6, 7, 8, og 9 i Annex B, Level of Integrity og Level of Assurance, som tilsammen angiver den aktuelle robustness. ",
+      "27",
+      "28",
+      "29"
+    );
   } else if (event.target.id === "6") {
-    make_paragraph("p", "dig");
-  } else if (event.target.id === "7") {
-    make_paragraph("p", "hej");
+    make_paragraph(
+      "h1",
+      "Air Risk Class (ARC)",
+      "p",
+      "ARC er et udtryk for kollissionsrisikoen mellem et ubemandet fly og de bemandede fly i et givet område, uden eventuelle modregninger. ARC vil ligge under en af følgende værdier:",
+      "text_box",
+      "30",
+      "31"
+    );
+    make_paragraph("li", "ARC-a", "li", "ARC-b", "31", "32", "33");
+    make_paragraph("li", "ARC-c", "li", "ARC-d", "33", "34", "35");
+    make_paragraph(
+      "p",
+      "ARC-a er defineret ved et luftrum hvori, kollissionsrisikoen mellem et bemandet fly og et ubemandet fly kan accepteres, uden at man har tilføjet Tactical Mitigation Performance Requirements, som beskrives i næste sektion.",
+      "p",
+      "ARC-b, ARC-c og ARC-d er defineret ved et luftrum hvori, der er øget risiko for kollision mellem et bemandet fly og et ubemandet fly. For at bestemme risikoen i luften, vil der i nogle lande først og fremmest være en Air Navigation Service Provider (ANSP), som muligvis har gjort et kort tilgængeligt, hvoraf man kan aflæse ARC for et givent område. Hvis sådan et redskab ikke er tilgængeligt, kan man bruge følgende figur til at finde den rette ARC. Desuden er det vigtigt at man vurderer hele området man ønsker at flyve i, når man vil finde sin ARC. ",
+      "35",
+      "36",
+      "37"
+    );
   } else if (event.target.id === "8") {
-    make_paragraph("p", "med");
+    make_paragraph(
+      "h1",
+      "Tactical Mitigation Performance Requirement (TMPR)",
+      "p",
+      "Tactical Mitigation Performance Requirement, eller her benævnt i rapporten som TMPR er anvendt som en del af SORA-processen, for at mindske risikoen for kollisioner i luften. Dette er nødvendigt for at opnå det nødvendige luftrums sikkerhedsmål. I praksis kan TMPR opnås ved enten en See and Avoid metode (operationer under VLOS), og ellers kræver det et forudaftalt system som tilbyder et alternativ for at opnå det nødvendige sikkerhedsmål i luftrummet. Dette forudaftalte system dækker over en operation som benytter et eller flere Detect and Avoid (DAA) systemer.",
+      "text_box",
+      "38",
+      "39"
+    );
+    make_paragraph(
+      "h1",
+      "Operationer under VLOS/EVLOS (Extended Visual Line of Sight): ",
+      "li",
+      "VLOS ses som et acceptabel TMPR ved risiko for kollision under alle ARC-niveauer. Det er anbefalet, at operatøren overvejer at anvende flere midler, for at øge situationsopmærksomheden, i forhold til luftrummet i nærheden.",
+      "39",
+      "40",
+      "41"
+    );
+    make_paragraph(
+      "li",
+      "Operationelle UAS flyvninger under VLOS behøver hverken at imødekomme TMPR, eller kravet til robustness. I tilfælde af at flyvningen foregår over flere strækninger, behøver strækninger under VLOS ikke at imødekomme TMPR eller tilhørende krav til robustness, hvorimod strækninger under BVLOS skal imødekomme disse krav. ",
+      "li",
+      "Generelt set er kravene til VLOS operationer også gældende for EVLOS operationer. Derudover kan EVLOS operationer have yderligere krav på niveau over VLOS. Forsinkelsen på EVLOS verifikation- og kommunikationen mellem pilot og observant(er) skal være mindre end 15 sekunder. ",
+      "41",
+      "42",
+      "43"
+    );
+    make_paragraph(
+      "li",
+      "Uanset de ovenstående krav, skal ansøgeren have en dokumenteret konflikthåndterings ordning, hvori ansøgeren forklarer hvilke metoder der anvendes til at registrere andre luftfarttøjer. Dermed skal ansøgeren definere de tilhørende kriterier, som anvendes i beslutningen om at undvige indgående trafik. Såfremt den fjernstyrerede pilot er afhængig af assistance gennem observant(er), skal brugen af fraseologi (terminologi) dokumenteres. ",
+      "li",
+      "Angående VLOS operationer, forventes det at en observant ikke er i stand til at registrere trafik længere end 2 NM (nautiske mil). (Det noteres at 2NM rækkeviden ikke er en fastsat værdi, men i tilfælde afhængig af atmosfæriske betingelser, dronens størrelse, geometri, lukkerate osv.)",
+      "43",
+      "44",
+      "45"
+    );
+    make_paragraph("BR", "", "p", "", "45", "46", "47");
+    make_paragraph(
+      "strong",
+      "Operationer under et Detect and Avoid (DAA) system: ",
+      "p",
+      "For alle operationer udover VLOS-operationer, vil ansøgeren bruge den resterende ARC og nedenstående tabel (fra JARUS) til bestemmelse af TMPR niveauet. ",
+      "47",
+      "48",
+      "49"
+    );
   } else if (event.target.id === "9") {
-    make_paragraph("p", "dig");
+    make_paragraph(
+      "h1",
+      "Specific Assurance and Integrity Levels (SAIL) & Operational Safety Objectives (OSO)",
+      "p",
+      "SAIL står for Specific Assurance and Integrity Levels, og benyttes i forbindelse med bestemmelse af det niveau af tillid til, at UAS operationen forbliver under kontrol. Til det benyttes SAIL-parametrene, som med udgangspunkt i de forrige trin laver en samlet vurdering, ved at analysere GRC og ARC. Selve vurderingen, som foretages, er kvalitativ og vil til sidst ende ud med en beskrivelse af de aktiviteter, som vil understøtte overholdelsen af de mål, der er sat. På den måde bliver der skabt en indikering af, om målene opfyldes, og i hvor stor grad målene, som der refereres til også opfylder Operational Safety Objectives (OSO).",
+      "text_box",
+      "49",
+      "50"
+    );
   } else if (event.target.id === "10") {
-    make_paragraph("p", "hej");
+    make_paragraph(
+      "h1",
+      "Operational safety Objectives",
+      "p",
+      "SORA-processens sidste trin er at evaluere forsvareligheden inden for operationen, ved hjælp af SAIL. Dette foregår i formen OSO. OSO består af 24 dele, opdelt i fire kategorier. Det bruges til at bestemme hvilket level of robustness, som flyvningen med den pågældende drone, associeres med. Tabellen er en kvalitativ metode, hvorpå robustness bestemmes. Her tildeles fire forskellige bogstaver, i forhold til hvilket tal man nåede frem til i SAIL:",
+      "text_box",
+      "51",
+      "52"
+    );
+    make_paragraph(
+      "li",
+      "O: står for Optional, og er derfor ikke noget man behøver, for at flyve dronen.",
+      "li",
+      "L: står for Low level of robustness, og her er det den enkeltes eget ansvar, at have styr på de nødvendige foranstaltninger i forhold til træning og dronen. Det er nødvendigt at dokumentere at de har haft træning, men ikke hvilken slags træning det drejer sig om. Der vil altså ikke være nogen udefrakommende, som skal godkende noget på forhånd. ",
+      "52",
+      "53",
+      "54"
+    );
+    make_paragraph(
+      "li",
+      "M: står for Medium Level of Robustness, og det betyder, at der kræves dokumentation på træning, samt hvilken slags træning der er foretaget. Der vil heller ikke her være nogen udefrakommende, som skal godkende noget på forhånd.",
+      "li",
+      "H: står for High level of Robustness, hvilket betyder, at alt dokumentation, som omhandler flyvningen og træning, skal godkendes af en tredjepart. ",
+      "54",
+      "55",
+      "56"
+    );
+    make_paragraph(
+      "p",
+      "Dette skal enten stå i Operational Manual, eller vedhæftes andensteds.",
+      "p",
+      "De mange forskellige OSO-grupper er baseret på den risiko de er med til at dæmpe. Det betyder også, at der er nogle OSO's som vil blive gentaget flere steder i tabellen. Tilsammen vil det give et udfald, som fortæller, hvor sikkert det er at flyve, og hvad brugeren bør være opmærksom på inden flyvningen påbegyndes.",
+      "text_box",
+      "57",
+      "58"
+    );
   } else if (event.target.id === "11") {
-    make_paragraph("p", "med");
+    make_paragraph(
+      "h1",
+      "Luftrumsovervejelser",
+      "p",
+      "Ansøger skal tage højde for risikoen ved manglende kontrol af dronen som kan medføre overtrædelse af det tilstødende jordområde og/eller luftrum hvor droneoperationen gennemføres. Det tilstødende jordområde/luftrum kan variere under operationen, hvis droneflyvningen som bliver foretaget følger forskellige ruter. De sikkerhedsmæssige krav for at holde en potentiel skadelig droneoperation under kontrol er (JARUS-guidelines):",
+      "text_box",
+      "59",
+      "60"
+    );
+    make_paragraph(
+      "li",
+      "Ingen mulig fejl i UAS’en eller i nogle af de eksterne systemer, som understøtter operationen, må føre til overtrædelse af tilstødende jordområde/luftrum.",
+      "p",
+      "Disse krav ligger til grund for det sikkerhedsmæssige krav:",
+      "60",
+      "61",
+      "62"
+    );
+    make_paragraph(
+      "li",
+      "Operationen skal være godkendt til at flyve ved forsamlinger af mennesker, for at flyvning ved tilstødende jordområde/luftrum med forsamlinger af mennesker, ikke overskrider sikkerhedskravene.  Eller at operationen er ARC-d og ikke en anden ARC.",
+      "li",
+      "I et befolket område hvor M1-mitigation har mindsket GRC skal sikkerhedskravet opfyldes.",
+      "62",
+      "63",
+      "64"
+    );
   } else if (event.target.id === "12") {
-    make_paragraph("p", "dig");
-  } else if (event.target.id === "13") {
+    make_paragraph(
+      "h1",
+      "Sikkerhedsportefølje",
+      "p",
+      "SORA-processen konkluderes med en tydelig fremgangsmåde for både ansøger og myndighed, hvorpå der er taget højde for en række sikkerhedsmæssige hensyn, for at reducere en potentiel skadelig droneoperation. ",
+      "text_box",
+      "65",
+      "66"
+    );
+    make_paragraph(
+      "p",
+      "Sikkerhedsporteføljen beskriver og indeholder en detaljeret beskrivelse af: ",
+      "li",
+      "Valg truffet for at reducere en potentiel skadelig droneoperation for jordområdet.",
+      "66",
+      "67",
+      "68"
+    );
+    make_paragraph(
+      "li",
+      "De strategiske valg der er truffet for at reducere en potentiel skadelig droneoperation i luften.",
+      "li",
+      "De taktiske valg der er truffet for at reducere en potentiel skadelig dronekollision i luften.",
+      "68",
+      "69",
+      "70"
+    );
+    make_paragraph(
+      "li",
+      "Ansøgerens luftrumsovervejelser.",
+      "li",
+      "En sikkerhedsevaluering af droneoperationen, med hensigt på at give en samlet robustness bestemmelse.",
+      "70",
+      "71",
+      "72"
+    );
+    make_paragraph(
+      "p",
+      "Hvis sikkerhedsporteføljen er udfyldt tilfredsstillende, har porteføljen til formål at give myndigheden en tilstrækkelig grad af tillid til droneoperationen. Derfor er det vigtigt at ansøgeren er til rådighed ved eventuelle tilføjelser til SORA-processen, som myndigheden kan efterspørge. ",
+      "p",
+      "Samarbejdet mellem ansøger og myndighed er konsistent gennem hele SORA-processen, til det formål at sikre at droneoperationens sikkerhedskrav er sammenhængende med de aktuelle forhold der opereres under (JARUS-guidelines).",
+      "72",
+      "73",
+      "74"
+    );
+  } else if (event.target.id === "7") {
     make_paragraph("p", "hej");
   }
 }
