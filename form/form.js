@@ -1,110 +1,20 @@
-const questionContent = {
-    question01: {
-        userInput: "",
-        ask: "Drones maksimale karakteristika?",
-        choices: {
-            choice0: {
-                text: "1 meter / 3 feet",
-                value: "A",
-            },
-            choice1: {
-                text: "3 meter / 10 feet",
-                value: "B",
-            },
-            choice2: {
-                text: "8 meter / 25 feet",
-                value: "C",
-            },
-            choice3: {
-                text: ">8 meter / 25 feet",
-                value: "D",
-            },
-        },
-    },
-    question02: {
-        userInput: "",
-        ask: "Er jeg spørgsmål 2?",
-        choices: {
-            choice0: {
-                text: "VLOS",
-                value: "AA",
-            },
-            choice1: {
-                text: "ELOS",
-                value: "BB",
-            },
-            choice2: {
-                text: "BLOS",
-                value: "CC",
-            },
-        },
-    },
-    question03: {
-        userInput: "",
-        ask: "Er jeg spørgsmål 3?",
-        choices: {
-            choice0: {
-                text: ":)",
-                value: "AAA",
-            },
-            choice1: {
-                text: ";)",
-                value: "BBB",
-            },
-            choice2: {
-                text: "XD",
-                value: "CCC",
-            },
-            choice3: {
-                text: "8D",
-                value: "DDD",
-            },
-        },
-    },
-    question04: {
-        userInput: "",
-        ask: "Er jeg spørgsmål 4?",
-        choices: {
-            choice0: {
-                text: "A",
-                value: "AAAA",
-            },
-            choice1: {
-                text: "B",
-                value: "BBBB",
-            },
-            choice2: {
-                text: "C",
-                value: "CCCC",
-            },
-        },
-    },
-    question05: {
-        userInput: "",
-        ask: "Er jeg spørgsmål 5?",
-        choices: {
-            choice0: {
-                text: "asd",
-                value: "AAAAA",
-            },
-            choice1: {
-                text: "ASDasd",
-                value: "BBBB",
-            },
-            choice2: {
-                text: "aasdasdd",
-                value: "CCCCC",
-            },
-        },
-    },
-};
 
-/* Make page on load  */
-window.addEventListener('load', () => {
-    console.log("Page is loaded");
-    initPage();
-    makePage("form01", 1, 2);
-});
+/* On page load
+   initialising and making page
+   with JSON data from server   */
+let questionContent = {};
+fetch('questions.json')
+.then((response) => {return response.json()})
+.then((data) => {
+    
+    questionContent = data;
+    
+    window.addEventListener('load', () => {
+        console.log("Page is loaded");
+        initPage();
+        makePage("form01", 1, 2);
+    });
+})
 
 /* Log user input */
 const question = document.querySelector("#GRC");
@@ -112,7 +22,8 @@ question.addEventListener('change', (event) => {
     
     questionContent[`${event.target.name}`].userInput = event.target.value;
     
-    /* Display user input */
+    /* Display user input 
+        only for testing */
     console.log(questionContent["question01"].userInput + "->" + 
     questionContent["question02"].userInput + "->" + 
     questionContent["question03"].userInput + "->" + 
@@ -121,18 +32,14 @@ question.addEventListener('change', (event) => {
 });
 
 
-/* -----page-functions-------------------------------------------------------------------------------------- */
+ /* -----page-functions-------------------------------------------------------------------------------------- */
 
-/* Create questions from Object */
+/* Create questions from JSON Object */
 function makePage(form, i, k) {
     if (Object.keys(questionContent).length == i) return;
 
     let ques = Object.keys(questionContent)[i];
     let numOfButtons = Object.keys(questionContent[`${ques}`].choices).length;
-    
-    /* Test */
-    //console.log(i + ":" + Object.keys(questionContent)[i]);
-    //console.log(`form0${k}`, `${ques}`, questionContent[`${ques}`].ask, "radio", numOfButtons);
     
     new Promise(function(resolve, reject) {
         document.querySelector(`#${form}`).addEventListener('change', () => {
@@ -144,16 +51,13 @@ function makePage(form, i, k) {
     .then(function() {
         i++;
         k++;
-
-        /* Test */
-        //console.log(`makePage - i:${i} k:${k}`);
-
         makePage(`form0${i}`, i, k);
     }, function(err) {
         console.log(err);
     });
 };
 
+/* Add quistion with choices to DOM tree */
 function addFormElement(formID, questionID, questionName, typeOfButton, numOfButtons) {
     const mainForm = document.querySelector('#GRC');
     const newForm = document.createElement('form');
@@ -175,6 +79,7 @@ function addFormElement(formID, questionID, questionName, typeOfButton, numOfBut
     };
 };
 
+/* Add first question to DOM tree */
 function initPage() {
     let ques = Object.keys(questionContent)[0];
     let numOfButtons = Object.keys(questionContent[`${ques}`].choices).length;
@@ -183,6 +88,7 @@ function initPage() {
 
 };
 
+/* Add button to quistion */
 function makeButton(idElement, typeOfButton, name, value, textContent) {
     const element = document.querySelector(`#${idElement}`);
     
@@ -197,26 +103,9 @@ function makeButton(idElement, typeOfButton, name, value, textContent) {
     element.appendChild(label);
 }
 
+/* Insert line break to DOM tree, helper function */
 function addLineBreak(id) {
     const element = document.querySelector(`#${id}`);
     const lineBreak = document.createElement('br');
     return element.appendChild(lineBreak);
 }
-
-let nextQuestion = function fireOnce(callback) {
-    if (nextQuestion.fired) return;
-        nextQuestion.fired = true;
-        callback();
-        console.log("q1 only onece");
-};
-
-/*
-function calculateGCD(obj) {
-    //console.log(`${event.target.type}`);
-    console.log("GCD status:");
-    for (let property in obj) {
-        console.log(obj[property]);
-    }
-    console.log("Final GCD: calculating..");
-}
-*/

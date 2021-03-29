@@ -1,112 +1,122 @@
-[
-    {
-    "question01":
-        {
+{
+    "question01": {
         "userInput": "",
         "ask": "Drones maksimale karakteristika?",
-        "choices": 
-            {
-            "choice0":
-                {
+        "choices": {
+            "choice0": {
                 "text": "1 meter / 3 feet",
                 "value": "A"
-                },
-            "choice1":
-                {
+            },
+            "choice1": {
                 "text": "3 meter / 10 feet",
                 "value": "B"
-                },
-            "choice2":
-                {
+            },
+            "choice2": {
                 "text": "8 meter / 25 feet",
                 "value": "C"
-                },
-            "choice3":
-                {
+            },
+            "choice3": {
                 "text": ">8 meter / 25 feet",
                 "value": "D"
-                }
             }
         }
     },
-    {
-    "question02":
-        {
+    "question02": {
         "userInput": "",
         "ask": "Er jeg spørgsmål 2?",
-        "choices":
-            {
-            "choice0":
-                {
+        "choices": {
+            "choice0": {
                 "text": "VLOS",
                 "value": "AA"
-                },
-            "choice1":
-                {
+            },
+            "choice1": {
                 "text": "ELOS",
                 "value": "BB"
-                },
-            "choice2":
-                {
+            },
+            "choice2": {
                 "text": "BLOS",
                 "value": "CC"
-                }
             }
         }
     },
-    {
-    "question03":
-        {
+    "question03": {
         "userInput": "",
         "ask": "Er jeg spørgsmål 3?",
-        "choices":
-            {
-            "choice0":
-                {
+        "choices": {
+            "choice0": {
                 "text": ":)",
                 "value": "AAA"
-                },
-            "choice1":
-                {
+            },
+            "choice1": {
                 "text": ";)",
                 "value": "BBB"
-                },
-            "choice2":
-                {
+            },
+            "choice2": {
                 "text": "XD",
                 "value": "CCC"
-                },
-            "choice3":
-                {
+            },
+            "choice3": {
                 "text": "8D",
                 "value": "DDD"
-                }
             }
         }
     },
-    {
-    "question04":
-        {
+    "question04": {
         "userInput": "",
         "ask": "Er jeg spørgsmål 4?",
-        "choices": 
-            {
-            "choice0": 
-                {
+        "choices": {
+            "choice0": {
                 "text": "A",
                 "value": "AAAA"
-                },
-            "choice1": 
-                {
+            },
+            "choice1": {
                 "text": "B",
                 "value": "BBBB"
-                },
-            "choice2":
-                {
+            },
+            "choice2": {
                 "text": "C",
                 "value": "CCCC"
-                }
+            }
+        }
+    },
+    "question05": {
+        "userInput": "",
+        "ask": "Er jeg spørgsmål 5?",
+        "choices": {
+            "choice0": {
+                "text": "asd",
+                "value": "AAAAA"
+            },
+            "choice1": {
+                "text": "ASDasd",
+                "value": "BBBB"
+            },
+            "choice2": {
+                "text": "aasdasdd",
+                "value": "CCCCC"
+            }
+        }
+    },
+    "question06": {
+        "userInput": "",
+        "ask": "Er jeg spørgsmål 6?",
+        "choices": {
+            "choice0": {
+                "text": "->",
+                "value": "AAAAAA"
+            },
+            "choice1": {
+                "text": "-->",
+                "value": "BBBBB"
+            },
+            "choice2": {
+                "text": "--->",
+                "value": "CCCCCC"
+            },
+            "choice3": {
+                "text": "---->",
+                "value": "DDDDDDD"
             }
         }
     }
-]
+}
