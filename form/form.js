@@ -7,11 +7,14 @@ fetch('questions.json')
 .then((data) => {
     questionContent = data;
     
+    initPage(0, 1);
+    makePage("form1", 1, 2);
+    
+    /*
     window.addEventListener('load', () => {
         console.log("Page is loaded");
-        initPage(0, 1);
-        makePage("form1", 1, 2);
     });
+    */
 })
 
 /* Log user input */
