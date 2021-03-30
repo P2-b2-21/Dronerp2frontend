@@ -61,6 +61,16 @@ function make_button(element = "", text = "", id_of_btn = "", nav_bar = "") {
   document.getElementById(nav_bar).appendChild(type);
 }
 
+function input_picture(picture = "", append = "") {
+  let type = document.createElement("img");
+
+  type.src = picture;
+
+  type.id = "billede";
+
+  document.getElementById(append).appendChild(type);
+}
+
 make_button("Button", "Den specifikke kategori", "1", "fakta_topnav");
 make_button("Button", "Om - SORA", "2", "fakta_topnav");
 make_button("Button", "Hvem er vi", "3", "fakta_topnav");
@@ -176,15 +186,19 @@ function choose_correct_text_2() {
       "26",
       "27"
     );
+
     make_paragraph(
       "p",
       "Det første som skal gøres for at bestemme UAS'ens GRC er at finde den intrinsic GRC på baggrund af tabel. Denne findes med UAS'ens dimensioner og de gældende omstændigheder for flyvningen. Hvis der opstår en situation således at UAS'ens dimensioner ikke stemmer overens, vil der skulle forelægges bevisgrund for den valgte kolonne. ",
       "p",
-      "Dernæst korrigeres den med mitigations/risikoreduktioner fra Annex B, som kan aflæses fra tabel ?? ud fra low, medium eller high robustness. Disse risikoreduktioner kan påvirke den endelige GRC i både negativ og positiv retning. For at finde robustness for hver aflæses, af table 2, 3, 6, 7, 8, og 9 i Annex B, Level of Integrity og Level of Assurance, som tilsammen angiver den aktuelle robustness. ",
+      "Dernæst korrigeres den med mitigations/risikoreduktioner fra Annex B, som kan aflæses i tabellen nederst på siden ud fra low, medium eller high robustness. Disse risikoreduktioner kan påvirke den endelige GRC i både negativ og positiv retning. For at finde robustness for hver aflæses, af table 2, 3, 6, 7, 8, og 9 i Annex B, Level of Integrity og Level of Assurance, som tilsammen angiver den aktuelle robustness. ",
       "27",
       "28",
       "29"
     );
+    input_picture("Pictures/Table2_GRC_det(ny).png", "28");
+    input_picture("Pictures/Table_3_mitigations_for_GRC.png", "27");
+    input_picture("Pictures/Level_of_Robustness_det.PNG", "27");
   } else if (event.target.id === "6") {
     make_paragraph(
       "h1",
@@ -206,6 +220,7 @@ function choose_correct_text_2() {
       "36",
       "37"
     );
+    input_picture("Pictures/ArcAssignmentProcess.png", "37");
   } else if (event.target.id === "8") {
     make_paragraph(
       "h1",
@@ -253,6 +268,7 @@ function choose_correct_text_2() {
       "48",
       "49"
     );
+    input_picture("Pictures/annex_d_table_4.png", "49");
   } else if (event.target.id === "9") {
     make_paragraph(
       "h1",
@@ -300,6 +316,7 @@ function choose_correct_text_2() {
       "57",
       "58"
     );
+    input_picture("Pictures/SAIL_Tabel.png", "58");
   } else if (event.target.id === "11") {
     make_paragraph(
       "h1",
