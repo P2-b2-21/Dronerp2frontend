@@ -103,6 +103,7 @@
   width: 83%;
   padding: 10px;
   border-radius: 10px;
+  image-rendering: auto;
 }
 .sidenav {
   height: 88.6%;
