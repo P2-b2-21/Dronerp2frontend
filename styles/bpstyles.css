@@ -1,122 +1,162 @@
 .topnav {
-    background-color: rgba(0, 0, 0, 0.85);
-    overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 25px 50px;
+  text-decoration: none;
+  font-size: 25px;
+  background-color: steelblue;
+  color: white;
+}
+.topnav button {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 25px 50px;
+  text-decoration: none;
+  font-size: 25px;
+  background-color: steelblue;
+  color: white;
+  border: none;
+  font-family: "Times New Roman";
+}
+#logud {
+  float: right;
+}
+
+.userContainer {
+  height: 85vh;
+  background-color: steelblue;
+  opacity: 80%;
+}
+.ddContent {
+  display: none;
+  width: 200px;
+  position: absolute;
+  background-color: white;
+  top: 85px;
+  left: 345.5px;
+  z-index: 1;
+}
+
+.ddContent button {
+  position: relative;
+  padding: 20px;
+  width: 204px;
+  text-align: center;
+  background-color: steelblue;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 20px;
+}
+
+.userInfo {
+  position: absolute;
+  height: 550px;
+  width: 400px;
+  top: 135px;
+  right: 50px;
+  background-color: lightgray;
+  float: right;
+}
+#profileImg {
+  position: relative;
+  top: 40px;
+  left: 125px;
+  height: 150px;
+  border-radius: 10px;
+}
+.nameInfo {
+  position: relative;
+  left: 20px;
+  top: 40px;
+}
+.content {
+  position: absolute;
+  left: 30px;
+  top: 135px;
+  width: auto;
+  height: 76vh;
+  background-color: lightgray;
+  float: left;
+}
+#contentDiv {
+  position: relative;
+  height: auto;
+  width: auto;
+  background-color: #fcd64c;
+}
+.infoInput {
+  position: relative;
+  background-color: lightgrey;
+  border: none;
+  size: 10px;
+  width: 200px;
+  border-radius: 3px;
+  float: right;
+  left: 35px;
+  opacity: 50%;
+}
+.inputDiv {
+  position: absolute;
+  top: 30px;
+}
+#editBtn {
+  position: absolute;
+  padding: 5px 10px;
+  border: none;
+  top: -170px;
+  background-color: steelblue;
+  color: white;
+}
+#applyBtn {
+  position: absolute;
+  padding: 5px 10px;
+  border: none;
+  left: 0px;
+  top: 280px;
+  background-color: steelblue;
+  color: white;
+}
+#newApp {
+  position: relative;
+  top: 50px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 20px 100px;
+  background-color: lightgrey;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  animation: pop 1s ease;
+}
+#newApp input {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+#appComment {
+  text-align: justify;
+  border: none;
+  width: 100%;
+  height: 80%;
+}
+@keyframes pop {
+  from {
+    transform: scale(0);
   }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 25px 50px;
-    text-decoration: none;
-    font-size: 25px;
-    background-color: steelblue;
-    color: white;
-}
-#logud{
-    float: right;
-}
-
-.userContainer{
-height: 625px;
-background-color: steelblue;
-opacity: 80%;
-}
-.ddContent{
-    display: none;
-    width: 200px;
-    position: absolute;
-    background-color: white;
-    top: 85px;
-    left: 345.5px;
-    z-index: 1;
-}
-
-.ddContent button{
-    position: relative;
-    padding: 20px;
-    width: 204px;
-    text-align: center;
-    background-color: steelblue;
-    border: none;
-    outline: none;
-    color: white;
-    font-size: 20px;
-}
-
-.userInfo{
-    position: absolute;
-    height: 550px;
-    width: 400px;
-    top: 135px;
-    right: 50px;
-    background-color: lightgray;
-}
-#profileImg{
-    position: relative;
-    top: 40px;
-    left: 125px;
-    height: 150px;
-    border-radius: 10px;
-}
-.nameInfo{
-    position: relative;
-    left: 20px;
-    top: 40px;
-}
-.content{
-    position: absolute;
-    left: 30px;
-    top: 135px;
-    width: 1000px;
-    height: 550px;
-    background-color: lightgray;
-}
-#contentDiv{
-    position: relative;
-    height: auto;
-    width: auto;
-    background-color: #fcd64c;
-}
-.infoInput{
-    position: relative;
-    background-color: lightgrey;
-    border: none;
-    size: 10px;
-    width: 200px;
-    border-radius: 3px;
-    float: right;
-    left: 35px;
-    opacity: 50%;
-}
-.inputDiv{
-    position: absolute;
-    top: 30px;
-}
-#editBtn{
-    position: absolute;
-    padding: 5px 10px;
-    border: none;
-    top: -170px;
-    background-color: steelblue;
-    color: white;
-}
-#applyBtn{
-    position: absolute;
-    padding: 5px 10px;
-    border: none;
-    left: 0px;
-    top: 280px;
-    background-color: steelblue;
-    color: white;
-}
-
-#CreateBtn, #ApprovedBtn, #OngoingBtn, #OnHoldBtn, #DeclinedBtn{
-    position: absolute;
-    padding: 5px 10px;
-    border: none;
-    top: -170px;
-    background-color: steelblue;
-    color: white;
+  50% {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
 }

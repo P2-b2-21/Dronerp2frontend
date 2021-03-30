@@ -36,7 +36,7 @@ function Create(element = "", text = "", id="") {
   }
 
 
-//dropdown menu
+//Dropdown menu
 let ansBtn = document.querySelector("#ansBtn");
 let dd = document.querySelector(".ddContent");
 let btn = document.querySelectorAll("#btn");
@@ -52,11 +52,12 @@ btn.forEach(btn => {
     btn.addEventListener('mouseleave', () => btn.style.backgroundColor = "steelBlue");
 });
 
-//Indlæs de forskellige elementer i usercontainer
+//Load elements in usercontainer
 let godkendtBtn = document.querySelector(".godkendtBtn");
 let afventBtn = document.querySelector(".afventBtn");
 let afvistBtn = document.querySelector(".afvistBtn");
 let inDevBtn = document.querySelector(".inDevBtn");
+let msgBtn = document.querySelector(".msgBtn");
 godkendtBtn.addEventListener('click', ()=> {
     let contentDiv = document.querySelector("#contentDiv");
     if (contentContainer.contains(contentDiv)){
@@ -89,8 +90,16 @@ inDevBtn.addEventListener('click', ()=> {
     }
     else Create("div", "Igangværende ansøgninger skal være her", "contentDiv")
 });
+msgBtn.addEventListener('click', () => {
+    let contentDiv = document.querySelector("#contentDiv");
+    if (contentContainer.contains(contentDiv)){
+        contentDiv.remove();
+        Create("div", "Her skal beskeder og opdateringer angående ansøgninger være", "contentDiv");
+    }
+    else Create("div", "Her skal beskeder og opdateringer angående ansøgninger være", "contentDiv");
+});
 
-//Rediger brugerens informationer
+//Edit user information
 let editBtn = document.querySelector("#editBtn");
 let applyBtn = document.querySelector("#applyBtn");
 let infoInput = document.querySelectorAll(".infoInput");
@@ -115,3 +124,27 @@ applyBtn.addEventListener('click', () => {
         });
     }
 });
+
+//Application properties function
+function CreateForm(){
+    let formDiv = document.createElement("div");
+    let form = document.createElement("form");
+    form.setAttribute("id", "newAppForm");
+    formDiv.setAttribute("id", "newApp");
+    form.setAttribute("method", "post");
+    form.setAttribute("action", "sendStuff")
+    
+    //Create elements for form
+    let appName = document.createElement("input");
+    appName.setAttribute("placeholder", "Ansøgningens navn");
+    form.appendChild(appName);
+
+    let appComment = document.createElement("textarea");
+    appComment.setAttribute("form", "newAppForm");
+    appComment.setAttribute("placeholder", "Eventuelle kommentarer til ansøgningen");
+    appComment.setAttribute("id", "appComment");
+    form.appendChild(appComment);
+    
+    formDiv.appendChild(form);
+    document.querySelector(".userContainer").appendChild(formDiv);
+};
