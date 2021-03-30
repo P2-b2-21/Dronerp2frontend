@@ -111,3 +111,12 @@ opacity: 80%;
     background-color: steelblue;
     color: white;
 }
+
+#CreateBtn, #ApprovedBtn, #OngoingBtn, #OnHoldBtn, #DeclinedBtn{
+    position: absolute;
+    padding: 5px 10px;
+    border: none;
+    top: -170px;
+    background-color: steelblue;
+    color: white;
+}
