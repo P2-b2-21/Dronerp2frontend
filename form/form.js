@@ -11,7 +11,7 @@ fetch('questions.json')
 })
 
 /* Log user input */
-const question = document.querySelector("#GRC");
+const question = document.querySelector(`#${MAINFORM}`);
 question.addEventListener('change', (event) => {
     
     questionContent[`${event.target.name}`].userInput = event.target.value;
@@ -24,12 +24,21 @@ question.addEventListener('change', (event) => {
     console.log(output += "end");
 });
 
+question.addEventListener('submit', () => {
+    console.log("Submit");
+    window.location.href = "./index.html";
+});
 
 /* -----page-functions-------------------------------------------------------------------------------------- */
 
 /* Create questions from JSON Object */
 function makePage(form, quesNum, formNum) {
-    if (Object.keys(questionContent).length == quesNum) return;
+    console.log(quesNum + ":" + Object.keys(questionContent).length);
+    if (Object.keys(questionContent).length == quesNum) {
+        console.log("Indside if");
+        makeButton(`${MAINFORM}`, "submit", "submitBtn", "Send JSON obj til server og gå til ARC");
+        return;
+    };
 
     let currentQuestion = Object.keys(questionContent)[quesNum];
     let numOfButtons = Object.keys(questionContent[`${currentQuestion}`].choices).length;
@@ -55,7 +64,7 @@ function makePage(form, quesNum, formNum) {
 
 /* Add quistion with choices to DOM tree */
 function addFormElement(formID, questionID, questionName, typeOfButton, numOfButtons) {
-    const mainForm = document.querySelector('#GRC');
+    const mainForm = document.querySelector(`#${MAINFORM}`);
     const newForm = document.createElement('form');
     newForm.id = formID;
     mainForm.appendChild(newForm);
