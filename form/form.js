@@ -2,7 +2,7 @@
    initialising and making page
    with JSON data from server   */
 let questionContent = {};
-fetch('questions.json')
+fetch(`questions_${MAINFORM}.json`)
 .then((response) => {return response.json()})
 .then((data) => {
     questionContent = data;
