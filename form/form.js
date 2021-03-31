@@ -8,14 +8,16 @@ fetch(`questions_${MAINFORM}.json`)
     questionContent = data;
     initPage(0, 1);
     makePage("form1", 1, 2);
-})
+    makeSubmitButton();
+});
 
 /* Log user input */
 const question = document.querySelector(`#${MAINFORM}`);
 question.addEventListener('change', (event) => {
     
     questionContent[`${event.target.name}`].userInput = event.target.value;
-    
+
+    //console.log(questionContent);
     // Output test displaying user input
     let output = "";
     for (let i = 1; i <= Object.keys(questionContent).length; i++) {
@@ -24,35 +26,25 @@ question.addEventListener('change', (event) => {
     console.log(output += "end");
 });
 
-question.addEventListener('submit', () => {
-    console.log("Submit");
-    window.location.href = "./index.html";
-});
-
 /* -----page-functions-------------------------------------------------------------------------------------- */
 
 /* Create questions from JSON Object */
 function makePage(form, quesNum, formNum) {
-    console.log(quesNum + ":" + Object.keys(questionContent).length);
-    if (Object.keys(questionContent).length == quesNum) {
-        console.log("Indside if");
-        makeButton(`${MAINFORM}`, "submit", "submitBtn", "Send JSON obj til server og gå til ARC");
-        return;
-    };
-
+    if (Object.keys(questionContent).length == quesNum) return;
+    
     let currentQuestion = Object.keys(questionContent)[quesNum];
     let numOfButtons = Object.keys(questionContent[`${currentQuestion}`].choices).length;
     
     new Promise(function(resolve, reject) {
         document.querySelector(`#${form}`).addEventListener('change', () => {
             addFormElement(`form${formNum}`, 
-                           `${currentQuestion}`, 
-                           questionContent[`${currentQuestion}`].ask, 
-                           "radio", numOfButtons);
+            `${currentQuestion}`, 
+            questionContent[`${currentQuestion}`].ask, 
+            "radio", numOfButtons);
             resolve();
         }, {once: true});
     })
-
+    
     .then(function() {
         quesNum++;
         formNum++;
@@ -88,11 +80,11 @@ function addFormElement(formID, questionID, questionName, typeOfButton, numOfBut
 function initPage(quesNum, formNum) {
     let currentQuestion = Object.keys(questionContent)[quesNum];
     let numOfButtons = Object.keys(questionContent[`${currentQuestion}`].choices).length;
-
+    
     addFormElement(`form${formNum}`, 
-                   `${currentQuestion}`, 
-                   questionContent[`${currentQuestion}`].ask, 
-                   "radio", numOfButtons);
+    `${currentQuestion}`, 
+    questionContent[`${currentQuestion}`].ask, 
+    "radio", numOfButtons);
 };
 
 /* Add button to quistion */
@@ -116,3 +108,12 @@ function addLineBreak(id) {
     const lineBreak = document.createElement('br');
     return element.appendChild(lineBreak);
 }
+
+/* Add submit button to the end of page */
+function makeSubmitButton() {
+    const numOfLastQuestion = Object.keys(questionContent).length;
+    $(`#${MAINFORM}`).one("change", `#form${numOfLastQuestion}`, () => {
+        makeButton(`${MAINFORM}`, "submit", "submitBtn", "Send JSON obj til server og gå til ARC");
+        document.querySelector('[name="submitBtn"]').setAttribute("onclick", "location.href='index.html'");
+    }); 
+};
