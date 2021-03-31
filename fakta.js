@@ -1,4 +1,8 @@
-//Make a href link in html
+//Make a href link in html, takes 4 strings as input
+//element = the type of html element wanted to be made
+//button_title = is the title of the button when viewed in a browser
+//link = is the link where the href leads too
+// append_to_element = is which element the href will be appended too
 function make_href(
   element = "",
   button_title = "",
@@ -21,7 +25,14 @@ function make_href(
 make_href("a", "Hjem", "index.html", "fakta_topnav");
 make_href("a", "Profil", "brugerprofil.html", "fakta_topnav");
 
-//make 2 elements in html and remove previous if any present
+//make 2 elements in html and remove previous if any present, takes 7 strings as input
+// element = the first html element wanted to be made
+// element2 = the second html element wanted to be made
+// text = text for the first element
+// text2 = text for the second element
+// append = where the elements should be appended too
+// id1 = id for the first element created
+// id2 = id for the second element created
 function make_paragraph(
   element = "",
   text = "",
@@ -48,7 +59,11 @@ function make_paragraph(
   document.getElementById(append).appendChild(type);
   document.getElementById(append).appendChild(type2);
 }
-//make a button in html
+//make a button in html it takes 4 strings as input
+// element is the kind of element that is wanted to be made
+// text is the text on the button viewed in the browser
+//id_of_btn is the id for the button
+// nav_bar is which navbar the button should be appended too
 function make_button(element = "", text = "", id_of_btn = "", nav_bar = "") {
   let type = document.createElement(element);
 
@@ -60,7 +75,9 @@ function make_button(element = "", text = "", id_of_btn = "", nav_bar = "") {
   type.value = text_in_box;
   document.getElementById(nav_bar).appendChild(type);
 }
-
+//function to input picture in html takes 2 strings as input
+//picture is the location of the picture
+//append is where the picture should be appended too
 function input_picture(picture = "", append = "") {
   let type = document.createElement("img");
 
@@ -75,7 +92,7 @@ make_button("Button", "Den specifikke kategori", "1", "fakta_topnav");
 make_button("Button", "Om - SORA", "2", "fakta_topnav");
 make_button("Button", "Hvem er vi", "3", "fakta_topnav");
 
-//array til sidenav
+//array with names to sidenav
 let j = [
   "SORA - Trin 1",
   "SORA - Trin 2-3",
@@ -103,6 +120,7 @@ function choose_correct_text() {
       document.getElementById(j).remove();
     }
   }
+  //if the button with id of 1 is pressed, create the following html elements
   if (event.target.id === "1") {
     make_paragraph(
       "h1",
@@ -113,7 +131,9 @@ function choose_correct_text() {
       "14",
       "15"
     );
-  } else if (event.target.id === "2") {
+  }
+  //if the button with id of 2 is pressed, create the following html elements
+  else if (event.target.id === "2") {
     //Make buttons to the different sora steps
     let p = 0;
     for (let i = 4; i <= 12; i++) {
@@ -129,7 +149,9 @@ function choose_correct_text() {
       "16",
       "17"
     );
-  } else if (event.target.id === "3") {
+  }
+  //if the button with id of 3 is pressed, create the following html elements
+  else if (event.target.id === "3") {
     make_paragraph(
       "h1",
       "Skaberne",
@@ -143,11 +165,13 @@ function choose_correct_text() {
 }
 //Text function for sidebar
 function choose_correct_text_2() {
+  //remove textboxes from previously pressed buttons in the sidenav bar
   for (let j = 20; j <= 1000; j++) {
     if (document.getElementById(j) !== null) {
       document.getElementById(j).remove();
     }
   }
+  //if the button with id of 4 is pressed, create the following html elements
   if (event.target.id === "4") {
     make_paragraph(
       "h1",
@@ -167,7 +191,9 @@ function choose_correct_text_2() {
       "22",
       "23"
     );
-  } else if (event.target.id === "5") {
+  }
+  //if the button with id of 5 is pressed, create the following html elements
+  else if (event.target.id === "5") {
     make_paragraph(
       "h1",
       "Ground Risk Class (GRC)",
@@ -199,7 +225,9 @@ function choose_correct_text_2() {
     input_picture("Pictures/Table2_GRC_det(ny).png", "28");
     input_picture("Pictures/Table_3_mitigations_for_GRC.png", "27");
     input_picture("Pictures/Level_of_Robustness_det.PNG", "27");
-  } else if (event.target.id === "6") {
+  }
+  //if the button with id of 6 is pressed, create the following html elements
+  else if (event.target.id === "6") {
     make_paragraph(
       "h1",
       "Air Risk Class (ARC)",
@@ -221,7 +249,9 @@ function choose_correct_text_2() {
       "37"
     );
     input_picture("Pictures/ArcAssignmentProcess.png", "37");
-  } else if (event.target.id === "8") {
+  }
+  //if the button with id of 8 is pressed, create the following html elements
+  else if (event.target.id === "8") {
     make_paragraph(
       "h1",
       "Tactical Mitigation Performance Requirement (TMPR)",
@@ -269,7 +299,9 @@ function choose_correct_text_2() {
       "49"
     );
     input_picture("Pictures/annex_d_table_4.png", "49");
-  } else if (event.target.id === "9") {
+  }
+  //if the button with id of 9 is pressed, create the following html elements
+  else if (event.target.id === "9") {
     make_paragraph(
       "h1",
       "Specific Assurance and Integrity Levels (SAIL) & Operational Safety Objectives (OSO)",
@@ -279,7 +311,9 @@ function choose_correct_text_2() {
       "49",
       "50"
     );
-  } else if (event.target.id === "10") {
+  }
+  //if the button with id of 10 is pressed, create the following html elements
+  else if (event.target.id === "10") {
     make_paragraph(
       "h1",
       "Operational safety Objectives",
@@ -317,7 +351,9 @@ function choose_correct_text_2() {
       "58"
     );
     input_picture("Pictures/SAIL_Tabel.png", "58");
-  } else if (event.target.id === "11") {
+  }
+  //if the button with id of 11 is pressed, create the following html elements
+  else if (event.target.id === "11") {
     make_paragraph(
       "h1",
       "Luftrumsovervejelser",
@@ -345,7 +381,9 @@ function choose_correct_text_2() {
       "63",
       "64"
     );
-  } else if (event.target.id === "12") {
+  }
+  //if the button with id of 12 is pressed, create the following html elements
+  else if (event.target.id === "12") {
     make_paragraph(
       "h1",
       "Sikkerhedsportefølje",
@@ -391,7 +429,9 @@ function choose_correct_text_2() {
       "73",
       "74"
     );
-  } else if (event.target.id === "7") {
+  }
+  //if the button with id of 7 is pressed, create the following html elements, as of now we have choosen not to take the 5th step into account
+  else if (event.target.id === "7") {
     make_paragraph("p", "hej");
   }
 }
