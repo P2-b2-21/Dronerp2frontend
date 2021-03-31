@@ -127,6 +127,7 @@ applyBtn.addEventListener('click', () => {
 
 //Application properties function
 function CreateForm(){
+    ansBtn.disabled = true;
     let formDiv = document.createElement("div");
     let form = document.createElement("form");
     form.setAttribute("id", "newAppForm");
@@ -144,7 +145,22 @@ function CreateForm(){
     appComment.setAttribute("placeholder", "Eventuelle kommentarer til ansøgningen");
     appComment.setAttribute("id", "appComment");
     form.appendChild(appComment);
+
+    let appBack = document.createElement("button");
+    appBack.setAttribute("id", "appBack");
+    appBack.innerHTML = "Tilbage";
+    appBack.setAttribute("type", "button");
     
+    appBack.addEventListener('click', () => {
+        formDiv.remove();
+    });
+    form.appendChild(appBack);
+
+    let appSubmit = document.createElement("button");
+    appSubmit.setAttribute("id", "appSubmit");
+    appSubmit.innerHTML = "Opret";
+    form.appendChild(appSubmit);
+
     formDiv.appendChild(form);
     document.querySelector(".userContainer").appendChild(formDiv);
 };
