@@ -33,7 +33,21 @@
         "choices": {
             "choice0": {
                 "text": "Ja",
-                "value": "sub-question"
+                "value": "subquestion",
+                "subquestion0": {
+                    "userInput": "",
+                    "ask": "Er OPS i Class B, C eller D luftrum?",
+                    "choices": {
+                        "choice0": {
+                            "text": "Ja",
+                            "value": "ARC-d"
+                        },
+                        "choice1":{
+                            "text":"Nej",
+                            "value": "ARC-c"
+                        }
+                    }
+                }
             },
             "choice1": {
                 "text": "Nej",
@@ -47,11 +61,115 @@
         "choices": {
             "choice0": {
                 "text": "Ja",
-                "value": "sub-question"
+                "value": "subquestion",
+                "subquestion0": {
+                    "userInput": "",
+                    "ask": "OPS indenfor Mode S-Veil/TMZ?",
+                    "choices": {
+                        "choice0": {
+                            "text": "Ja",
+                            "value": "ARC-d"
+                        },
+                        "choice1":{
+                            "text":"Nej",
+                            "value": "subquestion",
+                            "subquestion1": {
+                                "userInput": "",
+                                "ask": "OPS i kontrolleret luftrum?",
+                                "choices": {
+                                    "choice0": {
+                                        "text": "Ja",
+                                        "value": "ARC-d"
+                                    },
+                                    "choice1":{
+                                        "text":"Nej",
+                                        "value": "subquestion",
+                                        "subquestion2": {
+                                            "userInput": "",
+                                            "ask": "OPS i ukontrolleret luftrum over byområde?",
+                                            "choices": {
+                                                "choice0": {
+                                                    "text": "Ja",
+                                                    "value": "ARC-c"
+                                                },
+                                                "choice1":{
+                                                    "text":"Nej",
+                                                    "value": "subquestion",
+                                                    "subquestion3": {
+                                                        "userInput": "",
+                                                        "ask": "OPS i ukontrolleret luftrum over landdistrikt?",
+                                                        "choices": {
+                                                            "choice0": {
+                                                                "text": "Ja",
+                                                                "value": "ARC-c"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "choice1": {
                 "text": "Nej",
-                "value": "sub-question"
+                "value": "subquestion",
+                "subquestion0": {
+                    "userInput": "",
+                    "ask": "OPS indenfor Mode S-Veil/TMZ?",
+                    "choices": {
+                        "choice0": {
+                            "text": "Ja",
+                            "value": "ARC-c"
+                        },
+                        "choice1": {
+                            "text": "Nej",
+                            "value": "subquestion",
+                            "subquestion1": {
+                                "userInput": "",
+                                "ask": "OPS i kontrolleret luftrum?",
+                                "choices": {
+                                    "choice0": {
+                                        "text": "Ja",
+                                        "value": "ARC-c"
+                                    },
+                                    "choice1": {
+                                        "text": "Nej",
+                                        "value": "subquestion",
+                                        "subquestion2": {
+                                            "userInput": "",
+                                            "ask": "OPS i ukontrolleret luftrum over byområde?",
+                                            "choices": {
+                                                "choice0": {
+                                                    "text": "Ja",
+                                                    "value": "ARC-c"
+                                                },
+                                                "choice1":{
+                                                    "text":"Nej",
+                                                    "value": "subquestion",
+                                                    "subquestion3": {
+                                                        "userInput": "",
+                                                        "ask": "OPS i ukontrolleret luftrum over landdistrikt?",
+                                                        "choices": {
+                                                            "choice0": {
+                                                                "text": "Ja",
+                                                                "value": "ARC-b"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
