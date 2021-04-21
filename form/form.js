@@ -17,6 +17,10 @@ question.addEventListener('change', (event) => {
     
     questionContent[`${event.target.name}`].userInput = event.target.value;
 
+    /* For disabling answers in GRC questions dynamically */ 
+    if (event.target.value === "B4") document.querySelector("input[value='D5']").disabled = true;
+    if (event.target.value === "A4") document.querySelector("input[value='D5']").disabled = false;
+
     //console.log(questionContent);
     // Output test displaying user input
     let output = "";

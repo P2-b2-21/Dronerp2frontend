@@ -93,7 +93,7 @@
             },
             "choice3": {
                 "text": "NONE (SPG4; Nej -> leaveout/grayout)",
-                "value": "C5"
+                "value": "D5"
             }
         }
     },
