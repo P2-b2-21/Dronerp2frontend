@@ -899,6 +899,20 @@ document.getElementById("sailDiv").innerHTML = txt;
 
 //Convert to pdf
 function GeneratePDF() {
-    let element = document.getElementById("sailDiv");
-    html2pdf(element);
+
+    let specialEventHandlers = {
+        "#editor": function (element, renderer) {
+            return true;
+        }
+    };
+
+    let doc = new jsPDF({
+        orientation: "landscape",
+    });
+
+    doc.fromHTML($("#sailDiv").html(), 15, 15, {
+        "width": 170,
+        "elementHandlers": specialEventHandlers
+    });
+    doc.save("sailPDF_test");
 }
