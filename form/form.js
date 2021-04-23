@@ -172,7 +172,14 @@ function makeSubmitButton() {
         parseInt(output[6])
       );
       console.log(output);
+
+      console.log(GRC)
+
+      postGRCToServer(GRC);
+
+
     });
+    
   });
 }
 let GRCMatrix = [
@@ -187,7 +194,12 @@ let mitigationMatrix = [
   [0, 0, -1, -2],
   [0, 1, 0, -1],
 ];
-let GRC = 0;
+
+let GRC = {
+  GRC: 5,
+  helloThere: 10
+};
+
 function calculateGRC(lenght, los, type) {
   let y = 0;
   if (type > 0) {
@@ -210,14 +222,18 @@ function mitigateGrc(attToGround, parachute, erp, robustness) {
   return GRC;
 }
 
-fetch("/http://server.malthelarsen.dk:3000/GRC", {
-  method: "POST",
-  body: GRC,
+function postGRCToServer(grcToPost){
+  console.log(grcToPost);
+fetch('http://server.malthelarsen.dk:3000/GRC',
+{
+  method: 'POST',
+  body: JSON.stringify(grcToPost),
+  headers: {
+    'Content-Type': 'application/json'
+  }
 })
-  .then((response) => response.json())
-  .then((result) => {
-    console.log("Succes" + result);
-  })
-  .catch((error) => {
-    console.log("Error" + error);
-  });
+.then(res => {
+  if (res.ok)
+  console.log("Ok" + res);
+})
+}
