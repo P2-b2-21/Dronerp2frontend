@@ -13,18 +13,35 @@ fetch(`questions_${MAINFORM}.json`)
     makeSubmitButton();
   });
 
+let width = 0;
+
+/*function move() {
+        if (width >= 100) {
+          return;
+        }
+      
+        let elem = document.getElementById("myBar");
+        width += Math.ceil(100 / Object.keys(questionContent).length);
+        elem.style.width = width + "%";
+        elem.innerHTML = width + "%";
+      
+        if (width >= 100) {
+          elem.innerHTML = width = 100 + "%";
+        }
+      }*/
+let output = [];
 /* Log user input */
 const question = document.querySelector(`#${MAINFORM}`);
 question.addEventListener("change", (event) => {
-  questionContent[`${event.target.name}`].userInput = event.target.value;
+  /*if (width < 100) {
+          move();
+        }*/
+  output.push(
+    (questionContent[`${event.target.name}`].userInput = event.target.value)
+  );
 
   //console.log(questionContent);
   // Output test displaying user input
-  let output = "";
-  for (let i = 1; i <= Object.keys(questionContent).length; i++) {
-    output += questionContent[`question${i}`].userInput + "-> ";
-  }
-  console.log((output += "end"));
 });
 
 /* -----page-functions-------------------------------------------------------------------------------------- */
@@ -64,7 +81,7 @@ function makePage(form, quesNum, formNum) {
   );
 }
 
-/* Add question with choices to DOM tree */
+/* Add quistion with choices to DOM tree */
 function addFormElement(
   formID,
   questionID,
@@ -108,7 +125,7 @@ function initPage(quesNum, formNum) {
   );
 }
 
-/* Add button to question */
+/* Add button to quistion */
 function makeButton(idElement, typeOfButton, name, value, textContent) {
   const element = document.querySelector(`#${idElement}`);
 
@@ -129,8 +146,8 @@ function addLineBreak(id) {
   const lineBreak = document.createElement("br");
   return element.appendChild(lineBreak);
 }
-
 /* Add submit button to the end of page */
+
 function makeSubmitButton() {
   const numOfLastQuestion = Object.keys(questionContent).length;
   $(`#${MAINFORM}`).one("change", `#form${numOfLastQuestion}`, () => {
@@ -140,52 +157,67 @@ function makeSubmitButton() {
       "submitBtn",
       "Send JSON obj til server og gå til ARC"
     );
-    document
-      .querySelector('[name="submitBtn"]')
-      .setAttribute("onclick", "location.href='index.html'");
+
+    let sbtn = document.querySelector('[name="submitBtn"]');
+    sbtn.addEventListener("click", () => {
+      calculateGRC(
+        parseInt(output[0]),
+        parseInt(output[1]),
+        parseInt(output[2])
+      );
+      mitigateGrc(
+        parseInt(output[3]),
+        parseInt(output[4]),
+        parseInt(output[5]),
+        parseInt(output[6])
+      );
+      console.log(output);
+    });
   });
 }
-
 let GRCMatrix = [
   [1, 2, 3, 4, 5, 7, 8],
   [2, 3, 4, 5, 6],
   [3, 4, 5, 6, 8],
   [4, 5, 6, 8, 10],
 ];
-
-let GRCAnswer = {
-  droneLength: {
-    oneMeter: 0,
-    threeMeter: 1,
-    eightMeter: 2,
-    aboveEightMeter: 3,
-  },
-  lineOfSight: {
-    VLOS: 0,
-    BVLOS: 1,
-  },
-  flightType: {
-    Controlled: 0,
-    SparsleyPopulated: 1,
-    Populated: 3,
-    Gathering: 5,
-  },
-};
-
-function calculateGRC(Length = 0, LOS = 0, type = 0) {
-  let y = type > 0 ? type + LOS : 0;
-  console.log("Drone Length: " + LOS);
-  console.log("Los: " + LOS);
-  console.log("Flight Type: " + type);
-  return GRCMatrix[Length][y];
+let mitigationMatrix = [
+  [0, 0, 0, 0],
+  [0, -1, -2, -4],
+  [0, 0, -1, -2],
+  [0, 1, 0, -1],
+];
+let GRC = 0;
+function calculateGRC(lenght, los, type) {
+  let y = 0;
+  if (type > 0) {
+    y = los + type;
+  } else {
+    y = 0;
+  }
+  GRC = GRCMatrix[lenght][y];
+  return GRC;
 }
-const GRC = calculateGRC(
-  GRCAnswer.droneLength.threeMeter,
-  GRCAnswer.lineOfSight.BVLOS,
-  GRCAnswer.flightType.SparsleyPopulated
-);
-if (GRC) {
-  console.log("\x1b[32mDu har en GRC på: " + GRC); //Grøn Farve
-} else {
-  console.log("\x1b[31mIngen GRC fundet"); //Rød farve
+function mitigateGrc(attToGround, parachute, erp, robustness) {
+  if (robustness === 0) {
+    return GRC;
+  } else {
+    GRC = GRC + mitigationMatrix[attToGround][robustness];
+    GRC = GRC + mitigationMatrix[parachute][robustness];
+    GRC = GRC + mitigationMatrix[erp][robustness];
+  }
+  console.log(GRC);
+  return GRC;
 }
+
+fetch("/http://server.malthelarsen.dk:3000/GRC", {
+  method: "POST",
+  body: GRC,
+})
+  .then((response) => response.json())
+  .then((result) => {
+    console.log("Succes" + result);
+  })
+  .catch((error) => {
+    console.log("Error" + error);
+  });
