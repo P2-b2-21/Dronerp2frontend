@@ -1,0 +1,290 @@
+{
+    "OSO#1":{
+        "category": "Technical issue with the UAS",
+        "description": "Ensure the operator is competent and/or proven",
+        "level": {
+            "1": "Optional",
+            "2": "Low",
+            "3": "Medium",
+            "4": "High",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#2":{
+        "category": "Technical issue with the UAS",
+        "description": "UAS manufactured by competent and/or proven entity",
+        "level": {
+            "1": "Optional",
+            "2": "Optional",
+            "3": "Low",
+            "4": "Medium",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#3":{
+        "category": "Technical issue with the UAS",
+        "description": "UAS maintained by competent and/or proven entity",
+        "level": {
+            "1": "Low",
+            "2": "Low",
+            "3": "Medium",
+            "4": "Medium",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#4":{
+        "category": "Technical issue with the UAS",
+        "description": "UAS developed to authority recognized design standards",
+        "level": {
+            "1": "Optional",
+            "2": "Optional",
+            "3": "Optional",
+            "4": "Low",
+            "5": "Medium",
+            "6": "High"
+        }
+    },
+    "OSO#5":{
+        "category": "Technical issue with the UAS",
+        "description": "UAS is designed considering system safety and reliability",
+        "level": {
+            "1": "Optional",
+            "2": "Optional",
+            "3": "Low",
+            "4": "Medium",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#6":{
+        "category": "Technical issue with the UAS",
+        "description": "C3 link performance is appropriate for the operation",
+        "level": {
+            "1": "Optional",
+            "2": "Low",
+            "3": "Low",
+            "4": "Medium",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#7":{
+        "category": "Technical issue with the UAS",
+        "description": "Inspection of the UAS (product inspection) to ensure consistency to the ConOps",
+        "level": {
+            "1": "Low",
+            "2": "Low",
+            "3": "Medium",
+            "4": "Medium",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#8":{
+        "category": "Technical issue with the UAS",
+        "description": "Operational procedures are defined, validated and adhered to",
+        "level": {
+            "1": "Low",
+            "2": "Medium",
+            "3": "High",
+            "4": "High",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#9":{
+        "category": "Technical issue with the UAS",
+        "description": "Remote crew trained and current and able to control the abnormal situation",
+        "level": {
+            "1": "Low",
+            "2": "Low",
+            "3": "Medium",
+            "4": "Medium",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#10":{
+        "category": "Technical issue with the UAS",
+        "description": "Safe recovery from technical issue",
+        "level": {
+            "1": "Low",
+            "2": "Low",
+            "3": "Medium",
+            "4": "Medium",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#11":{
+        "category": "Deterioration of external systems supporting UAS operation",
+        "description": "Procedures are in-place to handle the deterioration of external systems supporting UAS operation",
+        "level": {
+            "1": "Low",
+            "2": "Medium",
+            "3": "High",
+            "4": "High",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#12":{
+        "category": "Deterioration of external systems supporting UAS operation",
+        "description": "The UAS is designed to manage the deterioration of external systems supporting UAS operation",
+        "level": {
+            "1": "Low",
+            "2": "Low",
+            "3": "Medium",
+            "4": "Medium",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#13":{
+        "category": "Deterioration of external systems supporting UAS operation",
+        "description": "External services supporting UAS operations are adequate to the operation",
+        "level": {
+            "1": "Low",
+            "2": "Low",
+            "3": "Medium",
+            "4": "High",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#14":{
+        "category": "Human Error",
+        "description": "Operational procedures are defined, validated and adhered to",
+        "level": {
+            "1": "Low",
+            "2": "Medium",
+            "3": "High",
+            "4": "High",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#15":{
+        "category": "Human Error",
+        "description": "Remote crew trained and current and able to control the abnormal situation",
+        "level": {
+            "1": "Low",
+            "2": "Low",
+            "3": "Medium",
+            "4": "Medium",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#16":{
+        "category": "Human Error",
+        "description": "Multi crew coordination",
+        "level": {
+            "1": "Low",
+            "2": "Low",
+            "3": "Medium",
+            "4": "Medium",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#17":{
+        "category": "Human Error",
+        "description": "Remote crew is fit to operate",
+        "level": {
+            "1": "Low",
+            "2": "Low",
+            "3": "Medium",
+            "4": "Medium",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#18":{
+        "category": "Human Error",
+        "description": "Automatic protection of the flight envelope from Human Error",
+        "level": {
+            "1": "Optional",
+            "2": "Optional",
+            "3": "Low",
+            "4": "Medium",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#19":{
+        "category": "Human Error",
+        "description": "Safe recovery from Human Error",
+        "level": {
+            "1": "Optional",
+            "2": "Optional",
+            "3": "Low",
+            "4": "Medium",
+            "5": "Medium",
+            "6": "High"
+        }
+    },
+    "OSO#20":{
+        "category": "Human Error",
+        "description": "A Human Factors evaluation has been performed and the HMI found appropriate for the mission",
+        "level": {
+            "1": "Optional",
+            "2": "Low",
+            "3": "Low",
+            "4": "Medium",
+            "5": "Medium",
+            "6": "High"
+        }
+    },
+    "OSO#21":{
+        "category": "Adverse operating conditions",
+        "description": "Operational procedures are defined, validated and adhered to",
+        "level": {
+            "1": "Low",
+            "2": "Medium",
+            "3": "High",
+            "4": "High",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#22":{
+        "category": "Adverse operating conditions",
+        "description": "The remote crew is trained to identify critical environmental conditions and to avoid them",
+        "level": {
+            "1": "Low",
+            "2": "Low",
+            "3": "Medium",
+            "4": "Medium",
+            "5": "Medium",
+            "6": "High"
+        }
+    },
+    "OSO#23":{
+        "category": "Adverse operating conditions",
+        "description": "Environmental conditions for safe operations defined, measurable and adhered to",
+        "level": {
+            "1": "Low",
+            "2": "Low",
+            "3": "Medium",
+            "4": "Medium",
+            "5": "High",
+            "6": "High"
+        }
+    },
+    "OSO#24":{
+        "category": "Adverse operating conditions",
+        "description": "UAS designed and qualified for adverse environmental conditions",
+        "level": {
+            "1": "Optional",
+            "2": "Optional",
+            "3": "Medium",
+            "4": "High",
+            "5": "High",
+            "6": "High"
+        }
+    }
+}
