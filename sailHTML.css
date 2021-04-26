@@ -1,0 +1,13 @@
+#sailDiv table{
+    border-radius: 3px;
+    white-space: pre-line;
+    width: auto;
+}
+#sailDiv input{
+    border-radius: 7px;
+    height: 100px;
+    border: none;
+}
+body{
+    
+}
