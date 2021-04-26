@@ -1,45 +1,84 @@
-/* On page load
+/* **********************
+   On page load
    initialising and making page
-   with JSON data from server   */
+   with JSON data from server 
+   **********************  
+*/
 let questionContent = {};
 fetch(`questions_${MAINFORM}.json`)
 .then((response) => {return response.json()})
 .then((data) => {
     questionContent = data;
     initPage(0, 1);
-    //makeSubQuestionsOf("question4");     // change question
     makePage("form1", 1, 2);
-    makeSubmitButton();
 });
 
-// Log user input
-let userInput = "";
 const question = document.querySelector(`#${MAINFORM}`);
-question.addEventListener('change', (event) => {
-    console.log(event.target.value);
-    userInput += "," + event.target.value;
-    
-    // Output test displaying user input
-    let output = "";
-    for (let i = 1; i <= Object.keys(questionContent).length; i++) {
-        output += questionContent[`question${i}`].userInput + "-> ";
-    }
-    console.log(output += "end");
-});
 
-
-
+/*
+   ********************** 
+   GRC handling
+   **********************
+*/ 
 
 if (MAINFORM === "GRC") {
     console.log(`questions_${MAINFORM}.json.. loaded`)
+
+    makeSubmitButton(postFinalGRC, "POSTING TO SERVER & GOES TO ARC", "arc.html");
+
+    let output = [];
+
+    question.addEventListener('change', (event) => {
+        const numOfLastQuestion = Object.keys(questionContent).length;
+
+        if (event.target.parentNode.parentNode.id === `form${numOfLastQuestion}`) {
+
+            // Make submit button available
+            document.querySelector('[name="submitBtn"]').disabled = false;
+        } else {
+
+            // Gray out toggle submit button
+            document.querySelector('[name="submitBtn"]').disabled = true
+        }
+
+        // Log user input
+        output.push((questionContent[`${event.target.name}`].userInput = event.target.value));
+        console.log(output);
+    });
     
+    let GRCMatrix = [
+        [1, 2, 3, 4, 5, 7, 8],
+        [2, 3, 4, 5, 6],
+        [3, 4, 5, 6, 8],
+        [4, 5, 6, 8, 10],
+    ];
+
+    let mitigationMatrix = [
+        [0, 0, 0, 0],
+        [0, -1, -2, -4],
+        [0, 0, -1, -2],
+        [0, 1, 0, -1],
+    ];
+      
+    let GRC = {
+        GRC: 5,
+        helloThere: 10
+    };
 };
+
+/*
+   ********************** 
+   ARC handling
+   **********************
+*/ 
 
 if (MAINFORM === "ARC") {
     console.log(`questions_${MAINFORM}.json.. loaded`)
     
-    // Når form && subquestiong: lav ny subquesting path
-    // Når subform: style.display = "none" for alle subquestion siblings -> findAllNextElementSiblings.forEach((element)), element.style.display = "none"
+    makeSubmitButton(postFinalARC, "POSTING TO SERVER & GOES TO BRUGERPROFIL", "../brugerprofil.html");
+
+    let userInput = [];
+
     question.addEventListener('change', (event) => {    
         let currNode = event.target.parentNode.parentNode;
         
@@ -93,33 +132,24 @@ if (MAINFORM === "ARC") {
             let nextID = currNode.nextSibling.childNodes[0].id
             document.querySelector(`#${nextID}`).style.display = "";
         }
+
+        // Log user input
+        userInput += "," + event.target.value;
+        console.log(userInput);
     });
 };
     
-    /* ----------------------------------------------------------------------------------------------------------------------------------- */
+ /*
+   ********************** 
+   Page functions
+   **********************
+*/ 
     
-    
-    function addSubFormElement(formID, questionID, questionName, typeOfButton, numOfButtons) {
-        const mainForm = document.querySelector(`#${MAINFORM}`);
-        const newForm = document.createElement('form');
-        newForm.id = formID;
-        mainForm.appendChild(newForm);
-        
-        const form = document.querySelector(`#${formID}`);
-        const newElement = document.createElement("fieldset");
-        newElement.id = questionID;
-        newElement.innerHTML = `<legend> ${questionName} </legend>`;
-        
-        newElement.style.display = "none";
-        
-        form.appendChild(newElement);
-    };
-    
-    /* Create questions from JSON Object */
-    function makePage(form, quesNum, formNum) {
+/* Create questions from JSON Object */
+function makePage(form, quesNum, formNum) {
     if (Object.keys(questionContent).length == quesNum) return;
     
-    /* do name change */
+    // TODO: do name change */
     let currentQuestion = Object.keys(questionContent)[quesNum];
     console.log("currentQuestion: " + currentQuestion);
     
@@ -159,46 +189,46 @@ function initSubQuestionButtons() {
             event.target.parentNode.parentNode.nextSibling.style.display = "none";
             document.querySelector('#subquestion0').style.display = "";
             
+        makeButton(`subquestion${0}`, 'radio', `subquestion${0}`, "ARC-d", "Ja");
+        addLineBreak(`subquestion${0}`);
+        makeButton(`subquestion${0}`, 'radio', `subquestion${0}`, "ARC-c", "Nej");
+    }
+    break;
+    case "question4": {
+        if (event.target.nextSibling.innerText === "Ja") {
             makeButton(`subquestion${0}`, 'radio', `subquestion${0}`, "ARC-d", "Ja");
             addLineBreak(`subquestion${0}`);
-            makeButton(`subquestion${0}`, 'radio', `subquestion${0}`, "ARC-c", "Nej");
+            makeButton(`subquestion${0}`, 'radio', `subquestion${0}`, "subquestion", "Nej");
+            
+            makeButton(`subquestion${1}`, 'radio', `subquestion${1}`, "ARC-d", "Ja");
+            addLineBreak(`subquestion${1}`);
+            makeButton(`subquestion${1}`, 'radio', `subquestion${1}`, "subquestion", "Nej");
+            
+            makeButton(`subquestion${2}`, 'radio', `subquestion${2}`, "ARC-c", "Ja");
+            addLineBreak(`subquestion${2}`);
+            makeButton(`subquestion${2}`, 'radio', `subquestion${2}`, "subquestion", "Nej");
+            
+            makeButton(`subquestion${3}`, 'radio', `subquestion${3}`, "ARC-c", "Ja");
+            addLineBreak(`subquestion${3}`);
+            
+        } else {
+            makeButton(`subquestion${0}`, 'radio', `subquestion${0}`, "ARC-c", "Ja");
+            addLineBreak(`subquestion${0}`);
+            makeButton(`subquestion${0}`, 'radio', `subquestion${0}`, "subquestion", "Nej");
+            
+            makeButton(`subquestion${1}`, 'radio', `subquestion${1}`, "ARC-c", "Ja");
+            addLineBreak(`subquestion${1}`);
+            makeButton(`subquestion${1}`, 'radio', `subquestion${1}`, "subquestion", "Nej");
+            
+            makeButton(`subquestion${2}`, 'radio', `subquestion${2}`, "ARC-c", "Ja");
+            addLineBreak(`subquestion${2}`);
+            makeButton(`subquestion${2}`, 'radio', `subquestion${2}`, "subquestion", "Nej");
+            
+            makeButton(`subquestion${3}`, 'radio', `subquestion${3}`, "ARC-b", "Ja");
+            addLineBreak(`subquestion${3}`);
         }
-        break;
-        case "question4": {
-            if (event.target.nextSibling.innerText === "Ja") {
-                makeButton(`subquestion${0}`, 'radio', `subquestion${0}`, "ARC-d", "Ja");
-                addLineBreak(`subquestion${0}`);
-                makeButton(`subquestion${0}`, 'radio', `subquestion${0}`, "subquestion", "Nej");
-                
-                makeButton(`subquestion${1}`, 'radio', `subquestion${1}`, "ARC-d", "Ja");
-                addLineBreak(`subquestion${1}`);
-                makeButton(`subquestion${1}`, 'radio', `subquestion${1}`, "subquestion", "Nej");
-                
-                makeButton(`subquestion${2}`, 'radio', `subquestion${2}`, "ARC-c", "Ja");
-                addLineBreak(`subquestion${2}`);
-                makeButton(`subquestion${2}`, 'radio', `subquestion${2}`, "subquestion", "Nej");
-                
-                makeButton(`subquestion${3}`, 'radio', `subquestion${3}`, "ARC-c", "Ja");
-                addLineBreak(`subquestion${3}`);
-                
-            } else {
-                makeButton(`subquestion${0}`, 'radio', `subquestion${0}`, "ARC-c", "Ja");
-                addLineBreak(`subquestion${0}`);
-                makeButton(`subquestion${0}`, 'radio', `subquestion${0}`, "subquestion", "Nej");
-                
-                makeButton(`subquestion${1}`, 'radio', `subquestion${1}`, "ARC-c", "Ja");
-                addLineBreak(`subquestion${1}`);
-                makeButton(`subquestion${1}`, 'radio', `subquestion${1}`, "subquestion", "Nej");
-                
-                makeButton(`subquestion${2}`, 'radio', `subquestion${2}`, "ARC-c", "Ja");
-                addLineBreak(`subquestion${2}`);
-                makeButton(`subquestion${2}`, 'radio', `subquestion${2}`, "subquestion", "Nej");
-                
-                makeButton(`subquestion${3}`, 'radio', `subquestion${3}`, "ARC-b", "Ja");
-                addLineBreak(`subquestion${3}`);
-            }
-        }
-        break;
+    }
+    break;
     }
 }
 
@@ -246,6 +276,22 @@ function addFormElement(formID, questionID, questionName, typeOfButton, numOfBut
     };
 };
 
+function addSubFormElement(formID, questionID, questionName, typeOfButton, numOfButtons) {
+    const mainForm = document.querySelector(`#${MAINFORM}`);
+    const newForm = document.createElement('form');
+    newForm.id = formID;
+    mainForm.appendChild(newForm);
+    
+    const form = document.querySelector(`#${formID}`);
+    const newElement = document.createElement("fieldset");
+    newElement.id = questionID;
+    newElement.innerHTML = `<legend> ${questionName} </legend>`;
+    
+    newElement.style.display = "none";
+    
+    form.appendChild(newElement);
+};
+
 /* Add first question to DOM tree */
 function initPage(quesNum, formNum) {
     let currentQuestion = Object.keys(questionContent)[quesNum];
@@ -277,31 +323,89 @@ function addLineBreak(id) {
 }
 
 /* Add submit button to the end of page */
-function makeSubmitButton() {
-
+function makeSubmitButton(postToServerFunc, value, nextPage) {
     const element = document.querySelector(`#${MAINFORM}`);
     
     button = document.createElement("input");
     button.type = "submit";
     button.name = "submitBtn";
-    button.value = "Send JSON obj til server og gå til ARC";
+    button.value = value;
     button.disabled = true;
-    button.setAttribute("onclick", "location.href='index.html'")
-
-    /* TODO: FETCH post to server */ 
-    //button.setAttribute("onclick", "console.log(userInput)");
+    button.setAttribute("onclick", `location.href='${nextPage}'`)
 
     element.insertAdjacentElement("afterend", button);
     label = document.createElement("label");
     element.insertAdjacentElement("afterend", label);
 
-    //document.querySelector('[name="submitBtn"]').setAttribute("onclick", "location.href='index.html'");
+  
+    let sbtn = document.querySelector('[name="submitBtn"]');
+    sbtn.addEventListener("click", postToServerFunc);
+}
 
-    /*
-    const numOfLastQuestion = Object.keys(questionContent).length;
-    $(`#${MAINFORM}`).one("change", `#form${numOfLastQuestion}`, () => {
-        makeButton(`${MAINFORM}`, "submit", "submitBtn", "Send JSON obj til server og gå til ARC");
-        document.querySelector('[name="submitBtn"]').setAttribute("onclick", "location.href='index.html'");
-    }); 
-    */
-};
+/*
+   ********************** 
+   GRC specific functions
+   **********************
+*/ 
+
+function postFinalGRC() {
+    calculateGRC(
+        parseInt(output[0]),
+        parseInt(output[1]),
+        parseInt(output[2])
+    );
+    mitigateGrc(
+        parseInt(output[3]),
+        parseInt(output[4]),
+        parseInt(output[5]),
+        parseInt(output[6])
+    );
+    console.log(output);
+
+    console.log(GRC)
+
+    postGRCToServer(GRC);
+}
+
+function calculateGRC(lenght, los, type) {
+    let y = 0;
+    if (type > 0) {
+      y = los + type;
+    } else {
+      y = 0;
+    }
+    GRC = GRCMatrix[lenght][y];
+    return GRC;
+}
+
+function mitigateGrc(attToGround, parachute, erp, robustness) {
+    if (robustness === 0) {
+        return GRC;
+    } else {
+        GRC = GRC + mitigationMatrix[attToGround][robustness];
+        GRC = GRC + mitigationMatrix[parachute][robustness];
+        GRC = GRC + mitigationMatrix[erp][robustness];
+    }
+    console.log(GRC);
+    return GRC;
+}
+  
+function postGRCToServer(grcToPost){
+    console.log(grcToPost);
+    fetch('http://server.malthelarsen.dk:3000/GRC',
+    {
+    method: 'POST',
+    body: JSON.stringify(grcToPost),
+    headers: {
+        'Content-Type': 'application/json'
+    }
+    })
+    .then(res => {
+    if (res.ok)
+    console.log("Ok" + res);
+    })
+}
+
+function postFinalARC() {
+    console.log("POSTING ARC");
+}
