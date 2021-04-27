@@ -1,4 +1,5 @@
 {
+"OSOia":{
     "OSO#1":{
         "category": "Technical issue with the UAS",
         "description": "Ensure the operator is competent and/or proven",
@@ -172,18 +173,18 @@
         "description": " Operational procedures are defined, validated and adhered to (to address technical issues with the UAS)",
         "low": {
             "integrity": 
-                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n o Flight planning, \n o Pre and post-flight inspections, \n o Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n o Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n o Normal procedures, \n o Contingency procedures (to cope with abnormal situations), \n o Emergency procedures (to cope with emergency situations), and \n o Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are complex and may potentially jeopardize the crew ability to respond by raising the remote crew’s workload and/or the interactions with other entities (e.g. ATM…). At a minimum, operational procedures provide: \n • a clear distribution and assignment of tasks \n • an internal checklist to ensure staff are adequately performing assigned tasks.",
+                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n - Flight planning, \n - Pre and post-flight inspections, \n - Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n - Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n - Normal procedures, \n - Contingency procedures (to cope with abnormal situations), \n - Emergency procedures (to cope with emergency situations), and \n - Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are complex and may potentially jeopardize the crew ability to respond by raising the remote crew’s workload and/or the interactions with other entities (e.g. ATM…). At a minimum, operational procedures provide: \n • a clear distribution and assignment of tasks \n • an internal checklist to ensure staff are adequately performing assigned tasks.",
             "assurance":
                 "• Operational procedures do not require validation against either a standard or a means of compliance considered adequate by the competent authority. \n • The adequacy of the operational procedures is declared, except for Emergency Procedures, which are tested."
         },
         "medium": {
             "integrity":
-                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n o Flight planning, \n o Pre and post-flight inspections, \n o Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n o Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n o Normal procedures, \n o Contingency procedures (to cope with abnormal situations), \n o Emergency procedures (to cope with emergency situations), and \n o Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Contingency/emergency procedures require manual control by the remote pilot when the UAS is usually automatically controlled. Operational procedures take human error into consideration.",
+                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n - Flight planning, \n - Pre and post-flight inspections, \n - Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n - Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n - Normal procedures, \n - Contingency procedures (to cope with abnormal situations), \n - Emergency procedures (to cope with emergency situations), and \n - Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Contingency/emergency procedures require manual control by the remote pilot when the UAS is usually automatically controlled. Operational procedures take human error into consideration.",
             "assurance":
-                "• Operational procedures are validated against standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority. \n • Adequacy of the Contingency and Emergency procedures is proven through: \n o Dedicated flight tests, or \n o Simulation provided the simulation is proven valid for the intended purpose with positive results."
+                "• Operational procedures are validated against standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority. \n • Adequacy of the Contingency and Emergency procedures is proven through: \n - Dedicated flight tests, or \n - Simulation provided the simulation is proven valid for the intended purpose with positive results."
         },
         "high": {
-            "integrity": "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n o Flight planning, \n o Pre and post-flight inspections, \n o Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n o Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n o Normal procedures, \n o Contingency procedures (to cope with abnormal situations), \n o Emergency procedures (to cope with emergency situations), and \n o Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are simple. Same as Medium. In addition, the Remote Crew receives Crew Resource Management (CRM) training.",
+            "integrity": "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n - Flight planning, \n - Pre and post-flight inspections, \n - Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n - Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n - Normal procedures, \n - Contingency procedures (to cope with abnormal situations), \n - Emergency procedures (to cope with emergency situations), and \n - Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are simple. Same as Medium. In addition, the Remote Crew receives Crew Resource Management (CRM) training.",
             "assurance": "Same as Medium. In addition: \n • Flight tests performed to validate the procedures and checklists cover the complete flight envelope or are proven to be conservative. \n • The procedures, checklists, flight tests and simulations are validated by a competent third party."
         },
         "optional": {
@@ -244,18 +245,18 @@
         "description": "Procedures are in-place to handle the deterioration of external systems supporting UAS operation",
         "low": {
             "integrity": 
-                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n o Flight planning, \n o Pre and post-flight inspections, \n o Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n o Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n o Normal procedures, \n o Contingency procedures (to cope with abnormal situations), \n o Emergency procedures (to cope with emergency situations), and \n o Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are complex and may potentially jeopardize the crew ability to respond by raising the remote crew’s workload and/or the interactions with other entities (e.g. ATM…). At a minimum, operational procedures provide: \n • a clear distribution and assignment of tasks \n • an internal checklist to ensure staff are adequately performing assigned tasks.",
+                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n - Flight planning, \n - Pre and post-flight inspections, \n - Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n - Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n - Normal procedures, \n - Contingency procedures (to cope with abnormal situations), \n - Emergency procedures (to cope with emergency situations), and \n - Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are complex and may potentially jeopardize the crew ability to respond by raising the remote crew’s workload and/or the interactions with other entities (e.g. ATM…). At a minimum, operational procedures provide: \n • a clear distribution and assignment of tasks \n • an internal checklist to ensure staff are adequately performing assigned tasks.",
             "assurance":
                 "• Operational procedures do not require validation against either a standard or a means of compliance considered adequate by the competent authority. \n • The adequacy of the operational procedures is declared, except for Emergency Procedures, which are tested."
         },
         "medium": {
             "integrity":
-                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n o Flight planning, \n o Pre and post-flight inspections, \n o Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n o Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n o Normal procedures, \n o Contingency procedures (to cope with abnormal situations), \n o Emergency procedures (to cope with emergency situations), and \n o Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Contingency/emergency procedures require manual control by the remote pilot when the UAS is usually automatically controlled. Operational procedures take human error into consideration.",
+                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n - Flight planning, \n - Pre and post-flight inspections, \n - Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n - Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n - Normal procedures, \n - Contingency procedures (to cope with abnormal situations), \n - Emergency procedures (to cope with emergency situations), and \n - Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Contingency/emergency procedures require manual control by the remote pilot when the UAS is usually automatically controlled. Operational procedures take human error into consideration.",
             "assurance":
-                "• Operational procedures are validated against standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority. \n • Adequacy of the Contingency and Emergency procedures is proven through: \n o Dedicated flight tests, or \n o Simulation provided the simulation is proven valid for the intended purpose with positive results."
+                "• Operational procedures are validated against standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority. \n • Adequacy of the Contingency and Emergency procedures is proven through: \n - Dedicated flight tests, or \n - Simulation provided the simulation is proven valid for the intended purpose with positive results."
         },
         "high": {
-            "integrity": "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n o Flight planning, \n o Pre and post-flight inspections, \n o Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n o Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n o Normal procedures, \n o Contingency procedures (to cope with abnormal situations), \n o Emergency procedures (to cope with emergency situations), and \n o Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are simple. Same as Medium. In addition, the Remote Crew receives Crew Resource Management (CRM) training.",
+            "integrity": "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n - Flight planning, \n - Pre and post-flight inspections, \n - Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n - Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n - Normal procedures, \n - Contingency procedures (to cope with abnormal situations), \n - Emergency procedures (to cope with emergency situations), and \n - Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are simple. Same as Medium. In addition, the Remote Crew receives Crew Resource Management (CRM) training.",
             "assurance": "Same as Medium. In addition: \n • Flight tests performed to validate the procedures and checklists cover the complete flight envelope or are proven to be conservative. \n • The procedures, checklists, flight tests and simulations are validated by a competent third party."
         },
         "optional": {
@@ -316,18 +317,18 @@
         "description": "Operational procedures are defined, validated and adhered to",
         "low": {
             "integrity": 
-                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n o Flight planning, \n o Pre and post-flight inspections, \n o Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n o Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n o Normal procedures, \n o Contingency procedures (to cope with abnormal situations), \n o Emergency procedures (to cope with emergency situations), and \n o Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are complex and may potentially jeopardize the crew ability to respond by raising the remote crew’s workload and/or the interactions with other entities (e.g. ATM…). At a minimum, operational procedures provide: \n • a clear distribution and assignment of tasks \n • an internal checklist to ensure staff are adequately performing assigned tasks.",
+                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n - Flight planning, \n - Pre and post-flight inspections, \n - Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n - Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n - Normal procedures, \n - Contingency procedures (to cope with abnormal situations), \n - Emergency procedures (to cope with emergency situations), and \n - Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are complex and may potentially jeopardize the crew ability to respond by raising the remote crew’s workload and/or the interactions with other entities (e.g. ATM…). At a minimum, operational procedures provide: \n • a clear distribution and assignment of tasks \n • an internal checklist to ensure staff are adequately performing assigned tasks.",
             "assurance":
                 "• Operational procedures do not require validation against either a standard or a means of compliance considered adequate by the competent authority. \n • The adequacy of the operational procedures is declared, except for Emergency Procedures, which are tested."
         },
         "medium": {
             "integrity":
-                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n o Flight planning, \n o Pre and post-flight inspections, \n o Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n o Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n o Normal procedures, \n o Contingency procedures (to cope with abnormal situations), \n o Emergency procedures (to cope with emergency situations), and \n o Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Contingency/emergency procedures require manual control by the remote pilot when the UAS is usually automatically controlled. Operational procedures take human error into consideration.",
+                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n - Flight planning, \n - Pre and post-flight inspections, \n - Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n - Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n - Normal procedures, \n - Contingency procedures (to cope with abnormal situations), \n - Emergency procedures (to cope with emergency situations), and \n - Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Contingency/emergency procedures require manual control by the remote pilot when the UAS is usually automatically controlled. Operational procedures take human error into consideration.",
             "assurance":
-                "• Operational procedures are validated against standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority. \n • Adequacy of the Contingency and Emergency procedures is proven through: \n o Dedicated flight tests, or \n o Simulation provided the simulation is proven valid for the intended purpose with positive results."
+                "• Operational procedures are validated against standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority. \n • Adequacy of the Contingency and Emergency procedures is proven through: \n - Dedicated flight tests, or \n - Simulation provided the simulation is proven valid for the intended purpose with positive results."
         },
         "high": {
-            "integrity": "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n o Flight planning, \n o Pre and post-flight inspections, \n o Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n o Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n o Normal procedures, \n o Contingency procedures (to cope with abnormal situations), \n o Emergency procedures (to cope with emergency situations), and \n o Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are simple. Same as Medium. In addition, the Remote Crew receives Crew Resource Management (CRM) training.",
+            "integrity": "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n - Flight planning, \n - Pre and post-flight inspections, \n - Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n - Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n - Normal procedures, \n - Contingency procedures (to cope with abnormal situations), \n - Emergency procedures (to cope with emergency situations), and \n - Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are simple. Same as Medium. In addition, the Remote Crew receives Crew Resource Management (CRM) training.",
             "assurance": "Same as Medium. In addition: \n • Flight tests performed to validate the procedures and checklists cover the complete flight envelope or are proven to be conservative. \n • The procedures, checklists, flight tests and simulations are validated by a competent third party."
         },
         "optional": {
@@ -372,7 +373,7 @@
             "integrity":
                 "Procedure(s) to ensure coordination between the crew members and robust and effective communication channels is (are) available and at a minimum cover: \n • assignment of tasks to the crew, \n • establishment of step-by-step communications \n In addition, the Remote Crew receives Crew Resource Management (CRM) training \n Communication devices comply with standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority",
             "assurance":
-                "• Procedures are validated against standards considered adequate by the competent authority and/or in accordance with means of compliance acceptable to that authority. • Adequacy of the procedures is proven through: \n o Dedicated flight tests, or \n o Simulation, provided the simulation is proven valid for the intended purpose with positive results. \n • Training syllabus is available. \n • The operator provides competency-based, theoretical and practical training. \n • Training syllabus is available. \n • The operator provides competency-based, theoretical and practical training."
+                "• Procedures are validated against standards considered adequate by the competent authority and/or in accordance with means of compliance acceptable to that authority. • Adequacy of the procedures is proven through: \n - Dedicated flight tests, or \n - Simulation, provided the simulation is proven valid for the intended purpose with positive results. \n • Training syllabus is available. \n • The operator provides competency-based, theoretical and practical training. \n • Training syllabus is available. \n • The operator provides competency-based, theoretical and practical training."
         },
         "high": {
             "integrity": "Procedure(s) to ensure coordination between the crew members and robust and effective communication channels is (are) available and at a minimum cover: \n • assignment of tasks to the crew, \n • establishment of step-by-step communications \n Communication devices are redundant5 and comply with standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority. \n A competent third party: \n • Validates the training syllabus. \n • Verifies the remote crew competencies.",
@@ -396,7 +397,7 @@
             "integrity":
                 "Same as Low. In addition: \n • Duty, flight duty and resting times for the remote crew are defined by the applicant and adequate for the operation. \n •The operator defines requirements appropriate for the remote crew to operate the UAS.",
             "assurance":
-                "Same as Low. In addition: \n •Remote crew duty, flight duty and the resting times policy is documented. \n • Remote crew duty cycles are logged and cover at minimum: o when the remote crew member’s duty day commences, o when the remote crew members are free from duties, o resting times within the duty cycle. \n • There is evidence that the remote crew is fit to operate the UAS."
+                "Same as Low. In addition: \n •Remote crew duty, flight duty and the resting times policy is documented. \n • Remote crew duty cycles are logged and cover at minimum: - when the remote crew member’s duty day commences, - when the remote crew members are free from duties, - resting times within the duty cycle. \n • There is evidence that the remote crew is fit to operate the UAS."
         },
         "high": {
             "integrity": "Same as Medium. In addition: \n • The remote crew is medically fit, \n • A Fatigue Risk Management. System (FRMS) is in place to manage any escalation in duty/flight duty times.",
@@ -444,7 +445,7 @@
             "integrity":
                 "Procedures and checklists that mitigate the risk of potential human errors from any person involved with the mission are defined and used. Procedures provide at a minimum: \n • a clear distribution and assignment of tasks, \n • an internal checklist to ensure staff are adequately performing assigned tasks. \n • The Remote Crew is trained to procedures and checklists. \n • The Remote Crew receives Crew Resource Management (CRM) training. \n Systems detecting and/or recovering from human errors are developed to standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority.",
             "assurance":
-                "• Procedures and checklists are validated against standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority . \n • Adequacy of the procedures and checklists is proven through: \n o Dedicated flight tests, or \n o Simulation provided the simulation is proven valid for the intended purpose with positive results. \n • Training syllabus is available. \n • The operator provides competency-based, theoretical and practical training."
+                "• Procedures and checklists are validated against standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority . \n • Adequacy of the procedures and checklists is proven through: \n - Dedicated flight tests, or \n - Simulation provided the simulation is proven valid for the intended purpose with positive results. \n • Training syllabus is available. \n • The operator provides competency-based, theoretical and practical training."
         },
         "high": {
             "integrity": "Procedures and checklists that mitigate the risk of potential human errors from any person involved with the mission are defined and used. Procedures provide at a minimum: \n • a clear distribution and assignment of tasks, \n • an internal checklist to ensure staff are adequately performing assigned tasks. \n • The Remote Crew is trained to procedures and checklists. \n • The Remote Crew receives Crew Resource Management (CRM) training. \n Same as medium.",
@@ -488,18 +489,18 @@
         "description": "Operational procedures are defined, validated and adhered to",
         "low": {
             "integrity": 
-                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n o Flight planning, \n o Pre and post-flight inspections, \n o Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n o Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n o Normal procedures, \n o Contingency procedures (to cope with abnormal situations), \n o Emergency procedures (to cope with emergency situations), and \n o Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are complex and may potentially jeopardize the crew ability to respond by raising the remote crew’s workload and/or the interactions with other entities (e.g. ATM…). At a minimum, operational procedures provide: \n • a clear distribution and assignment of tasks \n • an internal checklist to ensure staff are adequately performing assigned tasks.",
+                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n - Flight planning, \n - Pre and post-flight inspections, \n - Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n - Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n - Normal procedures, \n - Contingency procedures (to cope with abnormal situations), \n - Emergency procedures (to cope with emergency situations), and \n - Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are complex and may potentially jeopardize the crew ability to respond by raising the remote crew’s workload and/or the interactions with other entities (e.g. ATM…). At a minimum, operational procedures provide: \n • a clear distribution and assignment of tasks \n • an internal checklist to ensure staff are adequately performing assigned tasks.",
             "assurance":
                 "• Operational procedures do not require validation against either a standard or a means of compliance considered adequate by the competent authority. \n • The adequacy of the operational procedures is declared, except for Emergency Procedures, which are tested."
         },
         "medium": {
             "integrity":
-                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n o Flight planning, \n o Pre and post-flight inspections, \n o Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n o Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n o Normal procedures, \n o Contingency procedures (to cope with abnormal situations), \n o Emergency procedures (to cope with emergency situations), and \n o Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Contingency/emergency procedures require manual control by the remote pilot when the UAS is usually automatically controlled. Operational procedures take human error into consideration.",
+                "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n - Flight planning, \n - Pre and post-flight inspections, \n - Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n - Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n - Normal procedures, \n - Contingency procedures (to cope with abnormal situations), \n - Emergency procedures (to cope with emergency situations), and \n - Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Contingency/emergency procedures require manual control by the remote pilot when the UAS is usually automatically controlled. Operational procedures take human error into consideration.",
             "assurance":
-                "• Operational procedures are validated against standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority. \n • Adequacy of the Contingency and Emergency procedures is proven through: \n o Dedicated flight tests, or \n o Simulation provided the simulation is proven valid for the intended purpose with positive results."
+                "• Operational procedures are validated against standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority. \n • Adequacy of the Contingency and Emergency procedures is proven through: \n - Dedicated flight tests, or \n - Simulation provided the simulation is proven valid for the intended purpose with positive results."
         },
         "high": {
-            "integrity": "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n o Flight planning, \n o Pre and post-flight inspections, \n o Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n o Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n o Normal procedures, \n o Contingency procedures (to cope with abnormal situations), \n o Emergency procedures (to cope with emergency situations), and \n o Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are simple. Same as Medium. In addition, the Remote Crew receives Crew Resource Management (CRM) training.",
+            "integrity": "• Operational procedures appropriate for the proposed operation are defined and as a minimum cover the following elements: \n - Flight planning, \n - Pre and post-flight inspections, \n - Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation), \n - Procedures to cope with unintended adverse operating conditions (e.g. when ice is encountered during an operation not approved for icing conditions) \n - Normal procedures, \n - Contingency procedures (to cope with abnormal situations), \n - Emergency procedures (to cope with emergency situations), and \n - Occurrence reporting procedures. \n • Normal, Contingency and Emergency procedures are compiled in an Operation Manual. \n • The limitations of the external systems supporting UAS operation are defined in an Operation Manual. Operational procedures are simple. Same as Medium. In addition, the Remote Crew receives Crew Resource Management (CRM) training.",
             "assurance": "Same as Medium. In addition: \n • Flight tests performed to validate the procedures and checklists cover the complete flight envelope or are proven to be conservative. \n • The procedures, checklists, flight tests and simulations are validated by a competent third party."
         },
         "optional": {
@@ -544,7 +545,7 @@
             "integrity":
                 "Environmental conditions for safe operations are defined and reflected in the flight manual or equivalent document. \n Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation) are available and include assessment of meteorological conditions (METAR, TAFOR, etc.) with a simple recording system. \n Training covers assessment of meteorological conditions.",
             "assurance":
-                "• Training syllabus is available. \n • The operator provides competency-based, theoretical and practical training. \n • Procedures are validated against standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority. \n • The adequacy of the procedures is proved through: o Dedicated flight tests, or o Simulation provided the simulation is proven valid for the intended purpose with positive results"
+                "• Training syllabus is available. \n • The operator provides competency-based, theoretical and practical training. \n • Procedures are validated against standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority. \n • The adequacy of the procedures is proved through: - Dedicated flight tests, or - Simulation provided the simulation is proven valid for the intended purpose with positive results"
         },
         "high": {
             "integrity": "Environmental conditions for safe operations are defined and reflected in the flight manual or equivalent document. \n Procedures to evaluate environmental conditions before and during the mission (i.e. real-time evaluation) are available and include assessment of meteorological conditions (METAR, TAFOR, etc.) with a simple recording system. \n Training covers assessment of meteorological conditions.",
@@ -577,6 +578,297 @@
         "optional": {
             "integrity": "",
             "assurance": ""
+        }
+    }
+},
+    "sail":{
+        "OSO#1":{
+            "category": "Technical issue with the UAS",
+            "description": "Ensure the operator is competent and/or proven",
+            "level": {
+                "1": "Optional",
+                "2": "Low",
+                "3": "Medium",
+                "4": "High",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#2":{
+            "category": "Technical issue with the UAS",
+            "description": "UAS manufactured by competent and/or proven entity",
+            "level": {
+                "1": "Optional",
+                "2": "Optional",
+                "3": "Low",
+                "4": "Medium",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#3":{
+            "category": "Technical issue with the UAS",
+            "description": "UAS maintained by competent and/or proven entity",
+            "level": {
+                "1": "Low",
+                "2": "Low",
+                "3": "Medium",
+                "4": "Medium",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#4":{
+            "category": "Technical issue with the UAS",
+            "description": "UAS developed to authority recognized design standards",
+            "level": {
+                "1": "Optional",
+                "2": "Optional",
+                "3": "Optional",
+                "4": "Low",
+                "5": "Medium",
+                "6": "High"
+            }
+        },
+        "OSO#5":{
+            "category": "Technical issue with the UAS",
+            "description": "UAS is designed considering system safety and reliability",
+            "level": {
+                "1": "Optional",
+                "2": "Optional",
+                "3": "Low",
+                "4": "Medium",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#6":{
+            "category": "Technical issue with the UAS",
+            "description": "C3 link performance is appropriate for the operation",
+            "level": {
+                "1": "Optional",
+                "2": "Low",
+                "3": "Low",
+                "4": "Medium",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#7":{
+            "category": "Technical issue with the UAS",
+            "description": "Inspection of the UAS (product inspection) to ensure consistency to the ConOps",
+            "level": {
+                "1": "Low",
+                "2": "Low",
+                "3": "Medium",
+                "4": "Medium",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#8":{
+            "category": "Technical issue with the UAS",
+            "description": "Operational procedures are defined, validated and adhered to",
+            "level": {
+                "1": "Low",
+                "2": "Medium",
+                "3": "High",
+                "4": "High",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#9":{
+            "category": "Technical issue with the UAS",
+            "description": "Remote crew trained and current and able to control the abnormal situation",
+            "level": {
+                "1": "Low",
+                "2": "Low",
+                "3": "Medium",
+                "4": "Medium",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#10":{
+            "category": "Technical issue with the UAS",
+            "description": "Safe recovery from technical issue",
+            "level": {
+                "1": "Low",
+                "2": "Low",
+                "3": "Medium",
+                "4": "Medium",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#11":{
+            "category": "Deterioration of external systems supporting UAS operation",
+            "description": "Procedures are in-place to handle the deterioration of external systems supporting UAS operation",
+            "level": {
+                "1": "Low",
+                "2": "Medium",
+                "3": "High",
+                "4": "High",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#12":{
+            "category": "Deterioration of external systems supporting UAS operation",
+            "description": "The UAS is designed to manage the deterioration of external systems supporting UAS operation",
+            "level": {
+                "1": "Low",
+                "2": "Low",
+                "3": "Medium",
+                "4": "Medium",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#13":{
+            "category": "Deterioration of external systems supporting UAS operation",
+            "description": "External services supporting UAS operations are adequate to the operation",
+            "level": {
+                "1": "Low",
+                "2": "Low",
+                "3": "Medium",
+                "4": "High",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#14":{
+            "category": "Human Error",
+            "description": "Operational procedures are defined, validated and adhered to",
+            "level": {
+                "1": "Low",
+                "2": "Medium",
+                "3": "High",
+                "4": "High",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#15":{
+            "category": "Human Error",
+            "description": "Remote crew trained and current and able to control the abnormal situation",
+            "level": {
+                "1": "Low",
+                "2": "Low",
+                "3": "Medium",
+                "4": "Medium",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#16":{
+            "category": "Human Error",
+            "description": "Multi crew coordination",
+            "level": {
+                "1": "Low",
+                "2": "Low",
+                "3": "Medium",
+                "4": "Medium",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#17":{
+            "category": "Human Error",
+            "description": "Remote crew is fit to operate",
+            "level": {
+                "1": "Low",
+                "2": "Low",
+                "3": "Medium",
+                "4": "Medium",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#18":{
+            "category": "Human Error",
+            "description": "Automatic protection of the flight envelope from Human Error",
+            "level": {
+                "1": "Optional",
+                "2": "Optional",
+                "3": "Low",
+                "4": "Medium",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#19":{
+            "category": "Human Error",
+            "description": "Safe recovery from Human Error",
+            "level": {
+                "1": "Optional",
+                "2": "Optional",
+                "3": "Low",
+                "4": "Medium",
+                "5": "Medium",
+                "6": "High"
+            }
+        },
+        "OSO#20":{
+            "category": "Human Error",
+            "description": "A Human Factors evaluation has been performed and the HMI found appropriate for the mission",
+            "level": {
+                "1": "Optional",
+                "2": "Low",
+                "3": "Low",
+                "4": "Medium",
+                "5": "Medium",
+                "6": "High"
+            }
+        },
+        "OSO#21":{
+            "category": "Adverse operating conditions",
+            "description": "Operational procedures are defined, validated and adhered to",
+            "level": {
+                "1": "Low",
+                "2": "Medium",
+                "3": "High",
+                "4": "High",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#22":{
+            "category": "Adverse operating conditions",
+            "description": "The remote crew is trained to identify critical environmental conditions and to avoid them",
+            "level": {
+                "1": "Low",
+                "2": "Low",
+                "3": "Medium",
+                "4": "Medium",
+                "5": "Medium",
+                "6": "High"
+            }
+        },
+        "OSO#23":{
+            "category": "Adverse operating conditions",
+            "description": "Environmental conditions for safe operations defined, measurable and adhered to",
+            "level": {
+                "1": "Low",
+                "2": "Low",
+                "3": "Medium",
+                "4": "Medium",
+                "5": "High",
+                "6": "High"
+            }
+        },
+        "OSO#24":{
+            "category": "Adverse operating conditions",
+            "description": "UAS designed and qualified for adverse environmental conditions",
+            "level": {
+                "1": "Optional",
+                "2": "Optional",
+                "3": "Medium",
+                "4": "High",
+                "5": "High",
+                "6": "High"
+            }
         }
     }
 }
