@@ -78,11 +78,7 @@ let mitigationMatrix = [
     [0, 0, -1, -2],
     [0, 1, 0, -1],
 ];
-  
-let GRC = {
-    GRC: 5,
-    helloThere: 10
-};
+
 
 /*
    ********************** 
@@ -91,6 +87,7 @@ let GRC = {
 */ 
 
 if (MAINFORM === "ARC") {
+    console.log(GRC)
     console.log(`questions_${MAINFORM}.json.. loaded`)
     
     makeSubmitButton(postFinalARC, "POSTING TO SERVER & GOES TO BRUGERPROFIL", "../brugerprofil.html");
@@ -349,7 +346,8 @@ function makeSubmitButton(postToServerFunc, value, nextPage) {
     button.name = "submitBtn";
     button.value = value;
     button.disabled = true;
-    button.setAttribute("onclick", `location.href='${nextPage}'`)
+    
+    //button.setAttribute("onclick", `location.href='${nextPage}'`)
 
     element.insertAdjacentElement("afterend", button);
     label = document.createElement("label");
@@ -380,8 +378,17 @@ function postFinalGRC() {
         parseInt(questionContent[`question${7}`].userInput)
     );
 
-    console.log(GRC)
-    postGRCToServer(GRC);
+    //console.log(GRC)
+    //postObjectToServer('GRC', GRC, "http://server.malthelarsen.dk/forms/arc.html")
+
+    let idk = {
+        GRC: GRC
+    }
+
+    console.log(idk);
+
+    postGRCToServer(idk)
+    .then((res) => console.log(res));
 }
 
 function calculateGRC(lenght, los, type) {
@@ -406,8 +413,8 @@ function mitigateGrc(attToGround, parachute, erp, robustness) {
     //console.log(GRC);
     return GRC;
 }
-  
-function postGRCToServer(grcToPost){
+
+async function postGRCToServer(grcToPost){
     //console.log(grcToPost);
     fetch('http://server.malthelarsen.dk:3000/GRC',
     {
@@ -419,10 +426,38 @@ function postGRCToServer(grcToPost){
     })
     .then(res => {
     if (res.ok)
-    console.log("Ok" + res);
+    console.log("Ok");
+    //window.location.href = "http://server.malthelarsen.dk/forms/arc.html";
+
+    console.log(res);
     })
+    return "All good";
+}
+
+async function postObjectToServer(endpoint, object, redirect = undefined) {
+    console.log(endpoint);
+    fetch(`http://server.malthelarsen.dk:3000/${endpoint}`,
+        {
+            method: 'POST',
+            body: JSON.stringify(object),
+            headers: { 'Content-Type': 'application/json' }
+        })
+        .then(result => result.json())
+        .then(data => {
+            console.log("Ok")
+            if (redirect != undefined)
+            {
+                console.log(redirect)
+                //window.location.href = redirect
+            }
+            return "GGWP";
+        })
+        .catch(err => console.log(err));
 }
 
 function postFinalARC() {
     console.log("POSTING ARC");
 }
+
+
+
