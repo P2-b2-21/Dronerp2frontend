@@ -115,3 +115,7 @@ applyBtn.addEventListener('click', () => {
         });
     }
 });
+
+function beginForm() {
+    location.href = "form/grc.html";
+}
