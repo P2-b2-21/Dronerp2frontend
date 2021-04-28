@@ -1,128 +1,124 @@
 {
-    "question1": {
-        "userInput": "",
-        "ask": "Drones maksimale karakteristika?",
-        "choices": {
-            "choice0": {
-                "text": "1 meter / 3 feet",
-                "value": "A1"
-            },
-            "choice1": {
-                "text": "3 meter / 10 feet",
-                "value": "B1"
-            },
-            "choice2": {
-                "text": "8 meter / 25 feet",
-                "value": "C1"
-            },
-            "choice3": {
-                "text": ">8 meter / 25 feet",
-                "value": "D1"
-            }
-        }
-    },
-    "question2": {
-        "userInput": "",
-        "ask": "Hvilken type drone flyvning?",
-        "choices": {
-            "choice0": {
-                "text": "VLOS",
-                "value": "A2"
-            },
-            "choice1": {
-                "text": "ELOS",
-                "value": "B2"
-            },
-            "choice2": {
-                "text": "BLOS",
-                "value": "C2"
-            }
-        }
-    },
-    "question3": {
-        "userInput": "",
-        "ask": "I hvilket område foregår drone flyvningen?",
-        "choices": {
-            "choice0": {
-                "text": "Kontrolleret jordområde",
-                "value": "A3"
-            },
-            "choice1": {
-                "text": "Tyndt befolket område",
-                "value": "B3"
-            },
-            "choice2": {
-                "text": "Tæt befolket område",
-                "value": "C3"
-            },
-            "choice3": {
-                "text": "Forsamling af mennesker i området",
-                "value": "D3"
-            }
-        }
-    },
-    "question4": {
-        "userInput": "",
-        "ask": "Er dronen tøjret i luften?",
-        "choices": {
-            "choice0": {
-                "text": "Ja",
-                "value": "A4"
-            },
-            "choice1": {
-                "text": "Nej",
-                "value": "B4"
-            }
-        }
-    },
-    "question5": {
-        "userInput": "",
-        "ask": "Hvilke af følgende robusthedsniveauer er overholdt?",
-        "choices": {
-            "choice0": {
-                "text": "LOW",
-                "value": "A5"
-            },
-            "choice1": {
-                "text": "MEDIUM",
-                "value": "B5"
-            },
-            "choice2": {
-                "text": "HIGH",
-                "value": "C5"
-            },
-            "choice3": {
-                "text": "NONE (SPG4; Nej -> leaveout/grayout)",
-                "value": "C5"
-            }
-        }
-    },
-    "question6": {
-        "userInput": "",
-        "ask": "Anvendes der faldskærm under drone operationen?",
-        "choices": {
-            "choice0": {
-                "text": "Ja (medføre tilføjet TMPR)",
-                "value": "A6"
-            },
-            "choice1": {
-                "text": "Nej",
-                "value": "B6"
-            }
-        }
-    },
-    "question7": {
-        "userInput": "",
-        "ask": "Har du en beredskabsplan?",
-        "choices": {
-            "choice0": {
-                "text": "Ja (medføre tilføjet ERP)",
-                "value": "A7"
-            },
-            "choice1": {
-                "text": "Nej",
-                "value": "B7"
-            }
-        }
+  "question1": {
+    "userInput": "",
+    "ask": "Drones maksimale karakteristika?",
+    "choices": {
+      "choice0": {
+        "text": "1 meter / 3 feet",
+        "value": 0
+      },
+      "choice1": {
+        "text": "3 meter / 10 feet",
+        "value": 1
+      },
+      "choice2": {
+        "text": "8 meter / 25 feet",
+        "value": 2
+      },
+      "choice3": {
+        "text": ">8 meter / 25 feet",
+        "value": 3
+      }
     }
+  },
+  "question2": {
+    "userInput": "",
+    "ask": "Hvilken type drone flyvning?",
+    "choices": {
+      "choice0": {
+        "text": "VLOS",
+        "value": 0
+      },
+      "choice1": {
+        "text": "BVLOS",
+        "value": 1
+      }
+    }
+  },
+  "question3": {
+    "userInput": "",
+    "ask": "I hvilket område foregår drone flyvningen?",
+    "choices": {
+      "choice0": {
+        "text": "Kontrolleret jordområde",
+        "value": 0
+      },
+      "choice1": {
+        "text": "Tyndt befolket område",
+        "value": 1
+      },
+      "choice2": {
+        "text": "Tæt befolket område",
+        "value": 3
+      },
+      "choice3": {
+        "text": "Forsamling af mennesker i området",
+        "value": 5
+      }
+    }
+  },
+  "question4": {
+    "userInput": "",
+    "ask": "Er dronen tøjret i luften?",
+    "choices": {
+      "choice0": {
+        "text": "Ja",
+        "value": 1
+      },
+      "choice1": {
+        "text": "Nej",
+        "value": 0
+      }
+    }
+  },
+  "question5": {
+    "userInput": "",
+    "ask": "Anvendes der faldskærm under drone operationen?",
+    "choices": {
+      "choice0": {
+        "text": "Ja (medføre tilføjet TMPR)",
+        "value": 2
+      },
+      "choice1": {
+        "text": "Nej",
+        "value": 0
+      }
+    }
+  },
+  "question6": {
+    "userInput": "",
+    "ask": "Har du en beredskabsplan?",
+    "choices": {
+      "choice0": {
+        "text": "Ja (medføre tilføjet ERP)",
+        "value": 3
+      },
+      "choice1": {
+        "text": "Nej",
+        "value": 0
+      }
+    }
+  },
+  "question7": {
+    "userInput": "",
+    "ask": "Hvilke af følgende robusthedsniveauer er overholdt?",
+    "choices": {
+      "choice0": {
+        "text": "NONE (SPG4; Nej -> leaveout/grayout)",
+        "value": 0
+      },
+      "choice1": {
+        "text": "LOW",
+        "value": 1
+      },
+      "choice2": {
+        "text": "MEDIUM",
+        "value": 2
+      },
+      "choice3": {
+        "text": "HIGH",
+        "value": 3
+      }
+    }
+  }
 }
