@@ -27,20 +27,36 @@ fetch("./OSO_integrity_assurance.json").then(res => res.json()).then(data => {
                 objNumber++;
             }
         }
-        txt += "<tr><td>" + obj + "</td><td>" + osoName + "</td><td>" + level + "</td><td>" + integrity + "</td><td>" + assurance + "</td><td><input type=textfield placeholder='Write how you wish to comply to the given OSO'></input></td></tr>";
+
+        txt += "<tr><td>" + obj + "</td><td>" + osoName + "</td><td>" + level + "</td><td>" + integrity + "</td><td>" + assurance + "</td><td class='inputtd'><input type=text class='compIn' name='compIn[]' placeholder='Write how you wish to comply to the given OSO'></input></td></tr>";
+
     }
+
     txt += "</table>"
     document.getElementById("sailDiv").innerHTML = txt;
 });
 
 //Convert to pdf
 function GeneratePDF() {
+
+    let compIn = document.getElementsByTagName("input");
+    let inputtd = document.querySelectorAll(".inputtd");
+    console.log(compIn);
+    let numberOfInputs = 24
+    let dennevariabelbliverikkebrugtfordifuckjer = "Waddup dronefar";
+    for (let i = 0; i < numberOfInputs; i++) {
+        let p = document.createElement('p');
+        p.innerHTML = compIn.item(i).value;
+        inputtd.item(i).appendChild(p);
+        compIn.item(i).hidden = true;
+    }
+
     let doc = new jsPDF('l');
     doc.autoTable(
         {
             html: '#sailTable',
             theme: 'grid',
-            tableWidth: 250,
+            tableWidth: 270,
             bodyStyles: {
                 minCellHeight: 5, fontSize: 8,
                 margin: {
