@@ -41,81 +41,6 @@ if (MAINFORM === "GRC") {
             document.querySelector('[name="submitBtn"]').disabled = true
         }
 
-
-        /* --------------------TEST---------------------------------------------- */
-
-        //document.querySelectorAll('input[name=question6], input[value=3]')
-
-        /*
-        console.log("document.querySelector('#question6').nextSibling.innerText");
-        let element = document.querySelector('#question6');
-        console.log(element.childNodes[2]);
-        console.log(element.childNodes[5]);
-        */
-
-        
-        console.log("event.target.parentNode.id");
-        console.log(event.target.value);
-
-        console.log("document.querySelectorAll('namequestion6], input[value=3)");
-        console.log(document.querySelectorAll('input[name="question6"]')[1]);
-
-        //document.querySelectorAll('input[name="question7"]')[0].disabled = true;
-        //document.querySelectorAll('input[name="question7"]')[1].disabled = true;
-
-        let ja = document.querySelector(`#question4`).childNodes[2].innerText;
-
-        console.log("event.target.value");
-        console.log(event.target.value);
-
-        if (document.querySelector(`#question7`) != null) {
-            console.log("TestOMEGA");
-            if (event.target.value === 1) {
-                console.log("Test1");
-                document.querySelectorAll('input[name="question7"]')[0].disabled = true;
-            }
-            else if (event.target.value === 0) {
-                console.log("Test2");
-                document.querySelectorAll('input[name="question7"]')[0].disabled = false;
-            }
-        }
-
-        /*
-        if (document.querySelector(`#question7`) != null && event.target.value === 0) {
-            document.querySelectorAll('input[name="question7"]')[0].disabled = false;
-        }
-        */
-        
-        //console.log("document.querySelector(`#question4`).childNodes[2].innerText");
-        //console.log(document.querySelector(`#question4`).childNodes[2].innerText);
-
-
-        /*
-        if (document.querySelector(`#namequestion6`).childNodes[2].innerText === "Ja (medføre tilføjet ERP)") {
-            console.log("Test1");
-            document.querySelectorAll('input[name="question7"]')[0].disabled = false;
-        }
-
-        if (document.querySelector(`#namequestion6`).childNodes[5].innerText === "Nej") {
-            console.log("Test2");
-            document.querySelectorAll('input[name="question7"]')[0].disabled = true;
-        }
-        */
-
-        /*
-        if (document.querySelector(`#${event.target.parentNode.id}`).childNodes[2].innerText === "Ja (medføre tilføjet ERP)") {
-            console.log("Test1");
-            document.querySelectorAll('input[name="question7"]')[0].disabled = false;
-        }
-
-        if (document.querySelector(`#${event.target.parentNode.id}`).childNodes[5].innerText === "Nej") {
-            console.log("Test2");
-            document.querySelectorAll('input[name="question7"]')[0].disabled = true;
-        }
-        */
-        
-        /* --------------------TEST-END--------------------------------------------- */
-            
         // Log user input
         questionContent[`${event.target.name}`].userInput = event.target.value;
 
@@ -125,6 +50,20 @@ if (MAINFORM === "GRC") {
         }
     });
 };
+
+// Make form4 handel gray out button in form7
+if (MAINFORM === 'GRC') {
+    document.querySelector("#GRC").addEventListener('change', (event) => {
+        if (document.querySelector(`#question7`) != null) {
+            if (questionContent[`question${4}`].userInput === "1") {
+                document.querySelectorAll('input[name="question7"]')[0].disabled = false;
+            }
+            if (questionContent[`question${4}`].userInput === "0") {
+                document.querySelectorAll('input[name="question7"]')[0].disabled = true;
+            }
+        }
+    });
+}
 
 let GRCMatrix = [
     [1, 2, 3, 4, 5, 7, 8],
