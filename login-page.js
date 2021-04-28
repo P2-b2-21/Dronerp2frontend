@@ -22,7 +22,7 @@ async function login() {
         password: loginForm.password.value
     };
     
-    const response = await fetch('http://privat.morsingdata.dk:3000/login', {
+    const response = await fetch('http://server.malthelarsen.dk:3000/login', {
         method: 'POST',
         body: JSON.stringify(userData),
         headers: {
