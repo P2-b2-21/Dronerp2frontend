@@ -1,0 +1,124 @@
+{
+  "question1": {
+    "userInput": "",
+    "ask": "Drones maksimale karakteristika?",
+    "choices": {
+      "choice0": {
+        "text": "1 meter / 3 feet",
+        "value": 0
+      },
+      "choice1": {
+        "text": "3 meter / 10 feet",
+        "value": 1
+      },
+      "choice2": {
+        "text": "8 meter / 25 feet",
+        "value": 2
+      },
+      "choice3": {
+        "text": ">8 meter / 25 feet",
+        "value": 3
+      }
+    }
+  },
+  "question2": {
+    "userInput": "",
+    "ask": "Hvilken type drone flyvning?",
+    "choices": {
+      "choice0": {
+        "text": "VLOS",
+        "value": 0
+      },
+      "choice1": {
+        "text": "BVLOS",
+        "value": 1
+      }
+    }
+  },
+  "question3": {
+    "userInput": "",
+    "ask": "I hvilket område foregår drone flyvningen?",
+    "choices": {
+      "choice0": {
+        "text": "Kontrolleret jordområde",
+        "value": 0
+      },
+      "choice1": {
+        "text": "Tyndt befolket område",
+        "value": 1
+      },
+      "choice2": {
+        "text": "Tæt befolket område",
+        "value": 3
+      },
+      "choice3": {
+        "text": "Forsamling af mennesker i området",
+        "value": 5
+      }
+    }
+  },
+  "question4": {
+    "userInput": "",
+    "ask": "Er dronen tøjret i luften?",
+    "choices": {
+      "choice0": {
+        "text": "Ja",
+        "value": 1
+      },
+      "choice1": {
+        "text": "Nej",
+        "value": 0
+      }
+    }
+  },
+  "question5": {
+    "userInput": "",
+    "ask": "Anvendes der faldskærm under drone operationen?",
+    "choices": {
+      "choice0": {
+        "text": "Ja (medføre tilføjet TMPR)",
+        "value": 2
+      },
+      "choice1": {
+        "text": "Nej",
+        "value": 0
+      }
+    }
+  },
+  "question6": {
+    "userInput": "",
+    "ask": "Har du en beredskabsplan?",
+    "choices": {
+      "choice0": {
+        "text": "Ja (medføre tilføjet ERP)",
+        "value": 3
+      },
+      "choice1": {
+        "text": "Nej",
+        "value": 0
+      }
+    }
+  },
+  "question7": {
+    "userInput": "",
+    "ask": "Hvilke af følgende robusthedsniveauer er overholdt?",
+    "choices": {
+      "choice0": {
+        "text": "NONE (SPG4; Nej -> leaveout/grayout)",
+        "value": 0
+      },
+      "choice1": {
+        "text": "LOW",
+        "value": 1
+      },
+      "choice2": {
+        "text": "MEDIUM",
+        "value": 2
+      },
+      "choice3": {
+        "text": "HIGH",
+        "value": 3
+      }
+    }
+  }
+}
