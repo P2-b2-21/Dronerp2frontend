@@ -26,7 +26,8 @@
   border: none;
   font-family: "Times New Roman";
 }
-#logud {
+
+#logudBig, #logudSmall {
   float: right;
 }
 
