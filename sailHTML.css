@@ -3,10 +3,21 @@
     white-space: pre-line;
     width: auto;
 }
-#sailDiv input{
+#sailDiv textarea{
     border-radius: 7px;
-    height: 100px;
+    max-width: 200px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
     border: none;
+    background-color: #ffebd7;
+    overflow-x: auto;
+    
+}
+pre{
+    white-space: pre-line;
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+    text-align-last: left;
 }
 #underliste{
     list-style-type: none;
@@ -15,4 +26,7 @@
 #overliste{
     color: mediumvioletred;
     list-style-type: none;
+}
+body{
+    background-color:#ffebd7;
 }

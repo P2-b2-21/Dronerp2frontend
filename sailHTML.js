@@ -28,7 +28,7 @@ fetch("./OSO_integrity_assurance.json").then(res => res.json()).then(data => {
             }
         }
 
-        txt += "<tr><td>" + obj + "</td><td>" + osoName + "</td><td>" + level + "</td><td>" + integrity + "</td><td>" + assurance + "</td><td class='inputtd'><input type=text class='compIn' name='compIn[]' placeholder='Write how you wish to comply to the given OSO'></input></td></tr>";
+        txt += "<tr><td>" + obj + "</td><td>" + osoName + "</td><td>" + level + "</td><td>" + integrity + "</td><td>" + assurance + "</td><td class='inputtd'><textarea class='compIn' name='compIn[]' placeholder='Write how you wish to comply to the given OSO'></textarea></td></tr>";
 
     }
 
@@ -39,14 +39,15 @@ fetch("./OSO_integrity_assurance.json").then(res => res.json()).then(data => {
 //Convert to pdf
 function GeneratePDF() {
 
-    let compIn = document.getElementsByTagName("input");
+    let compIn = document.getElementsByTagName("textarea");
     let inputtd = document.querySelectorAll(".inputtd");
     console.log(compIn);
     let numberOfInputs = 24
     for (let i = 0; i < numberOfInputs; i++) {
-        let p = document.createElement('p');
-        p.innerHTML = compIn.item(i).value;
-        inputtd.item(i).appendChild(p);
+        let t = document.createElement('pre');
+        t.innerHTML = compIn.item(i).value;
+        t.innerHTML = t.innerHTML.replace(/\n/g, '<br>\n');
+        inputtd.item(i).appendChild(t);
         compIn.item(i).hidden = true;
     }
 
