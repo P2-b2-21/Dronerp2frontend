@@ -41,29 +41,108 @@ if (MAINFORM === "GRC") {
             document.querySelector('[name="submitBtn"]').disabled = true
         }
 
-        // Log user input
-        output.push((questionContent[`${event.target.name}`].userInput = event.target.value));
-        console.log(output);
-    });
-    
-    let GRCMatrix = [
-        [1, 2, 3, 4, 5, 7, 8],
-        [2, 3, 4, 5, 6],
-        [3, 4, 5, 6, 8],
-        [4, 5, 6, 8, 10],
-    ];
 
-    let mitigationMatrix = [
-        [0, 0, 0, 0],
-        [0, -1, -2, -4],
-        [0, 0, -1, -2],
-        [0, 1, 0, -1],
-    ];
-      
-    let GRC = {
-        GRC: 5,
-        helloThere: 10
-    };
+        /* --------------------TEST---------------------------------------------- */
+
+        //document.querySelectorAll('input[name=question6], input[value=3]')
+
+        /*
+        console.log("document.querySelector('#question6').nextSibling.innerText");
+        let element = document.querySelector('#question6');
+        console.log(element.childNodes[2]);
+        console.log(element.childNodes[5]);
+        */
+
+        
+        console.log("event.target.parentNode.id");
+        console.log(event.target.value);
+
+        console.log("document.querySelectorAll('namequestion6], input[value=3)");
+        console.log(document.querySelectorAll('input[name="question6"]')[1]);
+
+        //document.querySelectorAll('input[name="question7"]')[0].disabled = true;
+        //document.querySelectorAll('input[name="question7"]')[1].disabled = true;
+
+        let ja = document.querySelector(`#question4`).childNodes[2].innerText;
+
+        console.log("event.target.value");
+        console.log(event.target.value);
+
+        if (document.querySelector(`#question7`) != null) {
+            console.log("TestOMEGA");
+            if (event.target.value === 1) {
+                console.log("Test1");
+                document.querySelectorAll('input[name="question7"]')[0].disabled = true;
+            }
+            else if (event.target.value === 0) {
+                console.log("Test2");
+                document.querySelectorAll('input[name="question7"]')[0].disabled = false;
+            }
+        }
+
+        /*
+        if (document.querySelector(`#question7`) != null && event.target.value === 0) {
+            document.querySelectorAll('input[name="question7"]')[0].disabled = false;
+        }
+        */
+        
+        //console.log("document.querySelector(`#question4`).childNodes[2].innerText");
+        //console.log(document.querySelector(`#question4`).childNodes[2].innerText);
+
+
+        /*
+        if (document.querySelector(`#namequestion6`).childNodes[2].innerText === "Ja (medføre tilføjet ERP)") {
+            console.log("Test1");
+            document.querySelectorAll('input[name="question7"]')[0].disabled = false;
+        }
+
+        if (document.querySelector(`#namequestion6`).childNodes[5].innerText === "Nej") {
+            console.log("Test2");
+            document.querySelectorAll('input[name="question7"]')[0].disabled = true;
+        }
+        */
+
+        /*
+        if (document.querySelector(`#${event.target.parentNode.id}`).childNodes[2].innerText === "Ja (medføre tilføjet ERP)") {
+            console.log("Test1");
+            document.querySelectorAll('input[name="question7"]')[0].disabled = false;
+        }
+
+        if (document.querySelector(`#${event.target.parentNode.id}`).childNodes[5].innerText === "Nej") {
+            console.log("Test2");
+            document.querySelectorAll('input[name="question7"]')[0].disabled = true;
+        }
+        */
+        
+        /* --------------------TEST-END--------------------------------------------- */
+            
+        // Log user input
+        questionContent[`${event.target.name}`].userInput = event.target.value;
+
+        // Display user input
+        for (let i = 1; i <= 7; i++) {
+            console.log(questionContent[`question${i}`].userInput);
+        }
+    });
+};
+
+let GRCMatrix = [
+    [1, 2, 3, 4, 5, 7, 8],
+    [2, 3, 4, 5, 6],
+    [3, 4, 5, 6, 8],
+    [4, 5, 6, 8, 10],
+];
+
+let mitigationMatrix = [
+    [0, 0, 0, 0],
+    [0, -1, -2, -4],
+    [0, 0, -1, -2],
+    [0, 1, 0, -1],
+];
+  
+let GRC = {
+    GRC: 5,
+    helloThere: 10
 };
 
 /*
@@ -349,21 +428,20 @@ function makeSubmitButton(postToServerFunc, value, nextPage) {
 */ 
 
 function postFinalGRC() {
+    
     calculateGRC(
-        parseInt(output[0]),
-        parseInt(output[1]),
-        parseInt(output[2])
+        parseInt(questionContent[`question${1}`].userInput),
+        parseInt(questionContent[`question${2}`].userInput),
+        parseInt(questionContent[`question${3}`].userInput)
     );
     mitigateGrc(
-        parseInt(output[3]),
-        parseInt(output[4]),
-        parseInt(output[5]),
-        parseInt(output[6])
+        parseInt(questionContent[`question${4}`].userInput),
+        parseInt(questionContent[`question${5}`].userInput),
+        parseInt(questionContent[`question${6}`].userInput),
+        parseInt(questionContent[`question${7}`].userInput)
     );
-    console.log(output);
 
     console.log(GRC)
-
     postGRCToServer(GRC);
 }
 
@@ -386,12 +464,12 @@ function mitigateGrc(attToGround, parachute, erp, robustness) {
         GRC = GRC + mitigationMatrix[parachute][robustness];
         GRC = GRC + mitigationMatrix[erp][robustness];
     }
-    console.log(GRC);
+    //console.log(GRC);
     return GRC;
 }
   
 function postGRCToServer(grcToPost){
-    console.log(grcToPost);
+    //console.log(grcToPost);
     fetch('http://server.malthelarsen.dk:3000/GRC',
     {
     method: 'POST',
