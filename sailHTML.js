@@ -43,7 +43,6 @@ function GeneratePDF() {
     let inputtd = document.querySelectorAll(".inputtd");
     console.log(compIn);
     let numberOfInputs = 24
-    let dennevariabelbliverikkebrugtfordifuckjer = "Waddup dronefar";
     for (let i = 0; i < numberOfInputs; i++) {
         let p = document.createElement('p');
         p.innerHTML = compIn.item(i).value;
@@ -69,4 +68,18 @@ function GeneratePDF() {
             }
         });
     doc.save("sailPDF_test");
+}
+function Save() {
+
+    document.getElementById("saveBtn").addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        fetch('http://server.malthelarsen.dk:3000/saved_pdfs', {
+            method: 'POST',
+            body: JSON.stringify(document), //html
+            headers: {
+                'Content-Type': 'text/html'
+            }
+        });
+    });
 }
