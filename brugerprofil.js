@@ -61,6 +61,7 @@ godkendtBtn.addEventListener('click', ()=> {
     let contentDiv = document.querySelector("#contentDiv");
     if (contentContainer.contains(contentDiv)){
         contentDiv.remove();
+        /* Her skal ansøgninger loades ind tror jeg. Kan ikke gennemskue. Gemmes i SQL eller? /D */ 
         Create("div", "Godkendte ansøgninger skal være her", "contentDiv")
     }
     else Create("div", "Godkendte ansøgninger skal være her", "contentDiv")
@@ -116,6 +117,7 @@ applyBtn.addEventListener('click', () => {
     }
 });
 
+/* Ved ikke om det virker så "nemt" eller om det skal kobles på med user */ 
 function beginForm() {
     location.href = "form/grc.html";
 }
