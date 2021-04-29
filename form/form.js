@@ -14,6 +14,7 @@ fetch(`questions_${MAINFORM}.json`)
 });
 
 const question = document.querySelector(`#${MAINFORM}`);
+
 /*  *****************
     Loading bar for GRC 
     ****************
@@ -49,7 +50,7 @@ if (MAINFORM === "GRC") {
 
     question.addEventListener('change', (event) => {
         const numOfLastQuestion = Object.keys(questionContent).length;
-
+        //Til loading bar GRC 
         if (width < 100){
             move();
         }
