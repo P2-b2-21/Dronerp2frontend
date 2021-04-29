@@ -54,13 +54,14 @@ if (MAINFORM === "GRC") {
             move();
         }
 
+        // Handles logic when user reach end of GRC form
         if (event.target.parentNode.parentNode.id === `form${numOfLastQuestion}`) {
 
             // Make submit button available
             document.querySelector('[name="submitBtn"]').disabled = false;
         } else {
 
-            // Gray out toggle submit button
+            // Gray out submit button
             document.querySelector('[name="submitBtn"]').disabled = true
         }
 
@@ -74,7 +75,8 @@ if (MAINFORM === "GRC") {
     });
 };
 
-// Make form4 handel gray out button in form7
+// Make form4 handle gray out button in form7
+// Let user choose an supportet mitigation 
 if (MAINFORM === 'GRC') {
     document.querySelector("#GRC").addEventListener('change', (event) => {
         if (document.querySelector(`#question7`) != null) {
@@ -122,6 +124,7 @@ if (MAINFORM === "ARC") {
 
     question.addEventListener('change', (event) => {    
         let currNode = event.target.parentNode.parentNode;
+
         // Executes when ARC value has been selected
         if (event.target.value !== 'subquestion' && event.target.value !== 'next-question') {
             
@@ -139,15 +142,18 @@ if (MAINFORM === "ARC") {
             });
             
         } else {
+
             // Gray out toggle submit button
             document.querySelector('[name="submitBtn"]').disabled = true;
         }
         
+        // User has choosen to be displayed next form question (main question != subquestion)
         if (event.target.value === 'next-question') {
             let nextID = currNode.nextSibling.childNodes[0].id
             document.querySelector(`#${nextID}`).style.display = "";
         }
         
+        // When user has choosen a form question, and there already is an existing sub question path
         if (currNode.id.replace(/[0-9]/, '') === 'form' && doesSubQuestionPathExist() === 1) {
             removeSubQuestionPath(currNode);
         }
