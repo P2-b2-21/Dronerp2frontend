@@ -1,23 +1,36 @@
 #sailDiv table{
     border-radius: 3px;
     white-space: pre-line;
-    width: auto;
+    width: 100%;
+    resize: vertical;
 }
+.inputtd{
+    vertical-align: top;
+    table-layout: fixed;
+}
+.int_as_td{
+    width: 25%;
+}
+
 #sailDiv textarea{
     border-radius: 7px;
-    max-width: 200px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+    max-width: 100%;
     border: none;
     background-color: #ffebd7;
-    overflow-x: auto;
-    
+    resize: none;
+    display: block;
+    overflow: hidden;
+    outline: none;
+    height: 500px;
 }
-pre{
+p{
     white-space: pre-line;
     word-wrap: break-word; 
     overflow-wrap: break-word;
     text-align-last: left;
+    resize: vertical; 
+    max-height: 300px; 
+    min-height: 200px;
 }
 #underliste{
     list-style-type: none;
