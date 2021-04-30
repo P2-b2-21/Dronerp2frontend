@@ -1,4 +1,4 @@
-let developmentMode = true;
+let developmentMode = false;
 let frontendAddr = developmentMode
   ? "127.0.0.1:5500"
   : "server.malthelarsen.dk";
