@@ -679,7 +679,7 @@ function postFinalARC() {
 
   postObjectToServer("ARCGRC", objToSend, undefined, true)
     .then((res) => {
-      console.log(res);
+      window.location.href = `http://${frontendAddr}/sail.html?uid={${res.UID}}`
     })
     .catch((err) => console.log("Det ikke for godt det her: \n " + err));
   console.log("POSTING ARC");
