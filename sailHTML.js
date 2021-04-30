@@ -1,3 +1,5 @@
+
+let SAIL = 2;
 let txt, level, osoName, integrity, assurance, compliance;
 let SailLevels = 6;
 let objNumber = 1;
@@ -7,38 +9,40 @@ let UID = params.get("uid");
 
 txt += "<table border='1' id='sailTable'>"
 txt += "<tr><th>OSO #</th><th>Name</th><th>Robustness</th><th>Integrity</th><th>Assurance</th><th>Compliance</th></tr>"
-let ansoegning = {};
-fetch(`http://server.malthelarsen.dk:3000/sail?uid=${UID}`).then(response => {return response.json()})
-    .then((data) => { 
-    ansoegning = data;
-    console.log(ansoegning);
-    let SAIL = ansoegning["SAIL"];
 
+let ansoegning;
 
-    fetch("./OSO_integrity_assurance.json").then(res => res.json()).then(data => {
-        sail_json = data["sail"];
-        oso_json = data["OSOia"];
+fetch("./OSO_integrity_assurance.json").then(res => res.json()).then(data => {
+    sail_json = data["sail"];
+    oso_json = data["OSOia"];
 
-        //Ud fra den givne sail hentes de respektive OSO'er (integrity og assurance) og indsættes i en tabel.
-        for (obj in sail_json) {
-                    level = sail_json["OSO#" + objNumber].level[SAIL];
-                    osoName = sail_json["OSO#" + objNumber].description;
-                    integrity = oso_json["OSO#" + objNumber][level.toLowerCase()]["integrity"];
-                    integrity = integrity.replace(/•/g, '</dd></li="underliste">' + '<br><li id="overliste">• ');
-                    integrity = integrity.replace(/- /g, '<br>' + '<li id="underliste">- ');
-                    assurance = oso_json["OSO#" + objNumber][level.toLowerCase()]["assurance"];
-                    assurance = assurance.replace(/•/g, '</dd></li id="underliste">' + '<br><li id="overliste">• ');
-                    assurance = assurance.replace(/- /g, '<br>' + '<li id="underliste">- ');
-                    objNumber++;
-            //Indsætter elementerne i tabellen
-            txt += "<tr><td>" + obj + "</td><td class='int_as_td'>" + osoName + "</td><td>" + level + "</td><td class='int_as_td'>" + integrity + "</td><td class='int_as_td'>" + assurance + "</td><td class='inputtd'><textarea class='compIn' name='compIn[]' placeholder='Write how you wish to comply to the given OSO'></textarea></td></tr>";
+    //Ud fra den givne sail hentes de respektive OSO'er (integrity og assurance) og indsættes i en tabel.
+    for (obj in sail_json) {
 
+        for (let i = 1; i < SailLevels; i++) {
+            if (SAIL === i) {
+                level = sail_json["OSO#" + objNumber].level[i];
+                osoName = sail_json["OSO#" + objNumber].description;
+                integrity = oso_json["OSO#" + objNumber][level.toLowerCase()]["integrity"];
+                integrity = integrity.replace(/•/g, '</dd></li="underliste">' + '<br><li id="overliste">• ');
+                integrity = integrity.replace(/- /g, '<br>' + '<li id="underliste">- ');
+                assurance = oso_json["OSO#" + objNumber][level.toLowerCase()]["assurance"];
+                assurance = assurance.replace(/•/g, '</dd></li id="underliste">' + '<br><li id="overliste">• ');
+                assurance = assurance.replace(/- /g, '<br>' + '<li id="underliste">- ');
+                objNumber++;
+            }
         }
+        //Indsætter elementerne i tabellen
+        txt += "<tr><td>" + obj + "</td><td class='int_as_td'>" + osoName + "</td><td>" + level + "</td><td class='int_as_td'>" + integrity + "</td><td class='int_as_td'>" + assurance + "</td><td class='inputtd'><textarea class='compIn' name='compIn[]' placeholder='Write how you wish to comply to the given OSO'></textarea></td></tr>";
 
-        txt += "</table>"
-        document.getElementById("sailDiv").innerHTML = txt;
-    });
+    }
+
+    txt += "</table>"
+    document.getElementById("sailDiv").innerHTML = txt;
+    fetch(`http://127.0.0.1:3000/sail?uid=${UID}`).then(response => response.json())
+    .then(data => ansoegning = data)
 });
+
 //Konverter HTML-siden til pdf-fil
 function GeneratePDF() {
 
@@ -89,4 +93,8 @@ function Save() {
             }
         });
     });
+}
+
+function pdfSaveWithoutDownload() {
+    window.location.href = `http://server.malthelarsen.dk:3000/brugerprofil.html?uid=${UID}`;
 }
