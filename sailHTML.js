@@ -8,10 +8,12 @@ let oso_json, sail_json;
 txt += "<table border='1' id='sailTable'>"
 txt += "<tr><th>OSO #</th><th>Name</th><th>Robustness</th><th>Integrity</th><th>Assurance</th><th>Compliance</th></tr>"
 
+//Fetcher SAIL og OSO'er fra json
 fetch("./OSO_integrity_assurance.json").then(res => res.json()).then(data => {
     sail_json = data["sail"];
     oso_json = data["OSOia"];
 
+    //Ud fra den givne sail hentes de respektive OSO'er (integrity og assurance) og indsættes i en tabel.
     for (obj in sail_json) {
 
         for (let i = 1; i < SailLevels; i++) {
@@ -27,7 +29,7 @@ fetch("./OSO_integrity_assurance.json").then(res => res.json()).then(data => {
                 objNumber++;
             }
         }
-
+        //Indsætter elementerne i tabellen
         txt += "<tr><td>" + obj + "</td><td class='int_as_td'>" + osoName + "</td><td>" + level + "</td><td class='int_as_td'>" + integrity + "</td><td class='int_as_td'>" + assurance + "</td><td class='inputtd'><textarea class='compIn' name='compIn[]' placeholder='Write how you wish to comply to the given OSO'></textarea></td></tr>";
 
     }
@@ -36,9 +38,10 @@ fetch("./OSO_integrity_assurance.json").then(res => res.json()).then(data => {
     document.getElementById("sailDiv").innerHTML = txt;
 });
 
-//Convert to pdf
+//Konverter HTML-siden til pdf-fil
 function GeneratePDF() {
 
+    //jsPDF-library kan ikke konvertere textarea, derfor laves den om til en <p> før den konverteres.
     let compIn = document.getElementsByTagName("textarea");
     let inputtd = document.querySelectorAll(".inputtd");
     let numberOfInputs = 24
@@ -52,7 +55,7 @@ function GeneratePDF() {
         compIn.item(i).hidden = true;
 
     }
-
+    //jsPDF-library funktion
     let doc = new jsPDF('l');
     doc.autoTable(
         {
