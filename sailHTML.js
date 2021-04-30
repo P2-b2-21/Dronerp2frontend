@@ -90,3 +90,7 @@ function Save() {
         });
     });
 }
+
+function pdfSaveWithoutDownload() {
+    window.location.href = `http://server.malthelarsen.dk:3000/brugerprofil.html?uid=${UID}`;
+}
