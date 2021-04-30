@@ -122,16 +122,20 @@ let mitigationMatrix = [
    **********************
 */
 
+let user;
+
 if (MAINFORM === "ARC") {
   let params = new URLSearchParams(location.search);
   GRC = params.get("GRC");
+  user = params.get("user");
+
+  console.log(GRC);
+  console.log(user);
 
   if (GRC == undefined) {
     alert("GRC not found, redirecting to GRC");
     window.location.href = `http://${frontendAddr}/form/grc.html`;
   }
-
-  console.log(GRC);
 
   console.log(`questions_${MAINFORM}.json.. loaded`);
 
@@ -610,6 +614,9 @@ function mitigateGrc(attToGround, parachute, erp, robustness) {
 }
 
 async function postGRCToServer(grcToPost) {
+  let params = new URLSearchParams(location.search);
+  let user = params.get("user");
+
   fetch(`http://${backendAddr}/GRC`, {
     method: "POST",
     body: JSON.stringify(grcToPost),
@@ -618,45 +625,61 @@ async function postGRCToServer(grcToPost) {
     },
   }).then((res) => {
     if (res.ok) console.log("Ok");
-    window.location.href = `http://${frontendAddr}/form/arc.html?GRC=${grcToPost.GRC}`;
+    window.location.href = `http://${frontendAddr}/form/arc.html?GRC=${grcToPost.GRC}&user=${user}`;
 
     console.log(res);
   });
   return "All good";
 }
 
-async function postObjectToServer(endpoint, object, redirect = undefined) {
-  return new Promise((resolve, reject) => {
-    fetch(`http://${backendAddr}/${endpoint}`, {
-      method: "POST",
-      body: JSON.stringify(object),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((result) => {
-        if (result.ok) {
-          if (redirect != undefined) {
-            console.log(redirect);
-            //window.location.href = redirect
-          }
-          resolve();
-        }
+async function postObjectToServer(endpoint, object, redirect = undefined, jsonRes = false) {
+  if (!jsonRes)
+  {
+    return new Promise((resolve, reject) => {
+      fetch(`http://${backendAddr}/${endpoint}`, {
+        method: "POST",
+        body: JSON.stringify(object),
+        headers: { "Content-Type": "application/json" },
       })
-      .catch((err) => {
-        console.log(err);
-        reject(err);
-      });
-  });
+        .then((result) => {
+          if (result.ok) {
+            if (redirect != undefined) {
+              console.log(redirect);
+              //window.location.href = redirect
+            }
+            resolve();
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          reject(err);
+        });
+    });
+  }
+  else 
+  {
+    return new Promise((resolve, reject) => {
+      fetch(`http://${backendAddr}/${endpoint}`, {
+        method: "POST",
+        body: JSON.stringify(object),
+        headers: { "Content-Type": "application/json" },
+      }).then(response => response.json()).catch(fetchError => console.log(fetchError))
+      .then(data => resolve(data)).catch(err => console.log(err))
+    })
+  }
 }
+
 
 function postFinalARC() {
   let objToSend = {
     arc: ARC,
     grc: GRC,
+    user: user
   };
 
-  postObjectToServer("ARCGRC", objToSend)
-    .then(() => {
-      console.log("GGWP MFER");
+  postObjectToServer("ARCGRC", objToSend, undefined, true)
+    .then((res) => {
+      console.log(res);
     })
     .catch((err) => console.log("Det ikke for godt det her: \n " + err));
   console.log("POSTING ARC");

@@ -1,12 +1,16 @@
-//Disse json-filer skal hentes i stedet for det her shit, men jeg har givet op:/
+
 let SAIL = 2;
 let txt, level, osoName, integrity, assurance, compliance;
 let SailLevels = 6;
 let objNumber = 1;
 let oso_json, sail_json;
+let params = new URLSearchParams(location.search);
+let UID = params.get("uid");
 
 txt += "<table border='1' id='sailTable'>"
 txt += "<tr><th>OSO #</th><th>Name</th><th>Robustness</th><th>Integrity</th><th>Assurance</th><th>Compliance</th></tr>"
+
+let ansoegning;
 
 fetch("./OSO_integrity_assurance.json").then(res => res.json()).then(data => {
     sail_json = data["sail"];
@@ -19,7 +23,7 @@ fetch("./OSO_integrity_assurance.json").then(res => res.json()).then(data => {
                 level = sail_json["OSO#" + objNumber].level[i];
                 osoName = sail_json["OSO#" + objNumber].description;
                 integrity = oso_json["OSO#" + objNumber][level.toLowerCase()]["integrity"];
-                integrity = integrity.replace(/•/g, '</dd></li="underliste">' + '<br>' + '<li id="overliste">• ');
+                integrity = integrity.replace(/•/g, '</dd></li="underliste">' + '<br><li id="overliste">• ');
                 integrity = integrity.replace(/- /g, '<br>' + '<li id="underliste">- ');
                 assurance = oso_json["OSO#" + objNumber][level.toLowerCase()]["assurance"];
                 assurance = assurance.replace(/•/g, '</dd></li id="underliste">' + '<br><li id="overliste">• ');
@@ -28,12 +32,14 @@ fetch("./OSO_integrity_assurance.json").then(res => res.json()).then(data => {
             }
         }
 
-        txt += "<tr><td>" + obj + "</td><td>" + osoName + "</td><td>" + level + "</td><td>" + integrity + "</td><td>" + assurance + "</td><td class='inputtd'><textarea class='compIn' name='compIn[]' placeholder='Write how you wish to comply to the given OSO'></textarea></td></tr>";
+        txt += "<tr><td>" + obj + "</td><td class='int_as_td'>" + osoName + "</td><td>" + level + "</td><td class='int_as_td'>" + integrity + "</td><td class='int_as_td'>" + assurance + "</td><td class='inputtd'><textarea class='compIn' name='compIn[]' placeholder='Write how you wish to comply to the given OSO'></textarea></td></tr>";
 
     }
 
     txt += "</table>"
     document.getElementById("sailDiv").innerHTML = txt;
+    fetch(`http://127.0.0.1:3000/sail?uid=${UID}`).then(response => response.json())
+    .then(data => ansoegning = data)
 });
 
 //Convert to pdf
@@ -41,14 +47,16 @@ function GeneratePDF() {
 
     let compIn = document.getElementsByTagName("textarea");
     let inputtd = document.querySelectorAll(".inputtd");
-    console.log(compIn);
     let numberOfInputs = 24
     for (let i = 0; i < numberOfInputs; i++) {
-        let t = document.createElement('pre');
+        let t = document.createElement('p');
         t.innerHTML = compIn.item(i).value;
-        t.innerHTML = t.innerHTML.replace(/\n/g, '<br>\n');
+        t.innerHTML = t.innerHTML.replace(/\n/g, '<br>');
+        t.innerHTML = t.innerHTML.replace(/\n\n/g, '<br><br>');
         inputtd.item(i).appendChild(t);
+
         compIn.item(i).hidden = true;
+
     }
 
     let doc = new jsPDF('l');

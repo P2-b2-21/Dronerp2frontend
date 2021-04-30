@@ -119,5 +119,5 @@ applyBtn.addEventListener('click', () => {
 
 /* Ved ikke om det virker så "nemt" eller om det skal kobles på med user */ 
 function beginForm() {
-    location.href = "form/grc.html";
+    location.href = "form/grc.html" + window.location.search;
 }
