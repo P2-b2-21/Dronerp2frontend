@@ -76,3 +76,53 @@
   position: fixed;
   bottom: 0;
 }
+
+/* form.js */
+
+fieldset 
+  {
+    border:2px solid steelblue;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;	
+    border-radius:8px;
+    max-width: 25%;
+}
+
+legend {
+  color: steelblue;
+  font-weight: bold;
+}
+
+form {
+  padding: 8px;
+}
+
+input[name="submitBtn"] {
+  border: 1px solid #7bc74d;
+  background: #7bc74d;
+  color: #fff;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+  border-radius:8px;
+  padding:3px 20px;
+  margin-left: 25px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+input[name="submitBtn"]:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+  border-radius:8px;
+  padding:3px 20px;
+  margin-left: 25px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+input[name="submitBtn"]:hover {
+  opacity: 1
+}
