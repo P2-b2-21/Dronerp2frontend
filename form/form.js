@@ -59,8 +59,6 @@ if (MAINFORM === "GRC") {
 
   makeSubmitButton(postFinalGRC, "POSTING TO SERVER & GOES TO ARC", "arc.html");
 
-  let output = [];
-
   question.addEventListener("change", (event) => {
     const numOfLastQuestion = Object.keys(questionContent).length;
     //Til loading bar GRC
@@ -81,7 +79,8 @@ if (MAINFORM === "GRC") {
 
     // Display user input
     for (let i = 1; i <= 7; i++) {
-      console.log(questionContent[`question${i}`].userInput);
+      let uInput = questionContent[`question${i}`].userInput;
+      if (uInput) console.log(uInput);
     }
   });
 }
@@ -123,12 +122,11 @@ let mitigationMatrix = [
 */
 
 let user;
-
+let GRC;
 if (MAINFORM === "ARC") {
   let params = new URLSearchParams(location.search);
   GRC = params.get("GRC");
   user = params.get("user");
-
   console.log(GRC);
   console.log(user);
 
@@ -581,23 +579,26 @@ function postFinalGRC() {
   //console.log(GRC)
   //postObjectToServer('GRC', GRC, `http://${frontendAddr}/form/arc.html`)
 
-  let idk = {
+  let GRCtoServer = {
     GRC: GRC,
   };
+  if (typeof GRC != "number" || isNaN(GRC)) {
+    window.alert("De indtastede svarmuligheder er ulovlige");
+  } else {
+    console.log(GRCtoServer);
 
-  console.log(idk);
-
-  postGRCToServer(idk).then((res) => console.log(res));
+    postGRCToServer(GRCtoServer).then((res) => console.log(res));
+  }
 }
 
-function calculateGRC(lenght, los, type) {
+function calculateGRC(length, los, type) {
   let y = 0;
   if (type > 0) {
     y = los + type;
   } else {
     y = 0;
   }
-  GRC = GRCMatrix[lenght][y];
+  GRC = GRCMatrix[length][y];
   return GRC;
 }
 
@@ -632,9 +633,13 @@ async function postGRCToServer(grcToPost) {
   return "All good";
 }
 
-async function postObjectToServer(endpoint, object, redirect = undefined, jsonRes = false) {
-  if (!jsonRes)
-  {
+async function postObjectToServer(
+  endpoint,
+  object,
+  redirect = undefined,
+  jsonRes = false
+) {
+  if (!jsonRes) {
     return new Promise((resolve, reject) => {
       fetch(`http://${backendAddr}/${endpoint}`, {
         method: "POST",
@@ -645,7 +650,7 @@ async function postObjectToServer(endpoint, object, redirect = undefined, jsonRe
           if (result.ok) {
             if (redirect != undefined) {
               console.log(redirect);
-              //window.location.href = redirect
+              window.location.href = redirect;
             }
             resolve();
           }
@@ -655,31 +660,31 @@ async function postObjectToServer(endpoint, object, redirect = undefined, jsonRe
           reject(err);
         });
     });
-  }
-  else 
-  {
+  } else {
     return new Promise((resolve, reject) => {
       fetch(`http://${backendAddr}/${endpoint}`, {
         method: "POST",
         body: JSON.stringify(object),
         headers: { "Content-Type": "application/json" },
-      }).then(response => response.json()).catch(fetchError => console.log(fetchError))
-      .then(data => resolve(data)).catch(err => console.log(err))
-    })
+      })
+        .then((response) => response.json())
+        .catch((fetchError) => console.log(fetchError))
+        .then((data) => resolve(data))
+        .catch((err) => console.log(err));
+    });
   }
 }
-
 
 function postFinalARC() {
   let objToSend = {
     arc: ARC,
     grc: GRC,
-    user: user
+    user: user,
   };
 
   postObjectToServer("ARCGRC", objToSend, undefined, true)
     .then((res) => {
-      window.location.href = `http://${frontendAddr}/sail.html?uid={${res.UID}}`
+      window.location.href = `http://${frontendAddr}/sail.html?uid={${res.UID}}`;
     })
     .catch((err) => console.log("Det ikke for godt det her: \n " + err));
   console.log("POSTING ARC");

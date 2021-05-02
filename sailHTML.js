@@ -4,7 +4,7 @@ let objNumber = 1;
 let oso_json, sail_json;
 let params = new URLSearchParams(location.search);
 let UID = params.get("uid");
-
+let user = params.get("username");
 txt += "<table border='1' id='sailTable'>"
 txt += "<tr><th>OSO #</th><th>Name</th><th>Robustness</th><th>Integrity</th><th>Assurance</th><th>Compliance</th></tr>"
 let ansoegning = {};
@@ -13,8 +13,8 @@ fetch(`http://server.malthelarsen.dk:3000/sail?uid=${UID}`).then(response => {re
     ansoegning = data;
     console.log(ansoegning);
     let SAIL = ansoegning["SAIL"];
-
-
+    
+    
     fetch("./OSO_integrity_assurance.json").then(res => res.json()).then(data => {
         sail_json = data["sail"];
         oso_json = data["OSOia"];
@@ -92,5 +92,5 @@ function Save() {
 }
 
 function pdfSaveWithoutDownload() {
-    window.location.href = `http://server.malthelarsen.dk:3000/brugerprofil.html?uid=${UID}`;
+    window.location.href = `http://server.malthelarsen.dk:3000/brugerprofil.html?user=${user}`;
 }

@@ -27,7 +27,8 @@
   font-family: "Times New Roman";
 }
 
-#logudBig, #logudSmall {
+#logudBig,
+#logudSmall {
   float: right;
 }
 
@@ -87,13 +88,22 @@
   height: 76vh;
   background-color: lightgray;
   float: left;
+  overflow-y: auto;
 }
-#contentDiv {
+.content div {
   position: relative;
   height: auto;
-  width: auto;
-  background-color: #fcd64c;
+  min-width: 200px;
+  padding: 5px;
+  text-align: center;
+  user-select: none;
+  background-color: #ffd53c;
 }
+.content div:hover {
+  background-color: #af9124;
+  cursor: pointer;
+}
+
 .infoInput {
   position: relative;
   background-color: lightgrey;
