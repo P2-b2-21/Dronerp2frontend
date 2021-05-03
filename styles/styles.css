@@ -7,13 +7,14 @@
 /* Style the links inside the navigation bar */
 .topnav button {
   float: right;
-  color: #f2f2f2;
+  color: black;
   text-align: center;
-  padding: 25px 50px;
+  padding: 35px;
   text-decoration: none;
   font-size: 25px;
-  background-color: steelblue;
-  color: white;
+  background-color: rgba(70, 130, 180, 1);
+  transition-duration: 0.2s;
+  cursor: pointer;
 }
 
 #myVideo {
@@ -29,7 +30,7 @@
 .content {
   position: fixed;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0);
   color: #f1f1f1;
   margin-bottom: 0.5%;
   width: 100%;
@@ -55,37 +56,24 @@
 }
 
 .topnav h1 {
-    float: left;
-    font-size: 25px;
-    padding: 5px 16px;
-    color: steelblue;
+  float: left;
+  font-size: 25px;
+  padding: 15px;
+  color: steelblue;
 }
 
 #login-page {
   display: none;
 }
 
-
-#myBar {
-  width: 10%;
-  height: 30px;
-  background-color: #4CAF50;
-  text-align: center; /* To center it horizontally (if you want) */
-  line-height: 30px; /* To center it vertically */
-  color: white;
-  position: fixed;
-  bottom: 0;
-}
-
 /* grc.html arc.html */
 
-fieldset 
-  {
-    border:2px solid steelblue;
-    -moz-border-radius:8px;
-    -webkit-border-radius:8px;	
-    border-radius:8px;
-    max-width: 25%;
+fieldset {
+  border: 2px solid steelblue;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  max-width: 25%;
 }
 
 legend {
@@ -101,10 +89,10 @@ input[name="submitBtn"] {
   border: 1px solid #7bc74d;
   background: #7bc74d;
   color: #fff;
-  -moz-border-radius:8px;
-  -webkit-border-radius:8px;
-  border-radius:8px;
-  padding:3px 20px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  padding: 3px 20px;
   margin-left: 25px;
   opacity: 0.6;
   transition: 0.3s;
@@ -114,15 +102,15 @@ input[name="submitBtn"]:disabled {
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
-  -moz-border-radius:8px;
-  -webkit-border-radius:8px;
-  border-radius:8px;
-  padding:3px 20px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  padding: 3px 20px;
   margin-left: 25px;
   opacity: 0.6;
   transition: 0.3s;
 }
 
 input[name="submitBtn"]:hover {
-  opacity: 1
+  opacity: 1;
 }

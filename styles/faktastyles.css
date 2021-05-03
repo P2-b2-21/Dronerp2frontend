@@ -1,7 +1,7 @@
 /* Add a black background color to the top navigation */
 
 .topnav {
-  background-color: rgba(70, 130, 180, 0.6);
+  background-color: rgba(0, 0, 0, 0.85);
   overflow: hidden;
 }
 
@@ -10,12 +10,12 @@
   float: left;
   color: black;
   text-align: center;
-  padding: 25px 50px;
+  padding: 35px;
   text-decoration: none;
   font-size: 25px;
-  background-color: rgba(70, 130, 180, 0.6);
-  margin-right: 5px;
+  background-color: rgba(70, 130, 180, 1);
   transition-duration: 0.2s;
+  cursor: pointer;
 }
 
 .topnav button {
@@ -24,12 +24,12 @@
   border: none;
   color: black;
   text-align: center;
-  padding: 25px 50px;
+  padding: 34.5px;
   text-decoration: none;
   font-size: 25px;
-  background-color: rgba(70, 130, 180, 0.6);
-  margin-right: 5px;
+  background-color: rgba(70, 130, 180, 1);
   transition-duration: 0.2s;
+  cursor: pointer;
 }
 
 #background_picture {
@@ -40,27 +40,6 @@
   min-width: 100%;
   min-height: 100%;
   opacity: 70%;
-}
-.content {
-  position: fixed;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  margin-bottom: 0.5%;
-  width: 100%;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-#myBtn {
-  width: 200px;
-  font-size: 18px;
-  padding: 10px;
-  border: none;
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  cursor: pointer;
-  border-radius: 10px;
 }
 
 /* Change the color of links on hover */
@@ -93,40 +72,39 @@
 }
 
 .boxed {
-  position: relative;
+  float: left;
   bottom: 0;
-  background: rgba(70, 130, 180, 0.6);
+  background: steelblue;
   color: black;
   font-size: 20px;
   margin-top: 5px;
   margin-bottom: 25%;
-  width: 83%;
+  width: 85.6%;
   padding: 10px;
   border-radius: 10px;
   image-rendering: auto;
 }
 .sidenav {
   height: 88.6%;
-  width: 300px;
+  width: 13%;
   float: right;
-  z-index: 1;
   bottom: 0;
   right: 0;
-  background-color: rgba(70, 130, 180, 0.6);
-  overflow-x: hidden;
+  background-color: rgba(0, 0, 0, 0.85);
+  overflow-x: auto;
 }
 .sidenav button {
+  float: left;
   background: none;
   border: none;
-  color: black;
   text-align: center;
-  padding: 25px 50px;
+  padding: 50px;
+  width: auto;
   text-decoration: none;
-  font-size: 30px;
-  margin-bottom: 5px;
-  background-color: rgba(70, 130, 180, 0.6);
-  margin-right: relative;
+  font-size: 25px;
+  background-color: rgba(70, 130, 180, 1);
   transition-duration: 0.2s;
+  cursor: pointer;
 }
 .sidenav button:active {
   background-color: steelblue;

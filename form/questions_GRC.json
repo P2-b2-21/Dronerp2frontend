@@ -76,7 +76,7 @@
     "ask": "Anvendes der faldskærm under drone operationen?",
     "choices": {
       "choice0": {
-        "text": "Ja (medføre tilføjet TMPR)",
+        "text": "Ja (TMPR skal være dokumenteret)",
         "value": 2
       },
       "choice1": {
@@ -90,7 +90,7 @@
     "ask": "Har du en beredskabsplan?",
     "choices": {
       "choice0": {
-        "text": "Ja (medføre tilføjet ERP)",
+        "text": "Ja (ERP skal være dokumenteret)",
         "value": 3
       },
       "choice1": {
@@ -104,7 +104,7 @@
     "ask": "Hvilke af følgende robusthedsniveauer er overholdt?",
     "choices": {
       "choice0": {
-        "text": "NONE (SPG4; Nej -> leaveout/grayout)",
+        "text": "NONE",
         "value": 0
       },
       "choice1": {
