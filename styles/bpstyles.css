@@ -26,7 +26,6 @@
   text-decoration: none;
   font-size: 25px;
   background-color: steelblue;
-  color: white;
   border: none;
   font-family: "Times New Roman";
 }
@@ -47,7 +46,7 @@
   position: absolute;
   background-color: white;
   top: 85px;
-  left: 345.5px;
+  left: 15.2%;
   z-index: 1;
 }
 
@@ -69,7 +68,7 @@
   width: 400px;
   top: 135px;
   right: 50px;
-  background-color: lightgray;
+  background-color: (0, 0, 0, 0);
   float: right;
 }
 #profileImg {

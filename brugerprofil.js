@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", async function (event) {
 });
 
 let contentContainer = document.querySelector(".content");
-
 /**
  * Helper function for creating document elements in the contentContainer
  * @param {string} element The element type of the document element
@@ -45,7 +44,6 @@ function Create(element = "", text = "", id) {
   contentContainer.appendChild(type);
   return type;
 }
-
 //dropdown menu
 let ansBtn = document.querySelector("#ansBtn");
 let dd = document.querySelector(".ddContent");

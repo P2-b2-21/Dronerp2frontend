@@ -33,9 +33,7 @@ function make_href(
 
   document.getElementById(append_to_element).appendChild(type);
 }
-
-make_href("a", "Hjem", "index.html", "fakta_topnav");
-make_href("a", "Profil", "brugerprofil.html", "fakta_topnav");
+make_href("a", "Hjem", "index.html ", "fakta_topnav");
 
 //make 2 elements in html and remove previous if any present, takes 7 strings as input
 // element = the first html element wanted to be made

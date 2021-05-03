@@ -19,6 +19,7 @@
 }
 
 .topnav button {
+  outline: none;
   float: left;
   background: none;
   border: none;
@@ -94,12 +95,13 @@
   overflow-x: auto;
 }
 .sidenav button {
+  outline: none;
   float: left;
   background: none;
   border: none;
   text-align: center;
   padding: 50px;
-  width: auto;
+  width: 100%;
   text-decoration: none;
   font-size: 25px;
   background-color: rgba(70, 130, 180, 1);
