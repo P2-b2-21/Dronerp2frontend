@@ -36,7 +36,7 @@ const question = document.querySelector(`#${MAINFORM}`);
 if (MAINFORM === "GRC") {
   console.log(`questions_${MAINFORM}.json.. loaded`);
 
-  makeSubmitButton(postFinalGRC, "POSTING TO SERVER & GOES TO ARC", "arc.html");
+  makeSubmitButton(postFinalGRC, "Næste", "arc.html");
 
   question.addEventListener("change", (event) => {
     const numOfLastQuestion = Object.keys(questionContent).length;
@@ -115,7 +115,7 @@ if (MAINFORM === "ARC") {
 
   console.log(`questions_${MAINFORM}.json.. loaded`);
 
-  makeSubmitButton(postFinalARC, "POSTING TO SERVER & GOES TO BRUGERPROFIL", "../brugerprofil.html");
+  makeSubmitButton(postFinalARC, "Submit", "../brugerprofil.html");
 
   let userInput = [];
 
