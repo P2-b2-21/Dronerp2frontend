@@ -41,9 +41,11 @@ if (MAINFORM === "GRC") {
   question.addEventListener("change", (event) => {
     const numOfLastQuestion = Object.keys(questionContent).length;
     if (event.target.parentNode.parentNode.id === `form${numOfLastQuestion}`) {
+
       // Make submit button available
       document.querySelector('[name="submitBtn"]').disabled = false;
     } else {
+
       // Gray out toggle submit button
       document.querySelector('[name="submitBtn"]').disabled = true;
     }
@@ -59,15 +61,17 @@ if (MAINFORM === "GRC") {
   });
 }
 
-// Make form4 handel gray out button in form7
+// Make form4 handle gray out button in form7
+// Let user choose an supportet mitigation 
 if (MAINFORM === "GRC") {
+
   document.querySelector("#GRC").addEventListener("change", (event) => {
     if (document.querySelector(`#question7`) != null) {
+
       if (questionContent[`question${4}`].userInput === "1") {
-        document.querySelectorAll(
-          'input[name="question7"]'
-        )[0].disabled = false;
+        document.querySelectorAll('input[name="question7"]')[0].disabled = false;
       }
+
       if (questionContent[`question${4}`].userInput === "0") {
         document.querySelectorAll('input[name="question7"]')[0].disabled = true;
       }
@@ -111,21 +115,16 @@ if (MAINFORM === "ARC") {
 
   console.log(`questions_${MAINFORM}.json.. loaded`);
 
-  makeSubmitButton(
-    postFinalARC,
-    "POSTING TO SERVER & GOES TO BRUGERPROFIL",
-    "../brugerprofil.html"
-  );
+  makeSubmitButton(postFinalARC, "POSTING TO SERVER & GOES TO BRUGERPROFIL", "../brugerprofil.html");
 
   let userInput = [];
 
   question.addEventListener("change", (event) => {
     let currNode = event.target.parentNode.parentNode;
+
     // Executes when ARC value has been selected
-    if (
-      event.target.value !== "subquestion" &&
-      event.target.value !== "next-question"
-    ) {
+    if (event.target.value !== "subquestion" && event.target.value !== "next-question") {
+
       // Make submit button available
       document.querySelector('[name="submitBtn"]').disabled = false;
 
@@ -139,49 +138,52 @@ if (MAINFORM === "ARC") {
         element[0].childNodes[4].checked = false;
       });
     } else {
+
       // Gray out toggle submit button
       document.querySelector('[name="submitBtn"]').disabled = true;
     }
 
+    // User has chosen to be displayed next form question (form question != subquestion)
     if (event.target.value === "next-question") {
       let nextID = currNode.nextSibling.childNodes[0].id;
       document.querySelector(`#${nextID}`).style.display = "";
     }
 
-    if (
-      currNode.id.replace(/[0-9]/, "") === "form" &&
-      doesSubQuestionPathExist() === 1
-    ) {
+    // When user has chosen a form question, and there already is an existing sub question path
+    // there needs to be made room for a new sub question path in its place
+    // RegEx is used to generalize numbered formID's
+    if (currNode.id.replace(/[0-9]/, "") === "form" && doesSubQuestionPathExist() === 1) {
       removeSubQuestionPath(currNode);
     }
 
-    // Makes next sub questiong path
-    if (
-      event.target.value === "subquestion" &&
-      doesSubQuestionPathExist() === 0
-    ) {
+    // When user has chosen a subquestion path, and an existing sub question path does not exist
+    // there needs to be made a new sub question path and the next sub question need to become available
+    if (event.target.value === "subquestion" && doesSubQuestionPathExist() === 0) {
       let questionOBJ = questionContent[`${event.target.parentNode.id}`];
-      questionOBJ =
-        (((questionOBJ || {}).choices || {}).choice0 || {}).subquestion0 || {};
+      questionOBJ = (((questionOBJ || {}).choices || {}).choice0 || {}).subquestion0 || {};
+
+      // Makes sub question path with current object
+      // ID of first sub question is set to 'subquestion0'
       initSubQuestionPath(questionOBJ, 0);
+
+      // Hardcoded radio buttons => lack of dynamic solution
       initSubQuestionButtons();
 
+      // Next sub question becomes available
       let nextID = currNode.nextSibling.childNodes[0].id;
       document.querySelector(`#${nextID}`).style.display = "";
     }
 
-    /* TO DO: use id: form4 */
-    if (
-      event.target.value === "next-question" &&
-      doesSubQuestionPathExist() === 0
-    ) {
+    /* TO DO: use id: form4 MAKE dynamic */
+    // User has chosen to be displayed next form question (form question != subquestion)
+    // where a sub question path doesn't exist, therefore the last form question need to become available
+    if (event.target.value === "next-question" && doesSubQuestionPathExist() === 0) {
       document.querySelector("#form4").style.display = "";
     }
 
-    if (
-      event.target.value === "subquestion" &&
-      doesSubQuestionPathExist() === 1
-    ) {
+    // User has chosen to be displayed next sub question
+    // therefore the next question in an existing sub question path need to be displayed
+    if (event.target.value === "subquestion" && doesSubQuestionPathExist() === 1) {
       let nextID = currNode.nextSibling.childNodes[0].id;
       document.querySelector(`#${nextID}`).style.display = "";
     }
@@ -201,7 +203,16 @@ let ARC;
   **********************
 */
 
-/* Create questions from JSON Object */
+/**
+ * Create questions from JSON Object.
+ * 
+ * @todo variable name change (quesNum, formNum, currentQuestion).
+ * 
+ * @param {string} form The starting form ID of the page.
+ * @param {number} quesNum The question number.
+ * @param {number} formNum The form number.
+ * @return {void} Stops when end of object has been reached.
+ */
 function makePage(form, quesNum, formNum) {
   if (Object.keys(questionContent).length == quesNum) return;
 
@@ -209,192 +220,99 @@ function makePage(form, quesNum, formNum) {
   let currentQuestion = Object.keys(questionContent)[quesNum];
   console.log("currentQuestion: " + currentQuestion);
 
-  let numOfButtons = Object.keys(questionContent[`${currentQuestion}`].choices)
-    .length;
+  let numOfButtons = Object.keys(questionContent[`${currentQuestion}`].choices).length;
 
-  document.querySelector(`#${form}`).addEventListener(
-    "change",
-    (event) => {
-      addFormElement(
-        `form${formNum}`,
-        `${currentQuestion}`,
-        questionContent[`${currentQuestion}`].ask,
-        "radio",
-        numOfButtons
-      );
+  document.querySelector(`#${form}`).addEventListener("change",(event) => {
+      addFormElement(`form${formNum}`, `${currentQuestion}`, questionContent[`${currentQuestion}`].ask, "radio", numOfButtons);
       quesNum++;
       formNum++;
       makePage(`form${quesNum}`, quesNum, formNum);
-    },
-    { once: true }
-  );
+    }, { once: true });
 }
 
+/**
+ * Makes a sub question path from current object.
+ * 
+ * @param {object} obj The object to do nested iteration.
+ * @param {number} i The ID value.
+ */
 function initSubQuestionPath(obj, i) {
   Object.keys(obj).forEach((key) => {
+
     if (key == "ask") {
-      addSubFormElement(
-        `subform${i}`,
-        `subquestion${i}`,
-        `${obj[key]}`,
-        "radio",
-        2
-      );
+      addSubFormElement(`subform${i}`, `subquestion${i}`, `${obj[key]}`, "radio", 2);
       i++;
     }
+
     if (typeof obj[key] == "object") {
       initSubQuestionPath(obj[key], i);
     }
   });
 }
 
+/**
+ * Finds all siblings coming after a HTML element.
+ * 
+ * @param {object} node The HTML element.
+ * @return {object} Collection of all HTML elements siblings.
+ */
 function findAllNextElementSiblings(node) {
   let siblings = [];
+
   while ((node = node.nextSibling)) {
     siblings.push(node);
   }
+
   return siblings;
 }
 
+/**
+ * Procedure that adds radio buttons to sub question in DOM.
+ * 
+ * Hardcoded => lack of dynamic solution for sub question buttons.
+ */
 function initSubQuestionButtons() {
   switch (event.target.parentNode.id) {
-    case "question3":
-      {
+    case "question3": {
         event.target.parentNode.parentNode.nextSibling.style.display = "none";
         document.querySelector("#subquestion0").style.display = "";
 
-        makeButton(
-          `subquestion${0}`,
-          "radio",
-          `subquestion${0}`,
-          "ARC-d",
-          "Ja"
-        );
+        makeButton(`subquestion${0}`, "radio", `subquestion${0}`, "ARC-d", "Ja");
         addLineBreak(`subquestion${0}`);
-        makeButton(
-          `subquestion${0}`,
-          "radio",
-          `subquestion${0}`,
-          "ARC-c",
-          "Nej"
-        );
+        makeButton(`subquestion${0}`, "radio", `subquestion${0}`, "ARC-c", "Nej");
       }
       break;
-    case "question4":
-      {
+    case "question4": {
         if (event.target.nextSibling.innerText === "Ja") {
-          makeButton(
-            `subquestion${0}`,
-            "radio",
-            `subquestion${0}`,
-            "ARC-d",
-            "Ja"
-          );
+          makeButton(`subquestion${0}`, "radio", `subquestion${0}`, "ARC-d", "Ja");
           addLineBreak(`subquestion${0}`);
-          makeButton(
-            `subquestion${0}`,
-            "radio",
-            `subquestion${0}`,
-            "subquestion",
-            "Nej"
-          );
+          makeButton(`subquestion${0}`, "radio", `subquestion${0}`, "subquestion", "Nej");
 
-          makeButton(
-            `subquestion${1}`,
-            "radio",
-            `subquestion${1}`,
-            "ARC-d",
-            "Ja"
-          );
+          makeButton(`subquestion${1}`, "radio", `subquestion${1}`, "ARC-d", "Ja");
           addLineBreak(`subquestion${1}`);
-          makeButton(
-            `subquestion${1}`,
-            "radio",
-            `subquestion${1}`,
-            "subquestion",
-            "Nej"
-          );
+          makeButton(`subquestion${1}`, "radio", `subquestion${1}`, "subquestion", "Nej");
 
-          makeButton(
-            `subquestion${2}`,
-            "radio",
-            `subquestion${2}`,
-            "ARC-c",
-            "Ja"
-          );
+          makeButton(`subquestion${2}`, "radio", `subquestion${2}`, "ARC-c", "Ja");
           addLineBreak(`subquestion${2}`);
-          makeButton(
-            `subquestion${2}`,
-            "radio",
-            `subquestion${2}`,
-            "subquestion",
-            "Nej"
-          );
+          makeButton(`subquestion${2}`, "radio", `subquestion${2}`, "subquestion", "Nej");
 
-          makeButton(
-            `subquestion${3}`,
-            "radio",
-            `subquestion${3}`,
-            "ARC-c",
-            "Ja"
-          );
+          makeButton(`subquestion${3}`, "radio", `subquestion${3}`, "ARC-c", "Ja");
           addLineBreak(`subquestion${3}`);
+
         } else {
-          makeButton(
-            `subquestion${0}`,
-            "radio",
-            `subquestion${0}`,
-            "ARC-c",
-            "Ja"
-          );
+          makeButton(`subquestion${0}`, "radio", `subquestion${0}`, "ARC-c", "Ja");
           addLineBreak(`subquestion${0}`);
-          makeButton(
-            `subquestion${0}`,
-            "radio",
-            `subquestion${0}`,
-            "subquestion",
-            "Nej"
-          );
+          makeButton(`subquestion${0}`, "radio", `subquestion${0}`, "subquestion", "Nej");
 
-          makeButton(
-            `subquestion${1}`,
-            "radio",
-            `subquestion${1}`,
-            "ARC-c",
-            "Ja"
-          );
+          makeButton(`subquestion${1}`, "radio", `subquestion${1}`, "ARC-c", "Ja");
           addLineBreak(`subquestion${1}`);
-          makeButton(
-            `subquestion${1}`,
-            "radio",
-            `subquestion${1}`,
-            "subquestion",
-            "Nej"
-          );
+          makeButton(`subquestion${1}`, "radio", `subquestion${1}`, "subquestion", "Nej");
 
-          makeButton(
-            `subquestion${2}`,
-            "radio",
-            `subquestion${2}`,
-            "ARC-c",
-            "Ja"
-          );
+          makeButton(`subquestion${2}`, "radio", `subquestion${2}`, "ARC-c", "Ja");
           addLineBreak(`subquestion${2}`);
-          makeButton(
-            `subquestion${2}`,
-            "radio",
-            `subquestion${2}`,
-            "subquestion",
-            "Nej"
-          );
+          makeButton(`subquestion${2}`, "radio", `subquestion${2}`, "subquestion", "Nej");
 
-          makeButton(
-            `subquestion${3}`,
-            "radio",
-            `subquestion${3}`,
-            "ARC-b",
-            "Ja"
-          );
+          makeButton(`subquestion${3}`, "radio", `subquestion${3}`, "ARC-b", "Ja");
           addLineBreak(`subquestion${3}`);
         }
       }
@@ -402,16 +320,26 @@ function initSubQuestionButtons() {
   }
 }
 
+/**
+ * Removes sub questions from coming after a HTML element.
+ * 
+ * @param {object} node The HTML element.
+ */
 function removeSubQuestionPath(node) {
   findAllNextElementSiblings(node).forEach((element) => {
     if (element.id.replace(/[0-9]/, "") === "subform") {
-      console.log("removeSubQuestionPath");
-      console.log(element.id);
       element.remove();
     }
   });
 }
 
+/**
+ * Checks if there are any sub questions in DOM.
+ * 
+ * Starting from form ID: 'form1'.
+ * 
+ * @return {boolean} 1 or 0
+ */
 function doesSubQuestionPathExist() {
   let formStart = document.querySelector("#form1");
   let result = 0;
@@ -423,14 +351,16 @@ function doesSubQuestionPathExist() {
   return result;
 }
 
-/* Add quistion with choices to DOM tree */
-function addFormElement(
-  formID,
-  questionID,
-  questionName,
-  typeOfButton,
-  numOfButtons
-) {
+/**
+ * Add question with choices to DOM tree
+ * 
+ * @param {string} formID The new formID.
+ * @param {string} questionID The new questionID.
+ * @param {string} questionName The asked question.
+ * @param {string} typeOfButton The button type to make.
+ * @param {number} numOfButtons Number of choices, the question have.
+ */
+function addFormElement(formID, questionID, questionName, typeOfButton, numOfButtons) {
   const mainForm = document.querySelector(`#${MAINFORM}`);
   const newForm = document.createElement("form");
   newForm.id = formID;
@@ -443,8 +373,7 @@ function addFormElement(
   form.appendChild(newElement);
 
   for (let i = 0; i < numOfButtons; i++) {
-    let textContent =
-      questionContent[`${questionID}`].choices[`choice${i}`].text;
+    let textContent = questionContent[`${questionID}`].choices[`choice${i}`].text;
     let value = questionContent[`${questionID}`].choices[`choice${i}`].value;
 
     makeButton(questionID, typeOfButton, questionID, value, textContent);
@@ -452,13 +381,16 @@ function addFormElement(
   }
 }
 
-function addSubFormElement(
-  formID,
-  questionID,
-  questionName,
-  typeOfButton,
-  numOfButtons
-) {
+/**
+ * Add sub question with choices to DOM tree
+ * 
+ * @todo merge with addFormElement().
+ * 
+ * @param {string} formID The new formID.
+ * @param {string} questionID The new questionID.
+ * @param {string} questionName The asked question.
+ */
+function addSubFormElement(formID, questionID, questionName, typeOfButton, numOfButtons) {
   const mainForm = document.querySelector(`#${MAINFORM}`);
   const newForm = document.createElement("form");
   newForm.id = formID;
@@ -474,22 +406,30 @@ function addSubFormElement(
   form.appendChild(newElement);
 }
 
-/* Add first question to DOM tree */
+/**
+ * Add first question to DOM tree.
+ * 
+ * @todo variable name change (quesNum, formNum).
+ * 
+ * @param {number} quesNum The question number.
+ * @param {number} formNum The form number.
+ */
 function initPage(quesNum, formNum) {
   let currentQuestion = Object.keys(questionContent)[quesNum];
-  let numOfButtons = Object.keys(questionContent[`${currentQuestion}`].choices)
-    .length;
+  let numOfButtons = Object.keys(questionContent[`${currentQuestion}`].choices).length;
 
-  addFormElement(
-    `form${formNum}`,
-    `${currentQuestion}`,
-    questionContent[`${currentQuestion}`].ask,
-    "radio",
-    numOfButtons
-  );
+  addFormElement(`form${formNum}`, `${currentQuestion}`, questionContent[`${currentQuestion}`].ask, "radio", numOfButtons);
 }
 
-/* Add button to question */
+/**
+ * Add button to question (element).
+ * 
+ * @param {string} idElement Where to add button append child element.
+ * @param {string} typeOfButton The button type to make.
+ * @param {string} name The name of the button.
+ * @param {string} value The value of the button.
+ * @param {string} textContent The button text content.
+ */
 function makeButton(idElement, typeOfButton, name, value, textContent) {
   const element = document.querySelector(`#${idElement}`);
 
@@ -504,14 +444,25 @@ function makeButton(idElement, typeOfButton, name, value, textContent) {
   element.appendChild(label);
 }
 
-/* Insert line break to DOM tree, helper function */
+/**
+ * Insert line break into DOM tree.
+ * 
+ * @param {string} id Adds line break after ID.
+ */
 function addLineBreak(id) {
   const element = document.querySelector(`#${id}`);
   const lineBreak = document.createElement("br");
+
   return element.appendChild(lineBreak);
 }
 
-/* Add submit button to the end of page */
+/**
+ * Add submit button to the DOM tree.
+ * 
+ * @param {function} postToServerFunc The function that runs after click.
+ * @param {string} value The text displayed by the button.
+ * @param {string} nextPage Page path. Goes to after click.
+ */
 function makeSubmitButton(postToServerFunc, value, nextPage) {
   const element = document.querySelector(`#${MAINFORM}`);
 
