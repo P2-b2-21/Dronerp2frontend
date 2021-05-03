@@ -27,27 +27,6 @@ fetch(`questions_${MAINFORM}.json`)
   });
 
 const question = document.querySelector(`#${MAINFORM}`);
-
-/*  *****************
-    Loading bar for GRC 
-    ****************
-*/
-let width = 0;
-function move() {
-  if (width >= 100) {
-    return;
-  }
-
-  let elem = document.getElementById("myBar");
-  width += Math.ceil(100 / Object.keys(questionContent).length);
-  elem.style.width = width + "%";
-  elem.innerHTML = width + "%";
-
-  if (width >= 100) {
-    elem.innerHTML = width = 100 + "%";
-  }
-}
-
 /*
    ********************** 
    GRC handling
@@ -61,11 +40,6 @@ if (MAINFORM === "GRC") {
 
   question.addEventListener("change", (event) => {
     const numOfLastQuestion = Object.keys(questionContent).length;
-    //Til loading bar GRC
-    if (width < 100) {
-      move();
-    }
-
     if (event.target.parentNode.parentNode.id === `form${numOfLastQuestion}`) {
       // Make submit button available
       document.querySelector('[name="submitBtn"]').disabled = false;
@@ -582,7 +556,7 @@ function postFinalGRC() {
   let GRCtoServer = {
     GRC: GRC,
   };
-  if (typeof GRC != "number" || isNaN(GRC)) {
+  if (typeof GRC != "number" || isNaN(GRC) || GRC > 7) {
     window.alert("De indtastede svarmuligheder er ulovlige");
   } else {
     console.log(GRCtoServer);
