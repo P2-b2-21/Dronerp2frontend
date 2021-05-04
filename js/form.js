@@ -16,7 +16,7 @@ console.log(backendAddr);
    **********************  
 */
 let questionContent = {};
-fetch(`questions_${MAINFORM}.json`)
+fetch(`../data/questions_${MAINFORM}.json`)
   .then((response) => {
     return response.json();
   })
@@ -34,7 +34,7 @@ const question = document.querySelector(`#${MAINFORM}`);
 */
 
 if (MAINFORM === "GRC") {
-  console.log(`questions_${MAINFORM}.json.. loaded`);
+  console.log(`data/questions_${MAINFORM}.json.. loaded`);
 
   makeSubmitButton(postFinalGRC, "Næste", "arc.html");
 
@@ -56,7 +56,7 @@ if (MAINFORM === "GRC") {
     // Display user input
     for (let i = 1; i <= 7; i++) {
       let uInput = questionContent[`question${i}`].userInput;
-      if (uInput) console.log(uInput);
+      //if (uInput) console.log(uInput);
     }
   });
 }
@@ -102,6 +102,7 @@ let mitigationMatrix = [
 let user;
 let GRC;
 if (MAINFORM === "ARC") {
+  /*
   let params = new URLSearchParams(location.search);
   GRC = params.get("GRC");
   user = params.get("user");
@@ -110,12 +111,12 @@ if (MAINFORM === "ARC") {
 
   if (GRC == undefined) {
     alert("GRC not found, redirecting to GRC");
-    window.location.href = `http://${frontendAddr}/form/grc.html`;
+    window.location.href = `http://${frontendAddr}/common/grc.html`;
   }
-
+  */
   console.log(`questions_${MAINFORM}.json.. loaded`);
 
-  makeSubmitButton(postFinalARC, "Submit", "../brugerprofil.html");
+  makeSubmitButton(postFinalARC, "Submit", "..common/brugerprofil.html");
 
   let userInput = [];
 
@@ -132,11 +133,16 @@ if (MAINFORM === "ARC") {
       findAllNextElementSiblings(currNode).forEach((element) => {
         element[0].style.display = "none";
 
-        /* TO DO: catch error */
         // Uncheck radio buttons
-        element[0].childNodes[1].checked = false;
-        element[0].childNodes[4].checked = false;
+        try {
+          element[0].childNodes[1].checked = false;
+          element[0].childNodes[4].checked = false;
+        }
+        catch {
+          console.log("Cannot set property 'checked' of undefined");
+        }
       });
+
     } else {
 
       // Gray out toggle submit button
@@ -174,10 +180,10 @@ if (MAINFORM === "ARC") {
       document.querySelector(`#${nextID}`).style.display = "";
     }
 
-    /* TO DO: use id: form4 MAKE dynamic */
+    /* TO DO: MAKE dynamic */
     // User has chosen to be displayed next form question (form question != subquestion)
     // where a sub question path doesn't exist, therefore the last form question need to become available
-    if (event.target.value === "next-question" && doesSubQuestionPathExist() === 0) {
+    if (event.target.value === "next-question" && doesSubQuestionPathExist() === 0 && currNode.id === "form3") {
       document.querySelector("#form4").style.display = "";
     }
 
@@ -191,7 +197,7 @@ if (MAINFORM === "ARC") {
     // Log user input
     userInput += "," + event.target.value;
     ARC = event.target.value;
-    console.log(userInput);
+    //console.log(userInput);
   });
 }
 
@@ -218,7 +224,7 @@ function makePage(form, quesNum, formNum) {
 
   // TODO: do name change */
   let currentQuestion = Object.keys(questionContent)[quesNum];
-  console.log("currentQuestion: " + currentQuestion);
+  //console.log("currentQuestion: " + currentQuestion);
 
   let numOfButtons = Object.keys(questionContent[`${currentQuestion}`].choices).length;
 
@@ -507,8 +513,13 @@ function postFinalGRC() {
   let GRCtoServer = {
     GRC: GRC,
   };
+
+  let params = new URLSearchParams(location.search);
+  let user = params.get("username");
+
   if (typeof GRC != "number" || isNaN(GRC) || GRC > 7) {
     window.alert("De indtastede svarmuligheder er ulovlige");
+    window.location.href = `http://${frontendAddr}/common/arc.html?user=${user}`
   } else {
     console.log(GRCtoServer);
 
@@ -551,7 +562,7 @@ async function postGRCToServer(grcToPost) {
     },
   }).then((res) => {
     if (res.ok) console.log("Ok");
-    window.location.href = `http://${frontendAddr}/form/arc.html?GRC=${grcToPost.GRC}&user=${user}`;
+    window.location.href = `http://${frontendAddr}/common/arc.html?GRC=${grcToPost.GRC}&user=${user}`;
 
     console.log(res);
   });
@@ -609,7 +620,7 @@ function postFinalARC() {
 
   postObjectToServer("ARCGRC", objToSend, undefined, true)
     .then((res) => {
-      window.location.href = `http://${frontendAddr}/sail.html?uid={${res.UID}}`;
+      window.location.href = `http://${frontendAddr}/common/sail.html?uid={${res.UID}}`;
     })
     .catch((err) => console.log("Det ikke for godt det her: \n " + err));
   console.log("POSTING ARC");

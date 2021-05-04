@@ -9,7 +9,7 @@ function line_by_line_reader(file = "") {
     .then((text) => (file_arr = text.split(/\r\n|\n/)));
 }
 
-line_by_line_reader("input.txt");
+line_by_line_reader("../data/input.txt");
 //Make a href link in html, takes 4 strings as input
 //element = the type of html element wanted to be made
 //button_title = is the title of the button when viewed in a browser
@@ -33,7 +33,7 @@ function make_href(
 
   document.getElementById(append_to_element).appendChild(type);
 }
-make_href("a", "Hjem", "index.html ", "fakta_topnav");
+make_href("a", "Hjem", "../index.html ", "fakta_topnav");
 
 //make 2 elements in html and remove previous if any present, takes 7 strings as input
 // element = the first html element wanted to be made
@@ -219,9 +219,9 @@ function choose_correct_text_2() {
       );
       j += 2;
     }
-    input_picture("Pictures/Table2_GRC_det(ny).png", "28");
-    input_picture("Pictures/Table_3_mitigations_for_GRC.png", "27");
-    input_picture("Pictures/Level_of_Robustness_det.PNG", "27");
+    input_picture("../media/Table2_GRC_det(ny).png", "28");
+    input_picture("../media/Table_3_mitigations_for_GRC.png", "27");
+    input_picture("../media/Level_of_Robustness_det.png", "27");
   }
   //if the button with id of 6 is pressed, create the following html elements
   else if (event.target.id === "6") {
@@ -245,7 +245,7 @@ function choose_correct_text_2() {
       "36",
       "37"
     );
-    input_picture("Pictures/ArcAssignmentProcess.png", "37");
+    input_picture("../media/ArcAssignmentProcess.png", "37");
   }
   //if the button with id of 8 is pressed, create the following html elements
   else if (event.target.id === "8") {
@@ -277,7 +277,7 @@ function choose_correct_text_2() {
       );
       j += 2;
     }
-    input_picture("Pictures/annex_d_table_4.png", "49");
+    input_picture("../media/annex_d_table_4.png", "49");
   }
   //if the button with id of 9 is pressed, create the following html elements
   else if (event.target.id === "9") {
@@ -307,7 +307,7 @@ function choose_correct_text_2() {
       );
       j += 2;
     }
-    input_picture("Pictures/SAIL_Tabel.png", "58");
+    input_picture("../media/SAIL_Tabel.png", "58");
   }
   //if the button with id of 11 is pressed, create the following html elements
   else if (event.target.id === "11") {

@@ -85,7 +85,7 @@ godkendtBtn.addEventListener("click", () => {
         let app = oldappl[i];
         let applByUID = Create("div", `Ansøgning ${i + 1}`);
         applByUID.onclick = () => {
-          location.href = `http://server.malthelarsen.dk/sail.html?uid={${app.uid}}`;
+          location.href = `http://server.malthelarsen.dk/common/sail.html?uid={${app.uid}}`;
         };
       }
     });
@@ -117,5 +117,5 @@ applyBtn.addEventListener("click", () => {
 });
 
 function beginForm() {
-  location.href = "form/grc.html" + window.location.search;
+  location.href = "../common/grc.html" + window.location.search;
 }

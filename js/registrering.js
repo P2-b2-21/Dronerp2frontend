@@ -1,12 +1,12 @@
 
 var loginBtn = document.querySelector("#loginBtn");
 loginBtn.addEventListener("click", function(){
-    location.href = "./login.html";
+    location.href = "/common/login.html";
 })
     
 var faktaBtn = document.querySelector("#faktaBtn");
 faktaBtn.addEventListener("click", function(){
-    location.href = "./faktaomansoegning.html";
+    location.href = "/common/faktaomansoegning.html";
 })
 
 const registerForm = document.getElementById("register-form");
@@ -32,7 +32,7 @@ registerBtn.addEventListener("click", async (e) => {
         });
 
         if (response.status === 201){
-            location.replace("./login.html");
+            location.replace("/common/login.html");
         }
         else {
             alert("Couldn't register");

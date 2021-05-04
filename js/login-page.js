@@ -34,7 +34,7 @@ async function login() {
 
     if (response.status === 201){
         //alert("Login OK");
-        location.replace("/brugerprofil.html?user=" + userData.username);
+        location.replace("/common/brugerprofil.html?user=" + userData.username);
     }
     else {
         alert("Login failed");
@@ -43,16 +43,16 @@ async function login() {
 
 var faktaBtn = document.querySelector("#faktaBtn");
 faktaBtn.addEventListener("click", function(){
-    location.href = "./faktaomansoegning.html";
+    location.href = "/common/faktaomansoegning.html";
 }) 
 
 var registerBtn = document.querySelector("#registerBtn");
 registerBtn.addEventListener("click", function() {
-    location.href = "./registrering.html"
+    location.href = "/common/registrering.html"
 })
 
 var headerTitle = document.querySelector("#headerTitle");
 headerTitle.addEventListener("click", function() {
-    location.href = "./index.html";
+    location.href = "/index.html";
     console.log(res);
 })
