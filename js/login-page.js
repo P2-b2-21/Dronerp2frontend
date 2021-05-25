@@ -19,7 +19,7 @@ loginButton.addEventListener("click", (e) => {
 // Login function for login-page, an async function fetching with 'POST' method. if 'userData' is correct = login succesful, otherwise failed. 
 async function login() {
     console.log("Call")
-    var userData = {
+    let userData = {
         username: loginForm.username.value,
         password: loginForm.password.value
     };
