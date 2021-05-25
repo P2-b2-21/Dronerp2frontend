@@ -9,6 +9,7 @@ txt += "<table border='1' id='sailTable'>";
 txt +=
   "<tr><th>OSO #</th><th>Name</th><th>Robustness</th><th>Integrity</th><th>Assurance</th><th>Compliance</th></tr>";
 let ansoegning = {};
+//Fetches the users SAIL-determination from the database so that the PDF is generated with the correct integrity and assurance levels.
 fetch(`http://server.malthelarsen.dk:3000/sail?uid=${UID}`)
   .then((response) => {
     return response.json();
@@ -24,7 +25,7 @@ fetch(`http://server.malthelarsen.dk:3000/sail?uid=${UID}`)
         sail_json = data["sail"];
         oso_json = data["OSOia"];
 
-        //Ud fra den givne sail hentes de respektive OSO'er (integrity og assurance) og indsættes i en tabel.
+        //Generates a table, from the SAIL found above (l. 13), with the correct OSO's (integrity/assurance levels)
         for (obj in sail_json) {
           level = sail_json["OSO#" + objNumber].level[SAIL];
           osoName = sail_json["OSO#" + objNumber].description;
@@ -49,7 +50,7 @@ fetch(`http://server.malthelarsen.dk:3000/sail?uid=${UID}`)
             "<br>" + '<li id="underliste">- '
           );
           objNumber++;
-          //Indsætter elementerne i tabellen
+          //Inserts the different elements into the table.
           txt +=
             "<tr><td>" +
             obj +
@@ -68,9 +69,10 @@ fetch(`http://server.malthelarsen.dk:3000/sail?uid=${UID}`)
         document.getElementById("sailDiv").innerHTML = txt;
       });
   });
-//Konverter HTML-siden til pdf-fil
+
+//Converts the HTML-page to PDF-file when the "Gem som PDF" button is clicked.
 function GeneratePDF() {
-  //jsPDF-library kan ikke konvertere textarea, derfor laves den om til en <p> før den konverteres.
+  //jsPDF-library cannot convert textareas, hence the "conversion" to a <p> element adding the users inputs to the generated PDF.
   let compIn = document.getElementsByTagName("textarea");
   let inputtd = document.querySelectorAll(".inputtd");
   let numberOfInputs = 24;
@@ -83,7 +85,7 @@ function GeneratePDF() {
 
     compIn.item(i).hidden = true;
   }
-  //jsPDF-library funktion
+  //jsPDF-library function with different options, which define the PDF's appearance
   let doc = new jsPDF("l");
   doc.autoTable({
     html: "#sailTable",
@@ -102,19 +104,6 @@ function GeneratePDF() {
     },
   });
   doc.save("sailPDF_test");
-}
-function Save() {
-  document.getElementById("saveBtn").addEventListener("click", async (e) => {
-    e.preventDefault();
-
-    fetch("http://server.malthelarsen.dk:3000/saved_pdfs", {
-      method: "POST",
-      body: JSON.stringify(document), //html
-      headers: {
-        "Content-Type": "text/html",
-      },
-    });
-  });
 }
 
 function pdfSaveWithoutDownload() {
