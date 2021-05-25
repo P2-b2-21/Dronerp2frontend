@@ -1,3 +1,4 @@
+//Fetch the userprofile from the database when the site is loaded
 document.addEventListener("DOMContentLoaded", async function (event) {
   const querySTring = window.location.search;
 
@@ -13,14 +14,6 @@ document.addEventListener("DOMContentLoaded", async function (event) {
     })
     .then((data) => {
       console.log(data);
-
-      //Smid userdata ind i html form
-      let userform = document.querySelector(".infoInput");
-      userform.form.name.value = data.firstname;
-      userform.form.lastname.value = data.lastname;
-      userform.form.company.value = data.company;
-      userform.form.mail.value = data.email;
-      userform.form.tel.value = data.phone;
     })
     .catch((error) => {
       console.log(error);
@@ -44,7 +37,7 @@ function Create(element = "", text = "", id) {
   contentContainer.appendChild(type);
   return type;
 }
-//dropdown menu
+//Make dropdown menu
 let ansBtn = document.querySelector("#ansBtn");
 let dd = document.querySelector(".ddContent");
 let btn = document.querySelectorAll("#btn");
@@ -67,7 +60,7 @@ btn.forEach((btn) => {
 });
 let params = new URLSearchParams(location.search);
 let username = params.get("user");
-//Indlæs de forskellige elementer i usercontainer
+//Load elements for usercontainer
 let godkendtBtn = document.querySelector(".godkendtBtn");
 godkendtBtn.addEventListener("click", () => {
   fetch(`http://server.malthelarsen.dk:3000/prevForms?user=${username}`)
@@ -89,31 +82,6 @@ godkendtBtn.addEventListener("click", () => {
         };
       }
     });
-});
-//Rediger brugerens informationer
-let editBtn = document.querySelector("#editBtn");
-let applyBtn = document.querySelector("#applyBtn");
-let infoInput = document.querySelectorAll(".infoInput");
-editBtn.addEventListener("click", () => {
-  if ((infoInput.disabled = true)) {
-    infoInput.forEach((input) => {
-      input.disabled = false;
-      input.style.backgroundColor = "white";
-      input.style.color = "black";
-    });
-  }
-  editBtn.hidden = true;
-  applyBtn.hidden = false;
-});
-applyBtn.addEventListener("click", () => {
-  editBtn.hidden = false;
-  applyBtn.hidden = true;
-  if ((infoInput.disabled = true)) {
-    infoInput.forEach((input) => {
-      input.style.backgroundColor = "lightgrey";
-      input.disabled = true;
-    });
-  }
 });
 
 function beginForm() {

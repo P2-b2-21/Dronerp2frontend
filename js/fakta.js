@@ -357,7 +357,7 @@ function choose_correct_text_2() {
   }
   //if the button with id of 7 is pressed, create the following html elements, as of now we have choosen not to take the 5th step into account
   else if (event.target.id === "7") {
-    make_2_html_elements("p", "hej");
+    make_2_html_elements("p", "Denne er udeladt, da det er uden for scopet af vores rapport","","");
   }
 }
 
