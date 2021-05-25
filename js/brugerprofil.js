@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async function (event) {
     .then((data) => {
       console.log(data);
 
-      //Smid userdata ind i html form
+      //Tidligere funktion.. Tilføjede userdata til brugerprofilens oplysningsafsnit.
       let userform = document.querySelector(".infoInput");
       userform.form.name.value = data.firstname;
       userform.form.lastname.value = data.lastname;
@@ -67,7 +67,7 @@ btn.forEach((btn) => {
 });
 let params = new URLSearchParams(location.search);
 let username = params.get("user");
-//Indlæs de forskellige elementer i usercontainer
+//Indlæs de forskellige elementer i usercontainer. Heriblandt tidligere ansøgninger fra /prevforms
 let godkendtBtn = document.querySelector(".godkendtBtn");
 godkendtBtn.addEventListener("click", () => {
   fetch(`http://server.malthelarsen.dk:3000/prevForms?user=${username}`)
