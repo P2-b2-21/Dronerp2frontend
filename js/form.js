@@ -15,7 +15,6 @@ console.log(backendAddr);
    with JSON data from server 
    **********************  
 */
-
 let questionContent = {};
 fetch(`../data/questions_${MAINFORM}.json`)
   .then((response) => {
@@ -28,7 +27,6 @@ fetch(`../data/questions_${MAINFORM}.json`)
   });
 
 const question = document.querySelector(`#${MAINFORM}`);
-
 /*
    ********************** 
    GRC handling
@@ -496,10 +494,6 @@ function makeSubmitButton(postToServerFunc, value, nextPage) {
    **********************
 */
 
-/**
- * Controls calculateGRC(), mitigateGrc() and postGRCToServer().
- * 
- */
 function postFinalGRC() {
   calculateGRC(
     parseInt(questionContent[`question${1}`].userInput),
@@ -523,23 +517,17 @@ function postFinalGRC() {
   let params = new URLSearchParams(location.search);
   let user = params.get("username");
 
-  // Handling wrong GRC user input
   if (typeof GRC != "number" || isNaN(GRC) || GRC > 7) {
     window.alert("De indtastede svarmuligheder er ulovlige");
     window.location.href = `http://${frontendAddr}/common/arc.html?user=${user}`
   } else {
+    console.log(GRCtoServer);
+
     postGRCToServer(GRCtoServer).then((res) => console.log(res));
   }
 }
 
-/**
- * GRCMatrix lookup.
- * 
- * @param {number} length Matrix row - UAS characteristics dimension.
- * @param {number} los Operational environment.
- * @param {number} type Type of drone operation - VLOS/BVLOS.
- * @return {number} GRC value.
- */
+//Calculating GRC and comparing with the GRC matrix 
 function calculateGRC(length, los, type) {
   let y = 0;
   if (type > 0) {
@@ -551,17 +539,7 @@ function calculateGRC(length, los, type) {
   return GRC;
 }
 
-/**
- * mitigationMatrix lookup.
- * 
- * add/subtract from GRC value.
- * 
- * @param {number} attToGround Strategic mitigations for ground risk.
- * @param {number} parachute Reduced ground impact.
- * @param {number} erp Emergency Response Plan - included/not included.
- * @param {number} robustness Level of robustness - NONE/LOW/MEDIUM/HIGH.
- * @return {number} Final GRC detemination.
- */
+//Checking for possible mitigations, before the final GRC score
 function mitigateGrc(attToGround, parachute, erp, robustness) {
   if (robustness === 0) {
     return GRC;
@@ -573,14 +551,7 @@ function mitigateGrc(attToGround, parachute, erp, robustness) {
   return GRC;
 }
 
-/**
- * POST final GRC detemination to server.
- * 
- * Redirects user to arc.html with GRC query sting value.
- * 
- * @param {object} grcToPost Object containing final GRC detemination.
- * @return {string} Status.
- */
+//
 async function postGRCToServer(grcToPost) {
   let params = new URLSearchParams(location.search);
   let user = params.get("user");
@@ -594,38 +565,54 @@ async function postGRCToServer(grcToPost) {
   }).then((res) => {
     if (res.ok) console.log("Ok");
     window.location.href = `http://${frontendAddr}/common/arc.html?GRC=${grcToPost.GRC}&user=${user}`;
+
+    console.log(res);
   });
   return "All good";
 }
 
-/**
- * POST object to server.
- * 
- * @param {string} endpoint Backend server endpoint.
- * @param {object} object Object to POST.
- * 
- * @return {Promise} Resolves on successful POST of data.
- */
-async function postObjectToServer(endpoint, object) {
-  return new Promise((resolve, reject) => {
-    fetch(`http://${backendAddr}/${endpoint}`, {
-      method: "POST",
-      body: JSON.stringify(object),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((response) => response.json())
-      .catch((fetchError) => console.log(fetchError))
-      .then((data) => resolve(data))
-      .catch((err) => console.log(err));
-  });
+async function postObjectToServer(
+  endpoint,
+  object,
+  redirect = undefined,
+  jsonRes = false
+) {
+  if (!jsonRes) {
+    return new Promise((resolve, reject) => {
+      fetch(`http://${backendAddr}/${endpoint}`, {
+        method: "POST",
+        body: JSON.stringify(object),
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((result) => {
+          if (result.ok) {
+            if (redirect != undefined) {
+              console.log(redirect);
+              window.location.href = redirect;
+            }
+            resolve();
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          reject(err);
+        });
+    });
+  } else {
+    return new Promise((resolve, reject) => {
+      fetch(`http://${backendAddr}/${endpoint}`, {
+        method: "POST",
+        body: JSON.stringify(object),
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((response) => response.json())
+        .catch((fetchError) => console.log(fetchError))
+        .then((data) => resolve(data))
+        .catch((err) => console.log(err));
+    });
+  }
 }
 
-/**
- * POST ARC/GRC/USER object to server.
- * 
- * Redirects user to sail.html with UID query sting value that holds the SAIL value.
- * 
- */
 function postFinalARC() {
   let objToSend = {
     arc: ARC,
@@ -633,7 +620,7 @@ function postFinalARC() {
     user: user,
   };
 
-  postObjectToServer("ARCGRC", objToSend)
+  postObjectToServer("ARCGRC", objToSend, undefined, true)
     .then((res) => {
       window.location.href = `http://${frontendAddr}/common/sail.html?uid={${res.UID}}`;
     })
