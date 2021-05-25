@@ -100,27 +100,14 @@ let mitigationMatrix = [
    ARC handling
    **********************
 */
-
+let ARC;
 let user;
 let GRC;
 if (MAINFORM === "ARC") {
-  /*
-  let params = new URLSearchParams(location.search);
-  GRC = params.get("GRC");
-  user = params.get("user");
-  console.log(GRC);
-  console.log(user);
 
-  if (GRC == undefined) {
-    alert("GRC not found, redirecting to GRC");
-    window.location.href = `http://${frontendAddr}/common/grc.html`;
-  }
-  */
   console.log(`questions_${MAINFORM}.json.. loaded`);
 
   makeSubmitButton(postFinalARC, "Submit", "..common/brugerprofil.html");
-
-  let userInput = [];
 
   question.addEventListener("change", (event) => {
     let currNode = event.target.parentNode.parentNode;
@@ -197,13 +184,9 @@ if (MAINFORM === "ARC") {
     }
 
     // Log user input
-    userInput += "," + event.target.value;
     ARC = event.target.value;
-    //console.log(userInput);
   });
 }
-
-let ARC;
 
 /*
   ********************** 
@@ -224,7 +207,6 @@ let ARC;
 function makePage(form, quesNum, formNum) {
   if (Object.keys(questionContent).length == quesNum) return;
 
-  // TODO: do name change */
   let currentQuestion = Object.keys(questionContent)[quesNum];
   //console.log("currentQuestion: " + currentQuestion);
 
@@ -521,12 +503,12 @@ function postFinalGRC() {
   };
 
   let params = new URLSearchParams(location.search);
-  let user = params.get("username");
+  let user = params.get("user");
 
   // Handling wrong GRC user input
   if (typeof GRC != "number" || isNaN(GRC) || GRC > 7) {
     window.alert("De indtastede svarmuligheder er ulovlige");
-    window.location.href = `http://${frontendAddr}/common/arc.html?user=${user}`
+    window.location.href = `http://${frontendAddr}/common/grc.html?user=${user}`
   } else {
     postGRCToServer(GRCtoServer).then((res) => console.log(res));
   }
@@ -650,6 +632,8 @@ async function postGRCToServer(grcToPost) {
  * 
  */
 function postFinalARC() {
+  let params = new URLSearchParams(location.search);
+  GRC = params.get("GRC");
   let objToSend = {
     arc: ARC,
     grc: GRC,

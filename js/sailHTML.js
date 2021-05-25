@@ -19,7 +19,7 @@ fetch(`http://server.malthelarsen.dk:3000/sail?uid=${UID}`)
     console.log(ansoegning);
     let SAIL = ansoegning["SAIL"];
 
-    fetch("data/OSO_integrity_assurance.json")
+    fetch("../data/OSO_integrity_assurance.json")
       .then((res) => res.json())
       .then((data) => {
         sail_json = data["sail"];
