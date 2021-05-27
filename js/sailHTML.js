@@ -4,7 +4,7 @@ let objNumber = 1;
 let oso_json, sail_json;
 let params = new URLSearchParams(location.search);
 let UID = params.get("uid");
-let user = params.get("username");
+let user = params.get("user");
 txt += "<table border='1' id='sailTable'>";
 txt +=
   "<tr><th>OSO #</th><th>Name</th><th>Robustness</th><th>Integrity</th><th>Assurance</th><th>Compliance</th></tr>";
@@ -107,5 +107,5 @@ function GeneratePDF() {
 }
 
 function pdfSaveWithoutDownload() {
-  window.location.href = `http://server.malthelarsen.dk:3000/common/brugerprofil.html?user=${user}`;
+  window.location.href = `http://server.malthelarsen.dk/common/index.html`;
 }
