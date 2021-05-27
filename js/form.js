@@ -566,18 +566,7 @@ function mitigateGrc(attToGround, parachute, erp, robustness) {
 async function postGRCToServer(grcToPost) {
   let params = new URLSearchParams(location.search);
   let user = params.get("user");
-
-  fetch(`http://${backendAddr}/GRC`, {
-    method: "POST",
-    body: JSON.stringify(grcToPost),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }).then((res) => {
-    if (res.ok) console.log("Ok");
     window.location.href = `http://${frontendAddr}/common/arc.html?GRC=${grcToPost.GRC}&user=${user}`;
-  });
-  return "All good";
 }
 
 /**
